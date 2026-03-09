@@ -16,7 +16,7 @@ class ActorCondition
     this.description = description;
     this.isPermanent = isPermanent; // bool
     this.isObservable = isObservable; // bool
-    this.privacyDC = privacyDC;
+    this.privacyDC = Math.min(20, Math.max(1, privacyDC)); // clamp int between 1 - 20
   }
 };
 
@@ -57,7 +57,7 @@ class ActorDetails
       verbosity: traits.verbosity,
       sensitivity: traits.sensitivity,
     }
-    this.conditions = conditions; // Class
+    this.conditions = conditions; // Class array?
     this.reputations = reputations; // Class
   };
 
