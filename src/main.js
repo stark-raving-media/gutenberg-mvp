@@ -39,7 +39,7 @@ class ActorReputation
 // Create class for Actor details
 class ActorDetails 
 {
-  constructor(stats, traits, conditions, reputations)
+  constructor(stats, traits, conditions = [], reputations = [])
   {
     this.stats =
     {
@@ -57,8 +57,8 @@ class ActorDetails
       verbosity: traits.verbosity,
       sensitivity: traits.sensitivity,
     }
-    this.conditions = conditions; // Class array?
-    this.reputations = reputations; // Class
+    this.conditions = conditions; // Condition array
+    this.reputations = reputations; // Reputation array
   };
 
 }
