@@ -1,114 +1,7 @@
 import './style.css'
 
-// Create class for Actor status conditions
-class ActorStatus
-{
-  constructor
-  (
-    name,
-    description,
-    isPermanent,
-    isObservable,
-    privacyDC
-  )
-  {
-    this.name = name;
-    this.description = description;
-    this.isPermanent = isPermanent; // bool
-    this.isObservable = isObservable; // bool
-    this.privacyDC = Math.min(20, Math.max(1, privacyDC)); // clamp int between 1 - 20
-  };
-};
-
-// Create class for Actor Reputation
-class ActorReputation 
-{
-  constructor
-  (
-    name,
-    description,
-    source
-  )
-  {
-    this.name = name;
-    this.description = description;
-    this.source = source; 
-  };
-};
-
-// Create class for Actor details
-class ActorDetails 
-{
-  constructor(stats, traits, status = [], reputations = [])
-  {
-    this.stats =
-    {
-      strength: stats.strength,
-      dexterity: stats.dexterity,
-      constitution: stats.constitution,
-      intelligence: stats.intelligence,
-      wisdom: stats.wisdom,
-      charisma: stats.charisma
-    }
-    this.traits =
-    {
-      gameSavvy: traits.gameSavvy,
-      honesty: traits.honesty,
-      verbosity: traits.verbosity,
-      sensitivity: traits.sensitivity,
-    }
-    this.status = status; // Status array
-    this.reputations = reputations; // Reputation array
-  };
-};
-
-// Create Actor object
-class Actor 
-{
-  constructor
-  (
-    fullName, 
-    nickName, 
-    originBook,
-    locationBook,
-    details,
-    FAstrikes // per book - should this live here??
-  ) 
-  
-  {
-    this.fullName = fullName;
-    this.nickName = nickName;
-    this.originBook = originBook; // Class
-    this.locationBook = locationBook; // Class
-    this.details = details; // Class
-    this.FAstrikes = FAstrikes; // int
-  };
-};
-
-// Create Book class
-class Book
-{
-  constructor
-  (
-    title,
-    author,
-    year,
-    edition,
-    condition, // Book world health
-    FAFOrating, // 1 - 100, lower is harder
-  )
-  {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-    this.edition = edition;
-    this.condition = Math.min(100, Math.max(1, condition)); // clamp int between 1 - 100
-    this.FAFOrating = Math.min(100, Math.max(1, FAFOrating)); // clamp int between 1 - 100
-  };
-};
-
 // Roll D20 
-function rollDice() {
+function rollD20() {
   return Math.floor(Math.random() * 20) + 1;
 };
 
@@ -124,7 +17,7 @@ function startGame() {
   rollBtn.textContent = "Roll D20";
   rollBtn.addEventListener("click", () => 
   {
-    var result = rollDice();
+    var result = rollD20();
     alert(`You rolled a ${result}!`);
   });
   app.appendChild(rollBtn);
