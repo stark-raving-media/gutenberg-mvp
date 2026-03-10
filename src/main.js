@@ -84,11 +84,36 @@ class Actor
 
 }
 
+
+// Create Book class
+class Book
+{
+  constructor
+  (
+    title,
+    author,
+    year,
+    edition,
+    condition, // Book world health
+    FAFOrating, // 1 - 100, lower is harder
+  )
+  {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.edition = edition;
+    this.condition = Math.min(100, Math.max(1, condition)); // clamp int btw 1 - 100
+    this.FAFOrating = Math.min(100, Math.max(1, FAFOrating)); // clamp int btw 1 - 100
+  }
+}
+
 // Roll D20 
 function rollDice() {
   return Math.floor(Math.random() * 20) + 1;
 };
 
+
+// Start game
 function startGame() {
   console.log('Starting game...');
   const app = document.getElementById("app");
@@ -105,8 +130,6 @@ function startGame() {
   app.appendChild(rollBtn);
 }
 startGame();
-
-
 
 
 //import javascriptLogo from './javascript.svg'
