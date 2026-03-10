@@ -17,7 +17,7 @@ class ActorStatus
     this.isPermanent = isPermanent; // bool
     this.isObservable = isObservable; // bool
     this.privacyDC = Math.min(20, Math.max(1, privacyDC)); // clamp int between 1 - 20
-  }
+  };
 };
 
 // Create class for Actor Reputation
@@ -33,7 +33,7 @@ class ActorReputation
     this.name = name;
     this.description = description;
     this.source = source; 
-  }
+  };
 };
 
 // Create class for Actor details
@@ -60,9 +60,7 @@ class ActorDetails
     this.status = status; // Status array
     this.reputations = reputations; // Reputation array
   };
-
-}
-
+};
 
 // Create Actor object
 class Actor 
@@ -71,19 +69,21 @@ class Actor
   (
     fullName, 
     nickName, 
-    book,
-    details
+    originBook,
+    locationBook,
+    details,
+    FAstrikes // per book - should this live here??
   ) 
   
   {
     this.fullName = fullName;
     this.nickName = nickName;
-    this.book = book;
+    this.originBook = originBook; // Class
+    this.locationBook = locationBook; // Class
     this.details = details; // Class
-  }
-
-}
-
+    this.FAstrikes = FAstrikes; // int
+  };
+};
 
 // Create Book class
 class Book
@@ -102,10 +102,10 @@ class Book
     this.author = author;
     this.year = year;
     this.edition = edition;
-    this.condition = Math.min(100, Math.max(1, condition)); // clamp int btw 1 - 100
-    this.FAFOrating = Math.min(100, Math.max(1, FAFOrating)); // clamp int btw 1 - 100
-  }
-}
+    this.condition = Math.min(100, Math.max(1, condition)); // clamp int between 1 - 100
+    this.FAFOrating = Math.min(100, Math.max(1, FAFOrating)); // clamp int between 1 - 100
+  };
+};
 
 // Roll D20 
 function rollDice() {
@@ -128,7 +128,8 @@ function startGame() {
     alert(`You rolled a ${result}!`);
   });
   app.appendChild(rollBtn);
-}
+};
+
 startGame();
 
 
