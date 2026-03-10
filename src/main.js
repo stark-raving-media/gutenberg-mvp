@@ -1,7 +1,7 @@
 import './style.css'
 
-// Create class for Actor conditions
-class ActorCondition 
+// Create class for Actor status conditions
+class ActorStatus
 {
   constructor
   (
@@ -39,7 +39,7 @@ class ActorReputation
 // Create class for Actor details
 class ActorDetails 
 {
-  constructor(stats, traits, conditions = [], reputations = [])
+  constructor(stats, traits, status = [], reputations = [])
   {
     this.stats =
     {
@@ -57,7 +57,7 @@ class ActorDetails
       verbosity: traits.verbosity,
       sensitivity: traits.sensitivity,
     }
-    this.conditions = conditions; // Condition array
+    this.status = status; // Status array
     this.reputations = reputations; // Reputation array
   };
 
