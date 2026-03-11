@@ -8,7 +8,10 @@ export const jeanValjean = new Actor
   'Jean Valjean',
   'Valjean',
   'Les Misérables',
-  undefined,
+  undefined, 
+  undefined, // icon
+  undefined, // picture
+  0,
   new ActorDetails
   (
     {
@@ -25,7 +28,7 @@ export const jeanValjean = new Actor
       verbosity: 3,
       sensitivity: 5
     },
-    [],
-    []
+    [], // Status objects array
+    [], // Reputation objects array
   ),
 );

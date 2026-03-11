@@ -8,8 +8,10 @@ export class Actor
     nickName, 
     originBook,
     locationBook,
-    details,
-    FAstrikes // per book - should this live here??
+    icon,
+    picture,
+    FAstrikes, // per book - should this live here??
+    details
   ) 
   
   {
