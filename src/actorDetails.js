@@ -21,5 +21,6 @@ export class ActorDetails
     }
     this.status = status; // Status array
     this.reputations = reputations; // Reputation array
+    this.aura = aura;
   };
 };
