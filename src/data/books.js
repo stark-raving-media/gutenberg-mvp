@@ -1,9 +1,9 @@
 import { Book } from "../book";
 
 // Create Origin Books
-export var originBooks =
-[
-    lesMiserables = new Book
+export const originBooks =
+{
+    lesMiserables:new Book
     (
         'Les Miserables',
         'Victor Hugo',
@@ -11,7 +11,7 @@ export var originBooks =
         175,
         'Epic scope allows diversions but moral arc is rigid'
     ),
-    mobyDick = new Book
+    mobyDick: new Book
     (
         'Moby Dick',
         'Herman Melville',
@@ -19,7 +19,7 @@ export var originBooks =
         275,
         'Philosophical digressions are canon; weird is welcome'
     ),
-    adventuresSherlock = new Book
+    adventuresSherlock: new Book
     (
         'Adventures of Sherlock Holmes',
         'Arthur Conan Doyle',
@@ -27,7 +27,7 @@ export var originBooks =
         120,
         'Procedural logic constrains plots, but eccentricity fits'
     ),
-    prideAndPredjudice = new Book
+    prideAndPredjudice: new Book
     (
         'Pride and Prejudice',
         'Jane Austen',
@@ -35,7 +35,7 @@ export var originBooks =
         75,
         'Tight social world; deviations feel jarring and fast'
     ),
-    odyssey = new Book
+    odyssey: new Book
     (
         'The Odyssey',
         'Homer',
@@ -43,7 +43,7 @@ export var originBooks =
         400,
         'Mythic anything-goes; gods intervene constantly'
     ),
-    dracula = new Book
+    dracula: new Book
     (
         'Dracula',
         'Bram Stoker',
@@ -51,7 +51,7 @@ export var originBooks =
         200,
         'Gothic flexibility but grounded in Victorian logic'
     ),
-    christmasCarol = new Book
+    christmasCarol: new Book
     (
         'A Christmas Carol',
         'Charles Dickens',
@@ -59,7 +59,7 @@ export var originBooks =
         90,
         'Morality fable; tight structure, clear arc'
     ),
-    donQuixote = new Book
+    donQuixote: new Book
     (
         'Don Quixote',
         'Miguel de Cervantes',
@@ -67,7 +67,7 @@ export var originBooks =
         450,
         'Meta-fiction before meta-fiction existed; chaos is the point'
     ),
-    huckleberryFinn = new Book
+    huckleberryFinn: new Book
     (
         'Adventures of Huckleberry Finn',
         'Mark Twain',
@@ -75,7 +75,7 @@ export var originBooks =
         300,
         'Picaresque ramble; detours are the structure'
     ),
-    aliceWonderland = new Book
+    aliceWonderland: new Book
     (
         'Alice in Wonderland',
         'Lewis Carroll',
@@ -83,7 +83,7 @@ export var originBooks =
         500,
         'Nonsense IS the canon; almost nothing breaks it'
     ),
-    frankenstein = new Book
+    frankenstein: new Book
     (
         'Frankenstein',
         'Mary Shelley',
@@ -91,7 +91,7 @@ export var originBooks =
         175,
         'Philosphical horror; room to explore but tone matters'
     ),
-    treasureIsland = new Book
+    treasureIsland: new Book
     (
         'Treasure Island',
         'Robert Louis Stevenson',
@@ -99,7 +99,7 @@ export var originBooks =
         275,
         'Adventure yarn; lots of room to roam'
     ),
-    annaKarenina = new Book
+    annaKarenina: new Book
     (
         'Anna Karenina',
         'Leo Tolstoy',
@@ -107,7 +107,7 @@ export var originBooks =
         40,
         'Realist novel; the world is heavy and grounded'
     ),
-    hamletBook = new Book
+    hamletBook: new Book
     (
         'Hamlet',
         'William Shakespeare',
@@ -115,7 +115,7 @@ export var originBooks =
         150,
         'Tragedy with structure, but centuries of wild interpretation'
     ),
-    threeMusketeers = new Book
+    threeMusketeers: new Book
     (
         'The Three Musketeers',
         'Alexandre Dumas',
@@ -123,7 +123,7 @@ export var originBooks =
         350,
         'Swashbuckling chaos; duels and disguises expected'
     ),
-    crimeAndPunishment = new Book
+    crimeAndPunishment: new Book
     (
         'Crime and Punishment',
         'Fyodor Dostoevsky',
@@ -131,7 +131,7 @@ export var originBooks =
         60,
         'Psychological realism; interior world is strict'
     ),
-    theGreatGatsby = new Book
+    theGreatGatsby: new Book
     (
         'The Great Gatsby',
         'F. Scott Fitzgerald',
@@ -139,7 +139,7 @@ export var originBooks =
         80,
         'Period piece; glittering surface hides rigid rules'
     ),
-    beowulf = new Book
+    beowulf: new Book
     (
         'Beowulf',
         'Unknown',
@@ -147,7 +147,7 @@ export var originBooks =
         400,
         'Mythic epic; monsters and boasts are the norm'
     ),
-    oneThousandNights = new Book
+    oneThousandNights: new Book
     (
         'One Thousand and One Nights',
         'Unknown',
@@ -155,7 +155,7 @@ export var originBooks =
         475,
         'Stories inside stories; world reshapes itself constantly'
     ),
-    scarletLetter = new Book
+    scarletLetter: new Book
     (
         'The Scarlet Letter',
         'Nathaniel Hawthorne',
@@ -163,7 +163,7 @@ export var originBooks =
         30,
         'Puritan rigidity; the setting itself punishes deviation'
     ),
-    janeEyre = new Book
+    janeEyre: new Book
     (
         'Jane Eyre',
         'Charlotte Bronte',
@@ -171,4 +171,4 @@ export var originBooks =
         120,
         'Gothic romance; some flexibility but moral core is firm'
     )
-]
+}

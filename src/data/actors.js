@@ -1,8 +1,9 @@
 import { Actor } from './actor.js';
 import { ActorDetails } from './actorDetails.js';
-import { ActorReputation } from './actorReputation.js';
+import { originBooks } from './data/books.js';
 
-// Jean Valjean TODO: Make this an ARRAY of Actor objects
+
+// Jean Valjean TODO: Make this an object of Actor objects
 export const jeanValjean = new Actor
 (
   'Jean Valjean',
