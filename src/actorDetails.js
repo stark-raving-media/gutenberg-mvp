@@ -19,8 +19,8 @@ export class ActorDetails
       verbosity: traits.verbosity,
       sensitivity: traits.sensitivity,
     }
-    this.status = status; // Status array
-    this.reputations = reputations; // Reputation array
     this.aura = aura;
+    this.status = status; // Status array
+    this.reputations = reputations // Reputation array
   };
 };
