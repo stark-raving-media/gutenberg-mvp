@@ -2,7 +2,7 @@ import { Actor } from './actor.js';
 import { ActorDetails } from './actorDetails.js';
 import { ActorReputation } from './actorReputation.js';
 
-// Jean Valjean
+// Jean Valjean TODO: Make this an ARRAY of Actor objects
 export const jeanValjean = new Actor
 (
   'Jean Valjean',

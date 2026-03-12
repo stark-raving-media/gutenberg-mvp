@@ -14,8 +14,9 @@ export class Book
     this.title = title;
     this.author = author;
     this.year = year;
-    this.edition = edition;
+    //this.edition = edition;
     this.condition = Math.min(100, Math.max(1, condition)); // clamp int between 1 - 100
     this.FAFOrating = Math.min(100, Math.max(1, FAFOrating)); // clamp int between 1 - 100
+    this.notes = notes;
   };
 };
