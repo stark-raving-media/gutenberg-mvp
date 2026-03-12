@@ -43,7 +43,7 @@ export const originBooks =
         400,
         'Mythic anything-goes; gods intervene constantly'
     ),
-    dracula: new Book
+    draculaB: new Book
     (
         'Dracula',
         'Bram Stoker',
@@ -59,7 +59,7 @@ export const originBooks =
         90,
         'Morality fable; tight structure, clear arc'
     ),
-    donQuixote: new Book
+    donQuixoteBook: new Book
     (
         'Don Quixote',
         'Miguel de Cervantes',
@@ -67,7 +67,7 @@ export const originBooks =
         450,
         'Meta-fiction before meta-fiction existed; chaos is the point'
     ),
-    huckleberryFinn: new Book
+    huckleberryFinnBook: new Book
     (
         'Adventures of Huckleberry Finn',
         'Mark Twain',
@@ -99,7 +99,7 @@ export const originBooks =
         275,
         'Adventure yarn; lots of room to roam'
     ),
-    annaKarenina: new Book
+    annaKareninaBook: new Book
     (
         'Anna Karenina',
         'Leo Tolstoy',
@@ -139,7 +139,7 @@ export const originBooks =
         80,
         'Period piece; glittering surface hides rigid rules'
     ),
-    beowulf: new Book
+    beowulfBook: new Book
     (
         'Beowulf',
         'Unknown',
@@ -163,7 +163,7 @@ export const originBooks =
         30,
         'Puritan rigidity; the setting itself punishes deviation'
     ),
-    janeEyre: new Book
+    janeEyreBook: new Book
     (
         'Jane Eyre',
         'Charlotte Bronte',
