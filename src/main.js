@@ -1,10 +1,17 @@
 import './style.css'
+import { startingActors } from './data/actors.js'
 
 // Roll D20 
 function rollD20() {
   return Math.floor(Math.random() * 20) + 1;
 };
 
+// Display Actor stats in div
+function displayActorStats(actor, div) 
+{
+  //card = document.getElementById(div);
+  div.innerHTML = '<h2>' + actor.fullName + '</h2>';
+}
 
 // Start game
 function startGame() {
@@ -21,6 +28,12 @@ function startGame() {
     alert(`You rolled a ${result}!`);
   });
   app.appendChild(rollBtn);
+
+  // Create div for Actor stats
+  const actorDiv = document.createElement("div");
+  actorDiv.id = "actor-stats";
+  app.appendChild(actorDiv);
+  displayActorStats(startingActors.jeanValjean, actorDiv);
 };
 
 startGame();

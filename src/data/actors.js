@@ -1,6 +1,6 @@
-import { Actor } from './actor.js';
-import { ActorDetails } from './actorDetails.js';
-import { originBooks } from './data/books.js';
+import { Actor } from '../actor.js';
+import { ActorDetails } from '../actorDetails.js';
+import { originBooks } from './books.js';
 
 
 // Jean Valjean TODO: Make this an object of Actor objects

@@ -1,7 +1,7 @@
 // Create class for Actor details
 export class ActorDetails 
 {
-  constructor(stats, traits, status = [], reputations = [])
+  constructor(stats, traits, aura, status = [], reputations = [])
   {
     this.stats =
     {
