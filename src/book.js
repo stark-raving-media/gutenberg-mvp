@@ -3,6 +3,7 @@ export class Book
 {
   constructor
   (
+    id,
     title,
     author,
     year,
@@ -12,6 +13,7 @@ export class Book
     notes
   )
   {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.year = year;
