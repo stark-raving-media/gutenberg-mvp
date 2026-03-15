@@ -10,11 +10,11 @@ export function rollDie(sides = 20)
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
 export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/photos/', photoType = 'RecPhoto')
 {
-    actors.forEach ((actor) =>
+    for (const actor of Object.values(actors))
     {
-        actor.icon = iconPath + actor.nickName + iconType + '.webp';
-        actor.picture = photoPath + actor.nickName + photoType + '.webp';
-    })
+        actor.icon = iconPath + actor.id + iconType + '.webp';
+        actor.picture = photoPath + actor.id + photoType + '.webp';
+    }
 }
 
 
@@ -36,6 +36,7 @@ export function createRollBtn(sides = 20)
 export function displayActorStats(actor, div) 
 {
   var statDisplay = '<hr> <h2>' + actor.nickName + '</h2>';
+  statDisplay += '<img src="' + actor.icon + '" alt="' + actor.fullName + ' icon">';
   statDisplay += actor.fullName + ' - ' + actor.originBook.title +'<hr>';
   var s = actor.details.stats;
   var t = actor.details.traits;

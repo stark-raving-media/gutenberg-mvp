@@ -1,6 +1,6 @@
 import './style.css'
 import { startingActors } from './data/actors.js'
-import { displayActorStats, createRollBtn } from './utils.js'
+import { attachPics, displayActorStats, createRollBtn } from './utils.js'
 
 
 // Start game
@@ -8,6 +8,9 @@ function startGame() {
   console.log('Starting game...');
   const app = document.getElementById("app");
   app.innerHTML = "<h1>Gutenberg MVP</h1>";
+
+  // Attach pictures and icons to actors
+  attachPics(startingActors);
 
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
