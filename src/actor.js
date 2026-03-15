@@ -19,6 +19,8 @@ export class Actor
     this.nickName = nickName;
     this.originBook = originBook; // Class
     this.locationBook = locationBook; // Class
+    this.icon = icon;
+    this.picture = picture;
     this.details = details; // Class
     this.FAstrikes = FAstrikes; // int
   };
