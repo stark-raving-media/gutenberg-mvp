@@ -1,6 +1,6 @@
 import './style.css'
 import { startingActors } from './data/actors.js'
-import { rollDie, displayActorStats } from './utils.js'
+import { displayActorStats, createRollButton } from './utils.js'
 
 
 // Start game
@@ -10,13 +10,7 @@ function startGame() {
   app.innerHTML = "<h1>Gutenberg MVP</h1>";
 
   // Create button for D20 roll
-  const rollBtn = document.createElement("button");
-  rollBtn.textContent = "Roll D20";
-  rollBtn.addEventListener("click", () => 
-  {
-    var result = rollDie(20);
-    alert(`You rolled a ${result}!`);
-  });
+  const rollBtn = createRollButton(20);
   app.appendChild(rollBtn);
 
   // Create div for Actor stats

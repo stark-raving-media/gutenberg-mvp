@@ -7,10 +7,24 @@ export function rollDie(sides = 20)
 };
 
 
+// Create button for Die roll
+export function createRollButton(sides = 20) 
+{
+    const rollBtn = document.createElement("button");
+    rollBtn.textContent = `Roll D${sides}`;
+    rollBtn.addEventListener("click", () => 
+    {
+      var result = rollDie(sides);
+      alert(`You rolled a ${result}!`);
+    });
+    return rollBtn;
+}
+
+
 // Display Actor stats in div
 export function displayActorStats(actor, div) 
 {
-  var statDisplay = '<h2>' + actor.nickName + '</h2>';
+  var statDisplay = '<hr> <h2>' + actor.nickName + '</h2>';
   statDisplay += actor.fullName + ' - ' + actor.originBook.title +'<hr>';
   var s = actor.details.stats;
   var t = actor.details.traits;
