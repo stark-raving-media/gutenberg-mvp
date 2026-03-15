@@ -4,6 +4,7 @@ export class Actor
 {
   constructor
   (
+    id,
     fullName, 
     nickName, 
     originBook,
@@ -15,6 +16,7 @@ export class Actor
   ) 
   
   {
+    this.id = id;
     this.fullName = fullName;
     this.nickName = nickName;
     this.originBook = originBook; // Class

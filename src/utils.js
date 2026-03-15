@@ -7,6 +7,17 @@ export function rollDie(sides = 20)
 };
 
 
+// Attach photos and icons to Actor objects (Defaults to basic pic style)
+export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/photos/', photoType = 'RecPhoto')
+{
+    actors.forEach ((actor) =>
+    {
+        actor.icon = iconPath + actor.nickName + iconType + '.webp';
+        actor.picture = photoPath + actor.nickName + photoType + '.webp';
+    })
+}
+
+
 // Create button for Die roll
 export function createRollBtn(sides = 20) 
 {

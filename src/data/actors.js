@@ -8,6 +8,7 @@ export const startingActors =
 {
     jeanValjean: new Actor
     (
+        'jeanValjean', // id
         'Jean Valjean', // fullName
         'Valjean', // nickName
         originBooks.lesMiserables, // originBook
@@ -38,7 +39,8 @@ export const startingActors =
     ),
     captainAhab: new Actor
     (
-        'Captain Ahab', 
+        'captainAhab', // id
+        'Captain Ahab', // fullName
         'Ahab',
         originBooks.mobyDick, 
         undefined,
@@ -68,7 +70,8 @@ export const startingActors =
     ),
     sherlockHolmes: new Actor
     (
-        'Sherlock Holmes',
+        'sherlockHolmes', // id
+        'Sherlock Holmes', // fullName
         'Holmes',
         originBooks.sherlockHolmes,
         undefined,
@@ -98,7 +101,8 @@ export const startingActors =
     ),
     elizabethBennet: new Actor
     (
-        'Elizabeth Bennet',
+        'elizabethBennet', // id
+        'Elizabeth Bennet', // fullName
         'Lizzy',
         originBooks.prideAndPrejudice,
         undefined,
@@ -128,7 +132,8 @@ export const startingActors =
     ),
     odysseus: new Actor
     (
-        'Odysseus of Ithaca',
+        'odysseus', // id
+        'Odysseus of Ithaca', // fullName
         'Odysseus',
         originBooks.odyssey,
         undefined,
@@ -158,7 +163,8 @@ export const startingActors =
     ),
     countDracula: new Actor
     (
-        'Count Dracula',
+        'countDracula', // id
+        'Count Dracula', // fullName
         'Dracula',
         originBooks.draculaBook,
         undefined,
@@ -188,7 +194,8 @@ export const startingActors =
     ),
     ebenezerScrooge: new Actor
     (
-        'Ebenezer Scrooge',
+        'ebenezerScrooge', // id
+        'Ebenezer Scrooge', // fullName
         'Scrooge',
         originBooks.christmasCarol,
         undefined,
@@ -218,7 +225,8 @@ export const startingActors =
     ),
     donQuixote: new Actor
     (
-        'Don Quixote',
+        'donQuixote', // id
+        'Don Quixote', // fullName
         'Quixote',
         originBooks.donQuixoteBook,
         undefined,
@@ -248,7 +256,8 @@ export const startingActors =
     ),
     huckleberryFinn: new Actor
     (
-        'Huckleberry Finn',
+        'huckleberryFinn', // id
+        'Huckleberry Finn', // fullName
         'Huck',
         originBooks.huckleberryFinnBook,
         undefined,
@@ -278,7 +287,8 @@ export const startingActors =
     ),
     alice: new Actor
     (
-        'Alice',
+        'alice', // id
+        'Alice', // fullName
         'Alice',
         originBooks.aliceInWonderland,
         undefined,
@@ -308,7 +318,8 @@ export const startingActors =
     ),
     frankensteinMonster: new Actor
     (
-        'Frankenstein’s Monster',
+        'frankensteinMonster', // id
+        "Frankenstein’s Monster", // fullName
         'The Monster',
         originBooks.frankenstein,
         undefined,
@@ -338,7 +349,8 @@ export const startingActors =
     ),
     longJohnSilver: new Actor
     (
-        'Long John Silver',
+        'longJohnSilver', // id
+        'Long John Silver', // fullName
         'Silver',
         originBooks.treasureIsland,
         undefined,
@@ -368,7 +380,8 @@ export const startingActors =
     ),
     annaKarenina: new Actor
     (
-        'Anna Karenina',
+        'annaKarenina', // id
+        'Anna Karenina', // fullName
         'Anna',
         originBooks.annaKareninaBook,
         undefined,
@@ -398,7 +411,8 @@ export const startingActors =
     ),
     hamlet: new Actor
     (
-        'Hamlet, Prince of Denmark ',
+        'hamlet', // id
+        'Hamlet, Prince of Denmark ', // fullName
         'Hamlet',
         originBooks.hamlet,
         undefined,
@@ -428,8 +442,9 @@ export const startingActors =
     ),
     dArtagnan: new Actor
     (
-        'Charles de Batz-Castelmore D’Artagnan',
-        'D’Artagnan',
+        'dArtagnan', // id
+        "Charles de Batz-Castelmore D’Artagnan", // fullName
+        "D’Artagnan",
         originBooks.threeMusketeers,
         undefined,
         undefined,
@@ -458,7 +473,8 @@ export const startingActors =
     ),
     raskolnikov: new Actor
     (
-        'Rodion Romanovich Raskolnikov',
+        'raskolnikov', // id
+        'Rodion Romanovich Raskolnikov', // fullName
         'Raskolnikov',
         originBooks.crimeAndPunishment,
         undefined,
@@ -488,7 +504,8 @@ export const startingActors =
     ),
     jayGatsby: new Actor
     (
-        'James Gatz aka Gatsby',
+        'jayGatsby', // id
+        'James Gatz aka Gatsby', // fullName
         'Gatsby',
         originBooks.greatGatsby,
         undefined,
@@ -518,7 +535,8 @@ export const startingActors =
     ),
     beowulf: new Actor
     (
-        'Beowulf of the Geats',
+        'beowulf', // id
+        'Beowulf of the Geats', // fullName
         'Beowulf',
         originBooks.beowulfBook,
         undefined,
@@ -548,7 +566,8 @@ export const startingActors =
     ),
     scheherazade: new Actor
     (
-        'Scheherazade',
+        'scheherazade', // id
+        'Scheherazade', // fullName
         'Scheherazade',
         originBooks.oneThousandNights,
         undefined,
@@ -578,7 +597,8 @@ export const startingActors =
     ),
     janeEyre: new Actor
     (
-        'Jane Eyre',
+        'janeEyre', // id
+        'Jane Eyre', // fullName
         'Jane',
         originBooks.janeEyreBook,
         undefined,
