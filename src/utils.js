@@ -8,7 +8,7 @@ export function rollDie(sides = 20)
 
 
 // Create button for Die roll
-export function createRollButton(sides = 20) 
+export function createRollBtn(sides = 20) 
 {
     const rollBtn = document.createElement("button");
     rollBtn.textContent = `Roll D${sides}`;

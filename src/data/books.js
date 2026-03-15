@@ -27,7 +27,7 @@ export const originBooks =
         120,
         'Procedural logic constrains plots, but eccentricity fits'
     ),
-    prideAndPredjudice: new Book
+    prideAndPrejudice: new Book
     (
         'Pride and Prejudice',
         'Jane Austen',
@@ -43,7 +43,7 @@ export const originBooks =
         400,
         'Mythic anything-goes; gods intervene constantly'
     ),
-    draculaB: new Book
+    draculaBook: new Book
     (
         'Dracula',
         'Bram Stoker',
@@ -75,7 +75,7 @@ export const originBooks =
         300,
         'Picaresque ramble; detours are the structure'
     ),
-    aliceWonderland: new Book
+    aliceInWonderland: new Book
     (
         'Alice in Wonderland',
         'Lewis Carroll',

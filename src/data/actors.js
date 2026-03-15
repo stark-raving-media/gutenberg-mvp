@@ -160,7 +160,7 @@ export const startingActors =
     (
         'Count Dracula',
         'Dracula',
-        originBooks.dracula,
+        originBooks.draculaBook,
         undefined,
         undefined,
         undefined,
@@ -190,7 +190,7 @@ export const startingActors =
     (
         'Ebenezer Scrooge',
         'Scrooge',
-        originBooks.aChristmasCarol,
+        originBooks.christmasCarol,
         undefined,
         undefined,
         undefined,
@@ -220,7 +220,7 @@ export const startingActors =
     (
         'Don Quixote',
         'Quixote',
-        originBooks.donQuixote,
+        originBooks.donQuixoteBook,
         undefined,
         undefined,
         undefined,
@@ -250,7 +250,7 @@ export const startingActors =
     (
         'Huckleberry Finn',
         'Huck',
-        originBooks.huckleberryFinn,
+        originBooks.huckleberryFinnBook,
         undefined,
         undefined,
         undefined,
@@ -366,11 +366,11 @@ export const startingActors =
           [], // Reputation objects array
         ),
     ),
-    annaKaerenina: new Actor
+    annaKarenina: new Actor
     (
         'Anna Karenina',
         'Anna',
-        originBooks.annaKarenina,
+        originBooks.annaKareninaBook,
         undefined,
         undefined,
         undefined,
