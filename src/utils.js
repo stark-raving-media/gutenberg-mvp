@@ -22,11 +22,11 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 export function createRollBtn(sides = 20) 
 {
     const rollBtn = document.createElement("button");
-    rollBtn.textContent = 'Roll D${sides}';
+    rollBtn.textContent = 'Roll D' + sides;
     rollBtn.addEventListener('click', () => 
     {
       var result = rollDie(sides);
-      alert('You rolled a ${result}!');
+      alert('You rolled a ' + result + '!');
     });
     return rollBtn;
 }
@@ -86,5 +86,5 @@ export function getRandomActors(actors, size = 2)
             [shuffled[i], shuffled[j]] = 
                 [shuffled[j], shuffled[i]];
         }
-    return Object.fromEntries(shuffled.slice(0, size));
+    return Object.values(Object.fromEntries(shuffled.slice(0, size)));
 }

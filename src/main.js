@@ -21,7 +21,29 @@ function startGame() {
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
   app.appendChild(rollBtn);
-  app.innerHTML += '<hr>';
+  app.appendChild(document.createElement('hr'));
+
+  // Auto-choose team of 2 actors, display in div
+  const teamDiv = document.createElement('div');
+  teamDiv.id = 'team';
+  teamDiv.innerHTML = '<h2>Your Team</h2>';
+
+  var teamSize = 2;
+  var teamActors = getRandomActors(startingActors, teamSize);
+  console.log('Team Actors:', teamActors);
+  for (var i = 0; i < teamSize; i++) 
+  {
+    const actorBtn = createActorPageBtn(teamActors[i]);
+    teamDiv.appendChild(actorBtn);
+  }
+  
+  app.appendChild(teamDiv);
+  app.appendChild(document.createElement('hr'));
+
+  // TODO: Create auto-choose team btn
+  // TODO: When actor button is double-clicked, add to team
+  // TODO: When team member button is double-clicked, remove from team
+  // TODO: When team changes, refresh team div
 
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 
@@ -34,13 +56,7 @@ function startGame() {
   const actorDiv = document.createElement('div');
   actorDiv.id = 'actor-stats';
   app.appendChild(actorDiv);
-  displayActorStats(startingActors.jeanValjean, actorDiv);
-  displayActorStats(startingActors.donQuixote, actorDiv);
-  displayActorStats(startingActors.alice, actorDiv);
 
-  // test getRandomActors function
-  console.log(getRandomActors(startingActors, 2));
-  
 };
 
 startGame();
