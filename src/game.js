@@ -6,7 +6,7 @@ export class Game
     (
         playerName,
         teamSize,
-        teamActors
+        teamActors = []
     )
 
     {

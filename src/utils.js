@@ -33,7 +33,7 @@ export function createRollBtn(sides = 20)
 
 
 // Create buttons for Actor stat pages
-export function createActorPageBtn(actor, teamActors)
+export function createActorPageBtn(actor, game)
 {
     const actorBtn = document.createElement('button');
     actorBtn.innerHTML = '<img src="' + actor.icon 
@@ -50,7 +50,7 @@ export function createActorPageBtn(actor, teamActors)
     // On double-click, add/remove Actor to team
     actorBtn.addEventListener('dblclick', () => 
     {
-        teamPicker(actor, teamActors);
+        teamPicker(actor, game);
     });   
     return actorBtn;
 }
@@ -63,20 +63,23 @@ export function createActorPageBtn(actor, teamActors)
 // }
 
 
-// TODO: Add/remove actor from team
-export function teamPicker(actor,teamActors)
+// Add/remove actor from team
+// TODO: Update parameters
+export function teamPicker(actor, game)
 {
-    if (teamActors.includes(actor))
+    if (game.teamActors.includes(actor))
     {
-        teamActors.splice(teamActors.indexOf(actor), 1);
+        game.teamActors.splice(game.teamActors.indexOf(actor), 1);
     }    
 
     else
-        teamActors.push(actor);
-    console.log(teamActors);
+        game.teamActors.push(actor);
+    console.log(game.teamActors);
 
     // TODO: Refresh teamDiv
-    return teamActors;
+    var teamDiv = document.getElementById('team');
+    refreshTeamDiv(game, teamDiv);
+    //return game.teamActors;
 }
 
 
@@ -124,9 +127,12 @@ export function getRandomActors(actors, size = 2)
 // Refresh teamDiv with updated Actors
 export function refreshTeamDiv(game, teamDiv)
 {
-    for (var i = 0; i < game.teamSize; i++) 
+    teamDiv.innerHTML = '';
+    for (var i = 0; i < game.teamActors.length; i++) 
     {
-    const actorBtn = createActorPageBtn(game.teamActors[i]);
-    teamDiv.appendChild(actorBtn);
+        //TODO: Update
+        //const actorBtn = createActorPageBtn(game.teamActors[i]);
+        const actorBtn = createActorPageBtn(game.teamActors[i], game);
+        teamDiv.appendChild(actorBtn);
     }
 }

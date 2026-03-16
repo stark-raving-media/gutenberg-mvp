@@ -16,8 +16,11 @@ import {
 function startGame() {
   
   //var game = newGame();
-  var game = new Game(undefined, 2, undefined);
+  var game = new Game(undefined, 2, []);
+  game.teamActors = getRandomActors(startingActors, game.teamSize);
+  console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
+
   const app = document.getElementById('app');
   app.innerHTML = '<h1>Gutenberg MVP</h1>';
 
@@ -34,10 +37,6 @@ function startGame() {
   teamDiv.id = 'team';
   teamDiv.innerHTML = '<h2>Your Team</h2>';
 
-  //teamSize = 2;
-  game.teamActors = getRandomActors(startingActors, game.teamSize);
-  console.log('Team Actors:', game.teamActors);
-  
   refreshTeamDiv(game, teamDiv);
   
   app.appendChild(teamDiv);
@@ -51,7 +50,7 @@ function startGame() {
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 
   {
-    const actorBtn = createActorPageBtn(actor, game.teamActors);
+    const actorBtn = createActorPageBtn(actor, game);
     app.appendChild(actorBtn);
   }
 
