@@ -10,9 +10,6 @@ import {
   refreshTeamDiv
 } from './utils.js'
 
-// TODO: Team size validation for add/remove members
-
-
 // Start game
 function startGame() {
   

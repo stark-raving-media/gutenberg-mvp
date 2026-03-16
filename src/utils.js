@@ -153,7 +153,8 @@ export function toggleTeamActor(actor, game)
     }    
 
     else
-        game.teamActors.push(actor);
+        if (game.teamActors.length < game.teamSize)
+            game.teamActors.push(actor);
     console.log(game.teamActors);
 
     // Refresh divs
