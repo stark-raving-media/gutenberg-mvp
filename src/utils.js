@@ -55,13 +55,6 @@ export function createActorPageBtn(actor, game)
     return actorBtn;
 }
 
-// Create new game
-// export function newGame()
-// {
-//     var newGame = new Game(undefined, 2, undefined);
-//     return newGame;
-// }
-
 
 // Add/remove actor from team
 export function toggleTeamActor(actor, game)
