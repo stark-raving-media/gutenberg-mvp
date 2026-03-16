@@ -60,15 +60,7 @@ export function teamPicker(actor,teamActors)
 {
     if (teamActors.includes(actor))
     {
-        //teamActors.remove(actor);
-        var newTeamActors = [];
-        for (var teamActor of teamActors)
-        {
-            if (teamActor != actor) // TODO: Broken
-                newTeamActors.push(actor)
-        }
-        console.log(newTeamActors);
-        return newTeamActors;
+        teamActors.splice(teamActors.indexOf(actor), 1);
     }    
 
     else
@@ -118,4 +110,15 @@ export function getRandomActors(actors, size = 2)
         }
     // Return array of team's Actors
     return Object.values(Object.fromEntries(shuffled.slice(0, size)));
+}
+
+
+// Refresh teamDiv with updated Actors
+export function refreshTeamDiv(teamActors, teamSize, teamDiv)
+{
+    for (var i = 0; i < teamSize; i++) 
+    {
+    const actorBtn = createActorPageBtn(teamActors[i]);
+    teamDiv.appendChild(actorBtn);
+    }
 }

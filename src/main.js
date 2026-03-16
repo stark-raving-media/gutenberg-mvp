@@ -5,7 +5,8 @@ import {
   createActorPageBtn, 
   createRollBtn,
   displayActorStats, 
-  getRandomActors
+  getRandomActors,
+  refreshTeamDiv
 } from './utils.js'
 
 
@@ -31,11 +32,8 @@ function startGame() {
   var teamSize = 2;
   var teamActors = getRandomActors(startingActors, teamSize);
   console.log('Team Actors:', teamActors);
-  for (var i = 0; i < teamSize; i++) 
-  {
-    const actorBtn = createActorPageBtn(teamActors[i]);
-    teamDiv.appendChild(actorBtn);
-  }
+  
+  refreshTeamDiv(teamActors, teamSize, teamDiv);
   
   app.appendChild(teamDiv);
   app.appendChild(document.createElement('hr'));
@@ -44,6 +42,7 @@ function startGame() {
   // TODO: When actor button is double-clicked, add to team
   // TODO: When team member button is double-clicked, remove from team
   // TODO: When team changes, refresh team div
+  // TODO: Make Game Class w/ teamSize, teamActors in it
 
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 
