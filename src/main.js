@@ -11,6 +11,8 @@ import {
   refreshTeamDiv
 } from './utils.js'
 
+// TODO: Create auto-choose team btn
+// TODO: Team size validation for add/remove members
 
 // Start game
 function startGame() {
@@ -41,11 +43,6 @@ function startGame() {
   
   app.appendChild(teamDiv);
   app.appendChild(document.createElement('hr'));
-
-  // TODO: Create auto-choose team btn
-  // TODO: When actor button is double-clicked, add to team
-  // TODO: When team member button is double-clicked, remove from team
-  // TODO: When team changes, refresh team div
  
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 

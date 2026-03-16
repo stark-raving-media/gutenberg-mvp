@@ -50,7 +50,7 @@ export function createActorPageBtn(actor, game)
     // On double-click, add/remove Actor to team
     actorBtn.addEventListener('dblclick', () => 
     {
-        teamPicker(actor, game);
+        toggleTeamActor(actor, game);
     });   
     return actorBtn;
 }
@@ -64,8 +64,7 @@ export function createActorPageBtn(actor, game)
 
 
 // Add/remove actor from team
-// TODO: Update parameters
-export function teamPicker(actor, game)
+export function toggleTeamActor(actor, game)
 {
     if (game.teamActors.includes(actor))
     {
@@ -76,7 +75,7 @@ export function teamPicker(actor, game)
         game.teamActors.push(actor);
     console.log(game.teamActors);
 
-    // TODO: Refresh teamDiv
+    // Refresh teamDiv
     var teamDiv = document.getElementById('team');
     refreshTeamDiv(game, teamDiv);
     //return game.teamActors;
@@ -130,8 +129,6 @@ export function refreshTeamDiv(game, teamDiv)
     teamDiv.innerHTML = '';
     for (var i = 0; i < game.teamActors.length; i++) 
     {
-        //TODO: Update
-        //const actorBtn = createActorPageBtn(game.teamActors[i]);
         const actorBtn = createActorPageBtn(game.teamActors[i], game);
         teamDiv.appendChild(actorBtn);
     }
