@@ -73,7 +73,7 @@ export const startingActors =
         'sherlockHolmes', // id
         'Sherlock Holmes', // fullName
         'Holmes',
-        originBooks.sherlockHolmes,
+        originBooks.adventuresSherlock,
         undefined,
         undefined,
         undefined,

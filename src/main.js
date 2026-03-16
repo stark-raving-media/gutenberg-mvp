@@ -1,6 +1,11 @@
 import './style.css'
 import { startingActors } from './data/actors.js'
-import { attachPics, displayActorStats, createRollBtn } from './utils.js'
+import { 
+  attachPics, 
+  createActorPageBtn, 
+  createRollBtn,
+  displayActorStats, 
+} from './utils.js'
 
 
 // Start game
@@ -15,12 +20,22 @@ function startGame() {
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
   app.appendChild(rollBtn);
+  app.innerHTML += "<hr>";
+
+  // Create Actor buttons
+  for (const actor of Object.values(startingActors)) 
+  {
+    const actorBtn = createActorPageBtn(actor);
+    app.appendChild(actorBtn);
+  }
 
   // Create div for Actor stats
   const actorDiv = document.createElement("div");
   actorDiv.id = "actor-stats";
   app.appendChild(actorDiv);
   displayActorStats(startingActors.jeanValjean, actorDiv);
+  displayActorStats(startingActors.donQuixote, actorDiv);
+  displayActorStats(startingActors.alice, actorDiv);
 };
 
 startGame();

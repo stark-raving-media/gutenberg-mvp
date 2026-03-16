@@ -32,11 +32,26 @@ export function createRollBtn(sides = 20)
 }
 
 
+// Create buttons for Actor stat page
+export function createActorPageBtn(actor)
+{
+    const actorBtn = document.createElement("button");
+    actorBtn.textContent = actor.nickName;
+
+    // On click, display Actor stats in div
+    actorBtn.addEventListener("click", () => 
+    {
+      const actorDiv = document.getElementById("actor-stats");
+      displayActorStats(actor, actorDiv);
+    });
+    return actorBtn;
+}
+
 // Display Actor stats in div
 export function displayActorStats(actor, div) 
 {
   var statDisplay = '<hr> <h2>' + actor.nickName + '</h2>';
-  statDisplay += '<img src="' + actor.icon + '" alt="' + actor.fullName + ' icon">';
+  statDisplay += '<img src="' + actor.icon + '" alt="' + actor.fullName + ' icon"><br>';
   statDisplay += actor.fullName + ' - ' + actor.originBook.title +'<hr>';
   var s = actor.details.stats;
   var t = actor.details.traits;

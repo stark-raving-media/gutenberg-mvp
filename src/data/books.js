@@ -87,7 +87,7 @@ export const originBooks =
     aliceInWonderland: new Book
     (
         'aliceInWonderland', // id
-        'Alice in Wonderland',
+        "Alice's Adventures in Wonderland",
         'Lewis Carroll',
         1865,
         500,
