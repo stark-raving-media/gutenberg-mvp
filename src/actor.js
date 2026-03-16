@@ -10,7 +10,7 @@ export class Actor
     originBook,
     locationBook,
     icon,
-    picture,
+    portrait,
     FAstrikes, // per book - should this live here??
     details
   ) 
@@ -22,7 +22,7 @@ export class Actor
     this.originBook = originBook; // Class
     this.locationBook = locationBook; // Class
     this.icon = icon;
-    this.picture = picture;
+    this.portrait = portrait;
     this.details = details; // Class
     this.FAstrikes = FAstrikes; // int
   };

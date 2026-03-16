@@ -8,12 +8,14 @@ export function rollDie(sides = 20)
 
 
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
-export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/photos/', photoType = 'RecPhoto')
+export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/portraits/', photoType = 'RecPhoto')
 {
     for (const actor of Object.values(actors))
     {
         actor.icon = iconPath + actor.id + iconType + '.webp';
-        actor.picture = photoPath + actor.id + photoType + '.webp';
+        actor.portrait = photoPath + actor.id + photoType + '.webp';
+        console.log(actor.icon);
+        console.log(actor.portrait);
     }
 }
 
@@ -54,7 +56,7 @@ export function createActorPageBtn(actor)
 export function displayActorStats(actor, div) 
 {
   var statDisplay = '<hr> <h2>' + actor.nickName + '</h2>';
-  statDisplay += '<img src="' + actor.icon + '" alt="' + actor.fullName + ' icon"><br>';
+  statDisplay += '<img src="' + actor.portrait + '" alt="' + actor.fullName + ' icon"><br>';
   statDisplay += actor.fullName + ' - ' + actor.originBook.title +'<hr>';
   var s = actor.details.stats;
   var t = actor.details.traits;
