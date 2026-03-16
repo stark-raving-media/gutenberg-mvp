@@ -12,7 +12,7 @@ import {
 
 // TODO: Create auto-choose team btn
 // TODO: Team size validation for add/remove members
-// TODO: If Actor in team, remove from Actor div
+
 
 // Start game
 function startGame() {
@@ -37,23 +37,16 @@ function startGame() {
   // Display team Actors
   const teamDiv = document.createElement('div');
   teamDiv.id = 'team';
-
-  teamDiv.innerHTML = '<h2>Your Team</h2>';
-  refreshTeamDiv(game, teamDiv);
-
   app.appendChild(teamDiv);
+  refreshTeamDiv(game);
+  
   app.appendChild(document.createElement('hr'));
  
   // Create Actor buttons
   const actorsDiv = document.createElement('div');
-  actorsDiv.id = 'actorsDiv'
-  refreshActorsDiv(game, startingActors, actorsDiv);
-  // for (const actor of Object.values(startingActors)) 
-  // {
-  //   const actorBtn = createActorPageBtn(actor, game);
-  //   actorsDiv.appendChild(actorBtn);
-  // }
+  actorsDiv.id = 'actorsDiv';
   app.appendChild(actorsDiv);
+  refreshActorsDiv(game, startingActors);
 
   // Create div for Actor stats
   const actorDiv = document.createElement('div');

@@ -1,3 +1,5 @@
+import { startingActors } from './data/actors.js'
+
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
 export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/portraits/', photoType = 'RecPhoto')
 {
@@ -89,9 +91,11 @@ export function getRandomActors(actors, size = 2)
 
 
 // Refresh teamDiv with updated Actors
-export function refreshTeamDiv(game, teamDiv)
+export function refreshTeamDiv(game)
 {
+    var teamDiv = document.getElementById('team');
     teamDiv.innerHTML = '';
+    teamDiv.innerHTML = '<h2>Your Team</h2>';
     for (var i = 0; i < game.teamActors.length; i++) 
     {
         const actorBtn = createActorPageBtn(game.teamActors[i], game);
@@ -99,14 +103,20 @@ export function refreshTeamDiv(game, teamDiv)
     }
 }
 
+
 // Refresh actorsDiv
-export function refreshActorsDiv(game, startingActors, actorsDiv)
+export function refreshActorsDiv(game)
 {
+    var actorsDiv = document.getElementById('actorsDiv');
     actorsDiv.innerHTML = '';
     for (const actor of Object.values(startingActors)) 
     {
-        const actorBtn = createActorPageBtn(actor, game);
-        actorsDiv.appendChild(actorBtn);
+        // If actor not in current team:
+        if (!game.teamActors.includes(actor))
+        {
+            const actorBtn = createActorPageBtn(actor, game);
+            actorsDiv.appendChild(actorBtn);
+        }
     }
 }
 
@@ -130,8 +140,7 @@ export function toggleTeamActor(actor, game)
         game.teamActors.push(actor);
     console.log(game.teamActors);
 
-    // Refresh teamDiv
-    var teamDiv = document.getElementById('team');
-    refreshTeamDiv(game, teamDiv);
-    //return game.teamActors;
+    // Refresh divs
+    refreshTeamDiv(game);
+    refreshActorsDiv(game);
 }
