@@ -59,7 +59,18 @@ export function createActorPageBtn(actor, teamActors)
 export function teamPicker(actor,teamActors)
 {
     if (teamActors.includes(actor))
-            teamActors.remove(actor);
+    {
+        //teamActors.remove(actor);
+        var newTeamActors = [];
+        for (var teamActor of teamActors)
+        {
+            if (teamActor != actor) // TODO: Broken
+                newTeamActors.push(actor)
+        }
+        console.log(newTeamActors);
+        return newTeamActors;
+    }    
+
     else
         teamActors.push(actor);
     console.log(teamActors);
