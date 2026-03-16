@@ -14,8 +14,6 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
     {
         actor.icon = iconPath + actor.id + iconType + '.webp';
         actor.portrait = photoPath + actor.id + photoType + '.webp';
-        console.log(actor.icon);
-        console.log(actor.portrait);
     }
 }
 
@@ -24,11 +22,11 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 export function createRollBtn(sides = 20) 
 {
     const rollBtn = document.createElement("button");
-    rollBtn.textContent = `Roll D${sides}`;
-    rollBtn.addEventListener("click", () => 
+    rollBtn.textContent = 'Roll D${sides}';
+    rollBtn.addEventListener('click', () => 
     {
       var result = rollDie(sides);
-      alert(`You rolled a ${result}!`);
+      alert('You rolled a ${result}!');
     });
     return rollBtn;
 }
@@ -41,7 +39,6 @@ export function createActorPageBtn(actor)
     actorBtn.innerHTML = '<img src="' + actor.icon 
         + '" alt="' + actor.fullName + ' icon" width="100" height="100"><br>'
         + actor.nickName;
-    //actorBtn.textContent = actor.nickName;
 
     // On click, display Actor stats in div
     actorBtn.addEventListener('click', () => 
@@ -51,6 +48,7 @@ export function createActorPageBtn(actor)
     });
     return actorBtn;
 }
+
 
 // Display Actor stats in div
 export function displayActorStats(actor, div) 
@@ -73,4 +71,20 @@ export function displayActorStats(actor, div)
   statDisplay += 'Aura: ' + actor.details.aura + '<hr>';
 
   div.innerHTML = statDisplay;
+}
+
+
+// Auto-choose team 
+// Fisher-Yates shuffle via geeksforgeeks.org
+export function getRandomActors(actors, size = 2)
+{
+        const shuffled = Object.entries(actors);
+        for (let i = shuffled.length - 1; i > 0; i--) 
+        {
+            const j = 
+                Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = 
+                [shuffled[j], shuffled[i]];
+        }
+    return Object.fromEntries(shuffled.slice(0, size));
 }

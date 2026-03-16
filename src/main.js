@@ -5,6 +5,7 @@ import {
   createActorPageBtn, 
   createRollBtn,
   displayActorStats, 
+  getRandomActors
 } from './utils.js'
 
 
@@ -36,6 +37,10 @@ function startGame() {
   displayActorStats(startingActors.jeanValjean, actorDiv);
   displayActorStats(startingActors.donQuixote, actorDiv);
   displayActorStats(startingActors.alice, actorDiv);
+
+  // test getRandomActors function
+  console.log(getRandomActors(startingActors, 2));
+  
 };
 
 startGame();
