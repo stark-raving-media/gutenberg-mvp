@@ -33,7 +33,7 @@ export function createRollBtn(sides = 20)
 
 
 // Create buttons for Actor stat pages
-export function createActorPageBtn(actor)
+export function createActorPageBtn(actor, teamActors)
 {
     const actorBtn = document.createElement('button');
     actorBtn.innerHTML = '<img src="' + actor.icon 
@@ -46,7 +46,26 @@ export function createActorPageBtn(actor)
       const actorDiv = document.getElementById('actor-stats');
       displayActorStats(actor, actorDiv);
     });
+
+    // On double-click, add/remove Actor to team
+    actorBtn.addEventListener('dblclick', () => 
+    {
+        teamPicker(actor, teamActors);
+    });   
     return actorBtn;
+}
+
+// TODO: Add/remove actor from team
+export function teamPicker(actor,teamActors)
+{
+    if (teamActors.includes(actor))
+            teamActors.remove(actor);
+    else
+        teamActors.push(actor);
+    console.log(teamActors);
+
+    // TODO: Refresh teamDiv
+    return teamActors;
 }
 
 
@@ -86,5 +105,6 @@ export function getRandomActors(actors, size = 2)
             [shuffled[i], shuffled[j]] = 
                 [shuffled[j], shuffled[i]];
         }
+    // Return array of team's Actors
     return Object.values(Object.fromEntries(shuffled.slice(0, size)));
 }

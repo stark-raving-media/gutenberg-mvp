@@ -48,7 +48,7 @@ function startGame() {
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 
   {
-    const actorBtn = createActorPageBtn(actor);
+    const actorBtn = createActorPageBtn(actor, teamActors);
     app.appendChild(actorBtn);
   }
 
