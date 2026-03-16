@@ -20,22 +20,23 @@ function startGame() {
   console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
 
-  const app = document.getElementById('app');
-  app.innerHTML = '<h1>Gutenberg MVP</h1>';
-
   // Attach pictures and icons to actors
   attachPics(startingActors);
+
+  // Get main app div
+  const app = document.getElementById('app');
+  app.innerHTML = '<h1>Gutenberg MVP</h1>';
 
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
   app.appendChild(rollBtn);
   app.appendChild(document.createElement('hr'));
 
-  // Auto-choose team of 2 actors, display in div
+  // Display team Actors
   const teamDiv = document.createElement('div');
   teamDiv.id = 'team';
-  teamDiv.innerHTML = '<h2>Your Team</h2>';
 
+  teamDiv.innerHTML = '<h2>Your Team</h2>';
   refreshTeamDiv(game, teamDiv);
   
   app.appendChild(teamDiv);
