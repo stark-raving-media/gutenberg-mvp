@@ -5,7 +5,6 @@ import {
   attachPics, 
   createActorPageBtn, 
   createRollBtn,
-  displayActorStats, 
   getRandomActors,
   refreshTeamDiv
 } from './utils.js'

@@ -1,12 +1,3 @@
-//import { Game } from './game.js'
-
-// Roll Die 
-export function rollDie(sides = 20) 
-{
-  return Math.floor(Math.random() * sides) + 1;
-};
-
-
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
 export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/portraits/', photoType = 'RecPhoto')
 {
@@ -15,20 +6,6 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
         actor.icon = iconPath + actor.id + iconType + '.webp';
         actor.portrait = photoPath + actor.id + photoType + '.webp';
     }
-}
-
-
-// Create button for Die roll
-export function createRollBtn(sides = 20) 
-{
-    const rollBtn = document.createElement("button");
-    rollBtn.textContent = 'Roll D' + sides;
-    rollBtn.addEventListener('click', () => 
-    {
-      var result = rollDie(sides);
-      alert('You rolled a ' + result + '!');
-    });
-    return rollBtn;
 }
 
 
@@ -56,22 +33,17 @@ export function createActorPageBtn(actor, game)
 }
 
 
-// Add/remove actor from team
-export function toggleTeamActor(actor, game)
+// Create button for Die roll
+export function createRollBtn(sides = 20) 
 {
-    if (game.teamActors.includes(actor))
+    const rollBtn = document.createElement("button");
+    rollBtn.textContent = 'Roll D' + sides;
+    rollBtn.addEventListener('click', () => 
     {
-        game.teamActors.splice(game.teamActors.indexOf(actor), 1);
-    }    
-
-    else
-        game.teamActors.push(actor);
-    console.log(game.teamActors);
-
-    // Refresh teamDiv
-    var teamDiv = document.getElementById('team');
-    refreshTeamDiv(game, teamDiv);
-    //return game.teamActors;
+      var result = rollDie(sides);
+      alert('You rolled a ' + result + '!');
+    });
+    return rollBtn;
 }
 
 
@@ -125,4 +97,30 @@ export function refreshTeamDiv(game, teamDiv)
         const actorBtn = createActorPageBtn(game.teamActors[i], game);
         teamDiv.appendChild(actorBtn);
     }
+}
+
+
+// Roll Die 
+export function rollDie(sides = 20) 
+{
+  return Math.floor(Math.random() * sides) + 1;
+};
+
+
+// Add/remove actor from team
+export function toggleTeamActor(actor, game)
+{
+    if (game.teamActors.includes(actor))
+    {
+        game.teamActors.splice(game.teamActors.indexOf(actor), 1);
+    }    
+
+    else
+        game.teamActors.push(actor);
+    console.log(game.teamActors);
+
+    // Refresh teamDiv
+    var teamDiv = document.getElementById('team');
+    refreshTeamDiv(game, teamDiv);
+    //return game.teamActors;
 }
