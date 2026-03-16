@@ -11,8 +11,8 @@ import {
 // Start game
 function startGame() {
   console.log('Starting game...');
-  const app = document.getElementById("app");
-  app.innerHTML = "<h1>Gutenberg MVP</h1>";
+  const app = document.getElementById('app');
+  app.innerHTML = '<h1>Gutenberg MVP</h1>';
 
   // Attach pictures and icons to actors
   attachPics(startingActors);
@@ -20,7 +20,7 @@ function startGame() {
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
   app.appendChild(rollBtn);
-  app.innerHTML += "<hr>";
+  app.innerHTML += '<hr>';
 
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 
@@ -30,8 +30,8 @@ function startGame() {
   }
 
   // Create div for Actor stats
-  const actorDiv = document.createElement("div");
-  actorDiv.id = "actor-stats";
+  const actorDiv = document.createElement('div');
+  actorDiv.id = 'actor-stats';
   app.appendChild(actorDiv);
   displayActorStats(startingActors.jeanValjean, actorDiv);
   displayActorStats(startingActors.donQuixote, actorDiv);

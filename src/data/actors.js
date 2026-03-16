@@ -414,7 +414,7 @@ export const startingActors =
         'hamlet', // id
         'Hamlet, Prince of Denmark ', // fullName
         'Hamlet',
-        originBooks.hamlet,
+        originBooks.hamletBook,
         undefined,
         undefined,
         undefined,
@@ -507,7 +507,7 @@ export const startingActors =
         'jayGatsby', // id
         'James Gatz aka Gatsby', // fullName
         'Gatsby',
-        originBooks.greatGatsby,
+        originBooks.theGreatGatsby,
         undefined,
         undefined,
         undefined,
