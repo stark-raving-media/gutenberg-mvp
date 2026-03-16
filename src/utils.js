@@ -48,6 +48,21 @@ export function createRollBtn(sides = 20)
     return rollBtn;
 }
 
+export function createTeamPickBtn(game)
+{
+    const teamPickBtn = document.createElement('button');
+    teamPickBtn.textContent = 'Auto-Choose Team of ' + game.teamSize;
+    teamPickBtn.addEventListener('click', () =>
+    {
+        game.teamActors = getRandomActors(game);
+        
+        // Refresh divs
+        refreshTeamDiv(game);
+        refreshActorsDiv(game);
+    });
+    return teamPickBtn;
+}
+
 
 // Display Actor stats in div
 export function displayActorStats(actor, div) 
@@ -75,9 +90,9 @@ export function displayActorStats(actor, div)
 
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org
-export function getRandomActors(actors, size = 2)
+export function getRandomActors(game)
 {
-        const shuffled = Object.entries(actors);
+        const shuffled = Object.entries(startingActors);
         for (let i = shuffled.length - 1; i > 0; i--) 
         {
             const j = 
@@ -85,8 +100,9 @@ export function getRandomActors(actors, size = 2)
             [shuffled[i], shuffled[j]] = 
                 [shuffled[j], shuffled[i]];
         }
+    
     // Return array of team's Actors
-    return Object.values(Object.fromEntries(shuffled.slice(0, size)));
+    return Object.values(Object.fromEntries(shuffled.slice(0, game.teamSize)));
 }
 
 

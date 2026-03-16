@@ -3,14 +3,13 @@ import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
 import { 
   attachPics, 
-  createActorPageBtn, 
+  createTeamPickBtn,
   createRollBtn,
   getRandomActors,
   refreshActorsDiv,
   refreshTeamDiv
 } from './utils.js'
 
-// TODO: Create auto-choose team btn
 // TODO: Team size validation for add/remove members
 
 
@@ -18,7 +17,7 @@ import {
 function startGame() {
   
   var game = new Game(undefined, 2, []); // playerName, teamSize, teamActors
-  game.teamActors = getRandomActors(startingActors, game.teamSize);
+  game.teamActors = getRandomActors(game);
   console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
 
@@ -39,6 +38,10 @@ function startGame() {
   teamDiv.id = 'team';
   app.appendChild(teamDiv);
   refreshTeamDiv(game);
+
+  // Create button for auto-choose new team
+  const teamPickBtn = createTeamPickBtn(game);
+  app.appendChild(teamPickBtn);
   
   app.appendChild(document.createElement('hr'));
  
