@@ -6,11 +6,13 @@ import {
   createActorPageBtn, 
   createRollBtn,
   getRandomActors,
+  refreshActorsDiv,
   refreshTeamDiv
 } from './utils.js'
 
 // TODO: Create auto-choose team btn
 // TODO: Team size validation for add/remove members
+// TODO: If Actor in team, remove from Actor div
 
 // Start game
 function startGame() {
@@ -38,16 +40,20 @@ function startGame() {
 
   teamDiv.innerHTML = '<h2>Your Team</h2>';
   refreshTeamDiv(game, teamDiv);
-  
+
   app.appendChild(teamDiv);
   app.appendChild(document.createElement('hr'));
  
   // Create Actor buttons
-  for (const actor of Object.values(startingActors)) 
-  {
-    const actorBtn = createActorPageBtn(actor, game);
-    app.appendChild(actorBtn);
-  }
+  const actorsDiv = document.createElement('div');
+  actorsDiv.id = 'actorsDiv'
+  refreshActorsDiv(game, startingActors, actorsDiv);
+  // for (const actor of Object.values(startingActors)) 
+  // {
+  //   const actorBtn = createActorPageBtn(actor, game);
+  //   actorsDiv.appendChild(actorBtn);
+  // }
+  app.appendChild(actorsDiv);
 
   // Create div for Actor stats
   const actorDiv = document.createElement('div');

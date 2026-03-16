@@ -99,6 +99,17 @@ export function refreshTeamDiv(game, teamDiv)
     }
 }
 
+// Refresh actorsDiv
+export function refreshActorsDiv(game, startingActors, actorsDiv)
+{
+    actorsDiv.innerHTML = '';
+    for (const actor of Object.values(startingActors)) 
+    {
+        const actorBtn = createActorPageBtn(actor, game);
+        actorsDiv.appendChild(actorBtn);
+    }
+}
+
 
 // Roll Die 
 export function rollDie(sides = 20) 
