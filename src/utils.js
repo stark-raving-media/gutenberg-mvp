@@ -1,4 +1,4 @@
-
+//import { Game } from './game.js'
 
 // Roll Die 
 export function rollDie(sides = 20) 
@@ -54,6 +54,14 @@ export function createActorPageBtn(actor, teamActors)
     });   
     return actorBtn;
 }
+
+// Create new game
+// export function newGame()
+// {
+//     var newGame = new Game(undefined, 2, undefined);
+//     return newGame;
+// }
+
 
 // TODO: Add/remove actor from team
 export function teamPicker(actor,teamActors)
@@ -114,11 +122,11 @@ export function getRandomActors(actors, size = 2)
 
 
 // Refresh teamDiv with updated Actors
-export function refreshTeamDiv(teamActors, teamSize, teamDiv)
+export function refreshTeamDiv(game, teamDiv)
 {
-    for (var i = 0; i < teamSize; i++) 
+    for (var i = 0; i < game.teamSize; i++) 
     {
-    const actorBtn = createActorPageBtn(teamActors[i]);
+    const actorBtn = createActorPageBtn(game.teamActors[i]);
     teamDiv.appendChild(actorBtn);
     }
 }

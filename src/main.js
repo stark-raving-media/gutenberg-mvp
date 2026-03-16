@@ -1,4 +1,5 @@
 import './style.css'
+import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
 import { 
   attachPics, 
@@ -6,13 +7,17 @@ import {
   createRollBtn,
   displayActorStats, 
   getRandomActors,
+  //newGame,
   refreshTeamDiv
 } from './utils.js'
 
 
 // Start game
 function startGame() {
-  console.log('Starting game...');
+  
+  //var game = newGame();
+  var game = new Game(undefined, 2, undefined);
+  console.log('Starting new game...');
   const app = document.getElementById('app');
   app.innerHTML = '<h1>Gutenberg MVP</h1>';
 
@@ -29,11 +34,11 @@ function startGame() {
   teamDiv.id = 'team';
   teamDiv.innerHTML = '<h2>Your Team</h2>';
 
-  var teamSize = 2;
-  var teamActors = getRandomActors(startingActors, teamSize);
-  console.log('Team Actors:', teamActors);
+  //teamSize = 2;
+  game.teamActors = getRandomActors(startingActors, game.teamSize);
+  console.log('Team Actors:', game.teamActors);
   
-  refreshTeamDiv(teamActors, teamSize, teamDiv);
+  refreshTeamDiv(game, teamDiv);
   
   app.appendChild(teamDiv);
   app.appendChild(document.createElement('hr'));
@@ -42,12 +47,11 @@ function startGame() {
   // TODO: When actor button is double-clicked, add to team
   // TODO: When team member button is double-clicked, remove from team
   // TODO: When team changes, refresh team div
-  // TODO: Make Game Class w/ teamSize, teamActors in it
-
+ 
   // Create Actor buttons
   for (const actor of Object.values(startingActors)) 
   {
-    const actorBtn = createActorPageBtn(actor, teamActors);
+    const actorBtn = createActorPageBtn(actor, game.teamActors);
     app.appendChild(actorBtn);
   }
 

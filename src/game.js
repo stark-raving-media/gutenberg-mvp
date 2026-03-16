@@ -9,5 +9,9 @@ export class Game
         teamActors
     )
 
-    
-}
+    {
+        this.playerName = playerName;
+        this.teamSize = teamSize;
+        this.teamActors = teamActors;
+    };
+};
