@@ -9,6 +9,7 @@ export const startingActors =
     jeanValjean: new Actor
     (
         'jeanValjean', // id
+        true,
         'Jean Valjean', // fullName
         'Valjean', // nickName
         originBooks.lesMiserables, // originBook
@@ -40,6 +41,7 @@ export const startingActors =
     captainAhab: new Actor
     (
         'captainAhab', // id
+        true,
         'Captain Ahab', // fullName
         'Ahab',
         originBooks.mobyDick, 
@@ -71,6 +73,7 @@ export const startingActors =
     sherlockHolmes: new Actor
     (
         'sherlockHolmes', // id
+        true,
         'Sherlock Holmes', // fullName
         'Holmes',
         originBooks.adventuresSherlock,
@@ -102,6 +105,7 @@ export const startingActors =
     elizabethBennet: new Actor
     (
         'elizabethBennet', // id
+        true,
         'Elizabeth Bennet', // fullName
         'Lizzy',
         originBooks.prideAndPrejudice,
@@ -133,6 +137,7 @@ export const startingActors =
     odysseus: new Actor
     (
         'odysseus', // id
+        true,
         'Odysseus of Ithaca', // fullName
         'Odysseus',
         originBooks.odyssey,
@@ -164,6 +169,7 @@ export const startingActors =
     countDracula: new Actor
     (
         'countDracula', // id
+        true,
         'Count Dracula', // fullName
         'Dracula',
         originBooks.draculaBook,
@@ -195,6 +201,7 @@ export const startingActors =
     ebenezerScrooge: new Actor
     (
         'ebenezerScrooge', // id
+        true,
         'Ebenezer Scrooge', // fullName
         'Scrooge',
         originBooks.christmasCarol,
@@ -226,6 +233,7 @@ export const startingActors =
     donQuixote: new Actor
     (
         'donQuixote', // id
+        true,
         'Don Quixote', // fullName
         'Quixote',
         originBooks.donQuixoteBook,
@@ -257,6 +265,7 @@ export const startingActors =
     huckleberryFinn: new Actor
     (
         'huckleberryFinn', // id
+        true,
         'Huckleberry Finn', // fullName
         'Huck',
         originBooks.huckleberryFinnBook,
@@ -288,6 +297,7 @@ export const startingActors =
     alice: new Actor
     (
         'alice', // id
+        true,
         'Alice', // fullName
         'Alice',
         originBooks.aliceInWonderland,
@@ -319,6 +329,7 @@ export const startingActors =
     frankensteinMonster: new Actor
     (
         'frankensteinMonster', // id
+        true,
         "Frankenstein’s Monster", // fullName
         'The Monster',
         originBooks.frankenstein,
@@ -350,6 +361,7 @@ export const startingActors =
     longJohnSilver: new Actor
     (
         'longJohnSilver', // id
+        true,
         'Long John Silver', // fullName
         'Silver',
         originBooks.treasureIsland,
@@ -381,6 +393,7 @@ export const startingActors =
     annaKarenina: new Actor
     (
         'annaKarenina', // id
+        true,
         'Anna Karenina', // fullName
         'Anna',
         originBooks.annaKareninaBook,
@@ -412,6 +425,7 @@ export const startingActors =
     hamlet: new Actor
     (
         'hamlet', // id
+        true,
         'Hamlet, Prince of Denmark ', // fullName
         'Hamlet',
         originBooks.hamletBook,
@@ -443,6 +457,7 @@ export const startingActors =
     dArtagnan: new Actor
     (
         'dArtagnan', // id
+        true,
         "Charles de Batz-Castelmore D’Artagnan", // fullName
         "D’Artagnan",
         originBooks.threeMusketeers,
@@ -474,6 +489,7 @@ export const startingActors =
     raskolnikov: new Actor
     (
         'raskolnikov', // id
+        true,
         'Rodion Romanovich Raskolnikov', // fullName
         'Raskolnikov',
         originBooks.crimeAndPunishment,
@@ -505,6 +521,7 @@ export const startingActors =
     jayGatsby: new Actor
     (
         'jayGatsby', // id
+        true,
         'James Gatz aka Gatsby', // fullName
         'Gatsby',
         originBooks.theGreatGatsby,
@@ -536,6 +553,7 @@ export const startingActors =
     beowulf: new Actor
     (
         'beowulf', // id
+        true,
         'Beowulf of the Geats', // fullName
         'Beowulf',
         originBooks.beowulfBook,
@@ -567,6 +585,7 @@ export const startingActors =
     scheherazade: new Actor
     (
         'scheherazade', // id
+        true,
         'Scheherazade', // fullName
         'Scheherazade',
         originBooks.oneThousandNights,
@@ -598,6 +617,7 @@ export const startingActors =
     janeEyre: new Actor
     (
         'janeEyre', // id
+        true,
         'Jane Eyre', // fullName
         'Jane',
         originBooks.janeEyreBook,

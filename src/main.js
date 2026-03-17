@@ -11,7 +11,7 @@ import {
 } from './utils.js'
 
 // TODO: Test testScenarios
-// TODO: Create NPC list for opposition testing
+// TODO: Create NPC toggle in Actor class
 
 // Start game
 function startGame() {
