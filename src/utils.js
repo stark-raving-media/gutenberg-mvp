@@ -128,7 +128,7 @@ export function refreshActorsDiv(game)
     for (const actor of Object.values(startingActors)) 
     {
         // If actor not in current team:
-        if (!game.teamActors.includes(actor))
+        if (!game.teamActors.includes(actor) && actor.playable == true)
         {
             const actorBtn = createActorPageBtn(actor, game);
             actorsDiv.appendChild(actorBtn);
