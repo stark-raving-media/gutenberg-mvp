@@ -48,6 +48,7 @@ export function createRollBtn(sides = 20)
     return rollBtn;
 }
 
+
 export function createTeamPickBtn(game)
 {
     const teamPickBtn = document.createElement('button');
@@ -87,6 +88,12 @@ export function displayActorStats(actor, div)
   div.innerHTML = statDisplay;
 }
 
+
+export function displayScenario(scenario, div)
+{
+    div.innerHTML = '';
+    div.innerHTML = scenario.scenarioName;
+}
 
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org

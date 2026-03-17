@@ -1,4 +1,3 @@
-
 // Create Actor class
 export class Actor 
 {
@@ -15,7 +14,7 @@ export class Actor
     FAstrikes, // per book - should this live here??
     details
   ) 
-  
+
   {
     this.id = id;
     this.playable = playable;

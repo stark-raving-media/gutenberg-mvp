@@ -1,17 +1,21 @@
 import './style.css'
 import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
+import { testScenarios } from './data/scenarios.js'
 import { 
   attachPics, 
   createTeamPickBtn,
   createRollBtn,
   getRandomActors,
   refreshActorsDiv,
-  refreshTeamDiv
+  refreshTeamDiv,
+  displayScenario
 } from './utils.js'
 
+// TODO BUG: Auto-choose team must only pick playable char
 // TODO: Test testScenarios
-// TODO: Create NPC toggle in Actor class
+// TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false. On end, toggle back.)
+// TODO: EndGame func - Reset FA ratings for all actors used... etc
 
 // Start game
 function startGame() {
@@ -27,6 +31,14 @@ function startGame() {
   // Get main app div
   const app = document.getElementById('app');
   app.innerHTML = '<h1>Gutenberg MVP</h1>';
+  app.appendChild(document.createElement('hr'));
+
+  // Create test scenario div
+  const scenarioDiv = document.createElement('div');
+  displayScenario(testScenarios.theYellowBeetle, scenarioDiv);
+  app.appendChild(scenarioDiv);
+
+  app.appendChild(document.createElement('hr'));
 
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
