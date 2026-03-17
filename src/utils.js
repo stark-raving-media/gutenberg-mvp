@@ -152,9 +152,12 @@ export function refreshActorsDiv(game)
 // Reset game on end 
 export function resetGame(game)
 {
-    // TODO
     // Reset all played Actors
-    // Reset any NPC actors to PC (if applicable)
+    for (var i = 0; i < game.teamActors.length; i++)
+    {
+        game.teamActors[i].playable = true;
+        game.teamActors[i].FAstrikes = 0;
+    }
 }
 
 

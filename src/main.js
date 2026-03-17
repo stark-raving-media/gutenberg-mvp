@@ -9,12 +9,12 @@ import {
   getRandomActors,
   refreshActorsDiv,
   refreshTeamDiv,
-  displayScenario
+  displayScenario,
+  resetGame
 } from './utils.js'
 
 // TODO: Test testScenarios
 // TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false. On end, toggle back.)
-// TODO: EndGame func - Reset FA ratings for all actors used... etc
 
 // Start game
 function startGame() {
@@ -74,6 +74,8 @@ function startGame() {
   actorDiv.id = 'actor-stats';
   app.appendChild(actorDiv);
 
+  // End game, reset
+  resetGame(game);
 };
 
 startGame();
