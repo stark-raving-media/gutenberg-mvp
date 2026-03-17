@@ -41,7 +41,7 @@ export const testScenarios =
             "Renald will cooperate if he sees the sky. He knows what that color means. If approached indoors, he will argue and waste time.",
             "If the police catch up, they aren't interested in a stolen Beetle — they're trying to commandeer vehicles for evacuation. This could become an unexpected complication or an unexpected alliance."
         ], // hidden rules
-        [startingActors.captainAhab, startingActors.ebenezerScrooge]
+        [startingActors.inspectorJavert, startingActors.professorMoriarty]
     ),
     theAlexiExtraction: new Scenario
     (
@@ -80,7 +80,7 @@ export const testScenarios =
             "If the characters attempt to reason with Alexi, he will listen — but only if they can offer him an alternative to dying in chapter 42. 'Go back to your death' is not a compelling argument. A creative solution (hiding him in the margins, smuggling him to another text, negotiating with the novel's immune system) might work.",
             "The cavalry charge contains a named character — Colonel Devaux — who is important to the novel's plot. If Devaux is killed or displaced during the chaos, the Austerlitz novel begins to unravel from chapter 40 forward."
         ], // hidden rules
-        [startingActors.annaKarenina, startingActors.beowulf]
+        [startingActors.liseleKade, startingActors.alexiVolkov]
     ),
     ThirteenHundredYards: new Scenario
     (
@@ -118,6 +118,6 @@ export const testScenarios =
             "If the characters make noise near the threshold, Whateley will stop reciting. The silence that follows is more dangerous than the chanting. In the silence, the thing on Sentinel Hill may turn its attention outward.",
             "There is a shortcut. The dark rocks at the 800-yard mark contain a tidal cave that connects to the margin between Cervantes and Lovecraft. A character who enters the cave emerges 100 yards behind Quixote — but inside the cave, the genre is neither picaresque nor horror. It is something older. The walls are covered in text that predates both novels. Reading it costs something the character won't notice until later."
         ], // hidden rules
-        [startingActors.donQuixote, ]
+        [startingActors.donQuixote, startingActors.wilburWhateley]
     )
 }

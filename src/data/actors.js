@@ -3,7 +3,7 @@ import { ActorDetails } from '../actorDetails.js';
 import { originBooks } from './books.js';
 
 
-// Jean Valjean TODO: Make this an object of Actor objects
+// Starting Actors
 export const startingActors = 
 {
     jeanValjean: new Actor
@@ -644,6 +644,167 @@ export const startingActors =
           'Quiet resolve — characters near Jane feel compelled toward moral honesty; lying becomes uncomfortable, self-deception harder',
           [], // Status objects array
           [], // Reputation objects array
+        ),
+    ),
+    // Opposition Actors
+    inspectorJavert: new Actor
+    (
+        'inspectorJavert', // id
+        false,
+        'Inspector Javert',
+        'Javert',
+        originBooks.lesMiserables,
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 16,
+                dexterity: 12,
+                constitution: 16,
+                intelligence: 14,
+                wisdom: 18,
+                charisma: 8
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            '',
+            [],
+            []
+        ),
+    ),
+    professorMoriarty: new Actor
+    (
+        'professorMoriarty', // id
+        false,
+        'Professor Moriarty',
+        'Moriarty',
+        originBooks.sherlockHolmes,
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 9,
+                dexterity: 12,
+                constitution: 10,
+                intelligence: 20,
+                wisdom: 16,
+                charisma: 14
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            '',
+            [],
+            []
+        ),
+    ),
+    liseleKade: new Actor
+    (
+        'liseleKade', // id
+        false,
+        'Lisele Kade',
+        'Kade',
+        undefined, // Bookburner - Unaffiliated
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 12,
+                dexterity: 16,
+                constitution: 14,
+                intelligence: 18,
+                wisdom: 10,
+                charisma: 12
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            '',
+            [],
+            []
+        ),
+    ),
+    alexiVolkov: new Actor
+    (
+        'alexiVolkov', // id
+        false,
+        'Alexi Volkov',
+        'Alexi',
+        undefined, // The Forgotten Guns of Austerlitz
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 16,
+                dexterity: 12,
+                constitution: 16,
+                intelligence: 14,
+                wisdom: 18,
+                charisma: 8
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            '',
+            [],
+            []
+        ),
+    ),
+    wilburWhateley: new Actor
+    (
+        'wilburWhateley', // id
+        false,
+        'Wilbur Whateley',
+        'Whateley',
+        undefined, // The Dunwich Horror
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 18,
+                dexterity: 8,
+                constitution: 20,
+                intelligence: 16,
+                wisdom: 12,
+                charisma: 4
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            '',
+            [],
+            []
         ),
     ),
 };
