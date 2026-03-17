@@ -89,11 +89,23 @@ export function displayActorStats(actor, div)
 }
 
 
-export function displayScenario(scenario, div)
+// Display Scenario details
+export function displayScenario(scenario)
 {
     const scenarioDiv = document.getElementById('scenario-div');
+    scenarioDiv.style.textAlign = 'left';
     scenarioDiv.innerHTML = '';
-    scenarioDiv.innerHTML = scenario.scenarioName;
+    var text = '<h2>' + scenario.scenarioName + '</h2>' + '<br>';
+    text += scenario.description + '<br></br>';
+    text += scenario.scene + '<br><br>';
+    text += 'Main Objective: ' + scenario.mainObj + '<br><br>';
+    text += 'Secondary Objective: ' + scenario.secObj + '<br><br>';
+    text += 'RULES:' + '<br><ul>';
+    for (var i = 0; i < scenario.rules.length; i++)
+    {
+        text += '<li>' + scenario.rules[i];
+    }
+    scenarioDiv.innerHTML = text;
 }
 
 // Auto-choose team 

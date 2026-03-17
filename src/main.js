@@ -15,7 +15,7 @@ import {
 
 // TODO: Test testScenarios
 // TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false. On end, toggle back.)
-
+// TODO: Add Book field to Scenario
 // Start game
 function startGame() {
   
@@ -42,7 +42,7 @@ function startGame() {
   const scenarioDiv = document.createElement('div');
   scenarioDiv.id = 'scenario-div';
   app.appendChild(scenarioDiv);
-  displayScenario(game.currentScenario, scenarioDiv);
+  displayScenario(game.currentScenario);
 
   app.appendChild(document.createElement('hr'));
 

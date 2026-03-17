@@ -5,7 +5,7 @@ export class Scenario
     (
         id,
         scenarioName,
-        scenarioDesc, // Scenario prompt
+        description, // Scenario prompt
         scene, // current description
         situations = [],
         currSituation, // int (Situation id)
@@ -18,7 +18,7 @@ export class Scenario
     {
         this.id = id,
         this.scenarioName = scenarioName,
-        this.scenarioDesc = scenarioDesc,
+        this.description = description,
         this.scene = scene,
         this.situations = situations,
         this.currSituation = currSituation,
