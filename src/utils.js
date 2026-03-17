@@ -55,7 +55,7 @@ export function createTeamPickBtn(game)
     teamPickBtn.textContent = 'Auto-Choose Team of ' + game.teamSize;
     teamPickBtn.addEventListener('click', () =>
     {
-        game.teamActors = getRandomActors(game);
+        game.teamActors = getRandomActors(game.teamSize);
         
         // Refresh divs
         refreshTeamDiv(game);
@@ -91,13 +91,14 @@ export function displayActorStats(actor, div)
 
 export function displayScenario(scenario, div)
 {
-    div.innerHTML = '';
-    div.innerHTML = scenario.scenarioName;
+    const scenarioDiv = document.getElementById('scenario-div');
+    scenarioDiv.innerHTML = '';
+    scenarioDiv.innerHTML = scenario.scenarioName;
 }
 
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org
-export function getRandomActors(game)
+export function getRandomActors(teamSize)
 {
     const playableActors = Object.fromEntries
     (
@@ -113,14 +114,14 @@ export function getRandomActors(game)
     }
     
     // Return array of team's Actors
-    return Object.values(Object.fromEntries(shuffled.slice(0, game.teamSize)));
+    return Object.values(Object.fromEntries(shuffled.slice(0, teamSize)));
 }
 
 
 // Refresh teamDiv with updated Actors
 export function refreshTeamDiv(game)
 {
-    var teamDiv = document.getElementById('team');
+    var teamDiv = document.getElementById('team-div');
     teamDiv.innerHTML = '';
     teamDiv.innerHTML = '<h2>Your Team</h2>';
     for (var i = 0; i < game.teamActors.length; i++) 
@@ -134,7 +135,7 @@ export function refreshTeamDiv(game)
 // Refresh actorsDiv
 export function refreshActorsDiv(game)
 {
-    var actorsDiv = document.getElementById('actorsDiv');
+    var actorsDiv = document.getElementById('actors-div');
     actorsDiv.innerHTML = '';
     for (const actor of Object.values(startingActors)) 
     {
@@ -145,6 +146,15 @@ export function refreshActorsDiv(game)
             actorsDiv.appendChild(actorBtn);
         }
     }
+}
+
+
+// Reset game on end 
+export function resetGame(game)
+{
+    // TODO
+    // Reset all played Actors
+    // Reset any NPC actors to PC (if applicable)
 }
 
 

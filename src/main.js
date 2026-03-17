@@ -12,7 +12,6 @@ import {
   displayScenario
 } from './utils.js'
 
-// TODO BUG: Auto-choose team must only pick playable char
 // TODO: Test testScenarios
 // TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false. On end, toggle back.)
 // TODO: EndGame func - Reset FA ratings for all actors used... etc
@@ -20,8 +19,14 @@ import {
 // Start game
 function startGame() {
   
-  var game = new Game(undefined, 2, []); // playerName, teamSize, teamActors
-  game.teamActors = getRandomActors(game);
+  // Game settings
+  const playerName = '';
+  const teamSize = 2
+  const teamActors = getRandomActors(teamSize);
+  const currentScenario = testScenarios.theYellowBeetle;
+
+  // Create new Game
+  const game = new Game(playerName, teamSize, teamActors, currentScenario); 
   console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
 
@@ -35,8 +40,9 @@ function startGame() {
 
   // Create test scenario div
   const scenarioDiv = document.createElement('div');
-  displayScenario(testScenarios.theYellowBeetle, scenarioDiv);
+  scenarioDiv.id = 'scenario-div';
   app.appendChild(scenarioDiv);
+  displayScenario(game.currentScenario, scenarioDiv);
 
   app.appendChild(document.createElement('hr'));
 
@@ -47,7 +53,7 @@ function startGame() {
 
   // Display team Actors
   const teamDiv = document.createElement('div');
-  teamDiv.id = 'team';
+  teamDiv.id = 'team-div';
   app.appendChild(teamDiv);
   refreshTeamDiv(game);
 
@@ -59,7 +65,7 @@ function startGame() {
  
   // Create Actor buttons
   const actorsDiv = document.createElement('div');
-  actorsDiv.id = 'actorsDiv';
+  actorsDiv.id = 'actors-div';
   app.appendChild(actorsDiv);
   refreshActorsDiv(game, startingActors);
 

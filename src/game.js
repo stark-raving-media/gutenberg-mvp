@@ -6,12 +6,14 @@ export class Game
     (
         playerName,
         teamSize,
-        teamActors = []
+        teamActors = [],
+        currentScenario, // Scenario object
     )
 
     {
         this.playerName = playerName;
         this.teamSize = teamSize;
         this.teamActors = teamActors;
+        this.currentScenario = currentScenario;
     };
 };
