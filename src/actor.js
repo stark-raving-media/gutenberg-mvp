@@ -1,5 +1,5 @@
 
-// Create Actor object
+// Create Actor class
 export class Actor 
 {
   constructor
