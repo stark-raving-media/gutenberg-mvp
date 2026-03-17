@@ -11,8 +11,8 @@ export class Scenario
         currSituation, // int (Situation id)
         mainObj, // main objective desc
         secObj, // secondary obj desc
-        rules = [], // array of rule desc
-        hiddenRules = [], // array of rule desc
+        rules = [], // array of rules known to the player
+        hiddenRules = [], // array of rules not known to the player
         opposition = [] // array of Actors
     )
     {

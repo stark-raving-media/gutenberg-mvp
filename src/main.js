@@ -10,6 +10,9 @@ import {
   refreshTeamDiv
 } from './utils.js'
 
+// TODO: Test testScenarios
+// TODO: Create NPC list for opposition testing
+
 // Start game
 function startGame() {
   
