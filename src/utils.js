@@ -130,6 +130,15 @@ export function getRandomActors(teamSize)
 }
 
 
+// Handle Scenario-specific actions
+export function handleScenario(game)
+{
+    // Set opposition Actors to not playable
+    for (var i = 0; i < game.currentScenario.opposition.length; i++)
+        game.currentScenario.opposition[i].playable = false;
+}
+
+
 // Refresh teamDiv with updated Actors
 export function refreshTeamDiv(game)
 {
@@ -170,6 +179,8 @@ export function resetGame(game)
         game.teamActors[i].playable = true;
         game.teamActors[i].FAstrikes = 0;
     }
+
+    // Handle Scenario specific actions
 }
 
 

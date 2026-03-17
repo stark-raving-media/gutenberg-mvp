@@ -10,7 +10,8 @@ import {
   refreshActorsDiv,
   refreshTeamDiv,
   displayScenario,
-  resetGame
+  resetGame,
+  handleScenario
 } from './utils.js'
 
 // TODO: Test testScenarios
@@ -51,10 +52,8 @@ function startGame() {
   app.appendChild(rollBtn);
   app.appendChild(document.createElement('hr'));
 
-  // Set opposition Actors to not playable
-  for (var i = 0; i < game.currentScenario.opposition.length; i++)
-    //if (game.currentScenario.opposition[i].playable == true)
-      game.currentScenario.opposition[i].playable = false;
+  // Handle Scenario-specific actions
+  handleScenario(game);
 
   // Display team Actors
   const teamDiv = document.createElement('div');
