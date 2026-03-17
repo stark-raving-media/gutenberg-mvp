@@ -14,7 +14,8 @@ import {
 } from './utils.js'
 
 // TODO: Test testScenarios
-// TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false. On end, toggle back.)
+// TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false)
+// If scenario.opposition includes playable char, toggle playable to false
 // TODO: Add Book field to Scenario
 // Start game
 function startGame() {
@@ -39,17 +40,21 @@ function startGame() {
   app.appendChild(document.createElement('hr'));
 
   // Create test scenario div
-  const scenarioDiv = document.createElement('div');
-  scenarioDiv.id = 'scenario-div';
-  app.appendChild(scenarioDiv);
-  displayScenario(game.currentScenario);
-
-  app.appendChild(document.createElement('hr'));
+  // const scenarioDiv = document.createElement('div');
+  // scenarioDiv.id = 'scenario-div';
+  // app.appendChild(scenarioDiv);
+  // displayScenario(game.currentScenario);
+  // app.appendChild(document.createElement('hr'));
 
   // Create button for D20 roll
   const rollBtn = createRollBtn(20);
   app.appendChild(rollBtn);
   app.appendChild(document.createElement('hr'));
+
+  // Set opposition Actors to not playable
+  for (var i = 0; i < game.currentScenario.opposition.length; i++)
+    //if (game.currentScenario.opposition[i].playable == true)
+      game.currentScenario.opposition[i].playable = false;
 
   // Display team Actors
   const teamDiv = document.createElement('div');
@@ -73,6 +78,7 @@ function startGame() {
   const actorDiv = document.createElement('div');
   actorDiv.id = 'actor-stats';
   app.appendChild(actorDiv);
+
 
   // End game, reset
   resetGame(game);
