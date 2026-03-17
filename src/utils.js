@@ -99,14 +99,18 @@ export function displayScenario(scenario, div)
 // Fisher-Yates shuffle via geeksforgeeks.org
 export function getRandomActors(game)
 {
-        const shuffled = Object.entries(startingActors);
-        for (let i = shuffled.length - 1; i > 0; i--) 
-        {
-            const j = 
-                Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = 
-                [shuffled[j], shuffled[i]];
-        }
+    const playableActors = Object.fromEntries
+    (
+        Object.entries(startingActors).filter(([key, actor]) => actor.playable === true)
+    )
+    const shuffled = Object.entries(playableActors);
+    for (let i = shuffled.length - 1; i > 0; i--) 
+    {
+        const j = 
+            Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = 
+            [shuffled[j], shuffled[i]];
+    }
     
     // Return array of team's Actors
     return Object.values(Object.fromEntries(shuffled.slice(0, game.teamSize)));
