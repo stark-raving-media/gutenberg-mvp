@@ -15,9 +15,7 @@ import {
 } from './utils.js'
 
 // TODO: Test testScenarios
-// TODO: Handle actions for Scenarios (Ex: In Scen3, toggle Quixote playable to false)
-// If scenario.opposition includes playable char, toggle playable to false
-// TODO: Add Book field to Scenario
+
 // Start game
 function startGame() {
   

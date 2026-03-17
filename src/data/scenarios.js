@@ -9,6 +9,7 @@ export const testScenarios =
     (
         1,
         "The Yellow Beetle",
+        undefined,
         "The characters must escape 1976 San Francisco in the midst of an unlikely natural disaster. They've stolen a faded yellow VW Beetle from the docks, and if they find Renald, they intend to nab him off the street. The cops are closing in and the city is falling apart around them. Renald is somewhere in the Haight — he doesn't know they're coming and he doesn't know about the disaster yet. The Beetle has a quarter tank of gas.",
         "San Francisco, 1976. Late afternoon. The sky is the color of a bruise — purples and greens that don't belong together. The bay is pulling back from the shoreline in a way that makes no geological sense, exposing a quarter mile of wet black mud and the ribs of old ships. Somewhere south of Market, buildings are sinking — not collapsing, sinking, as if the ground underneath has become negotiable. The air smells like salt and ozone and hot transmission fluid. The yellow Beetle idles at a red light on Embarcadero, engine ticking, wipers going even though it isn't raining. Traffic is starting to panic. The light is not going to change.",
         [
@@ -47,6 +48,7 @@ export const testScenarios =
     (
         2,
         "The Alexi Extraction",
+        undefined,
         "A minor character from a forgotten novel about the Battle of Austerlitz — introduced in chapter 38, fated to die in chapter 42 — has learned of his death and contracted with the fleeing travelers from chapter 39 for a magical trinket that he believes will tear a warp in the marginalia and let him escape into a pastoral romance. Once activated, the trinket serves as a beacon. The characters have been contracted to prevent Alexi from crossing over, because a successful breach will send ripples across the literary metaverse — characters in adjacent texts will feel the seam open, immune systems will flare, and the structural integrity of both novels will degrade. Meanwhile, a Bookburner named Lisele Kade intends to exploit the breach at the moment the two worlds touch, holding it open long enough to bring an extraction team through and loot both novels clean.",
         "The margins of chapter 40, *The Forgotten Guns of Austerlitz*. December 2nd, 1805 — but the date is soft. The battlefield is half-rendered: cannon smoke drifts through sentences that haven't finished being written. To the east, the Pratzen Heights are sharp and historical, infantry advancing in formation, the prose dense and confident. To the west, the text is thinning. Between the paragraphs, wildflowers are pushing through — lavender, cornflower blue — colors that don't belong in a war novel. The air smells like gunpowder and fresh-cut hay simultaneously. Somewhere in the margins, a shepherd's pipe is playing a melody that no character in this book would know. The breach hasn't opened yet, but the two novels are already aware of each other. The page is sweating.",
         [
@@ -86,6 +88,7 @@ export const testScenarios =
     (
         3,
         "Thirteen Hundred Yards",
+        undefined,
         "The characters are walking along THE SHORE — a strange liminal place between worlds, where the sand is the color of old paper and the tide brings in fragments of sentences instead of shells. A man calling himself Sancho Panza approaches, worried. His travelling companion woke in the middle of the night and set off toward foggy lights in the dim mist further up the shore. Sancho warns the characters that his friend is prone to trouble and spectacle, but if they can retrieve him before he reaches the lights, Sancho will be in their debt. Dunwich is a mere 1300 yards up the beach. It should take no time at all.",
         "THE SHORE. No time. No date. The sand stretches in both directions without curvature, as if the beach were a page laid flat. The tide is out — far out — and the exposed seabed glistens with a faint iridescence, like oil on water or ink not yet dry. Behind the characters, the mist is warm and smells of hay and wine — Sancho's world bleeding into the margins. Ahead, the mist is cold. The fog thickens northward into something vertical, almost architectural. Thirteen hundred yards up the beach, lights pulse in the murk — not fire, not electricity, something slower and more deliberate, like bioluminescence or thought made visible. The sand underfoot transitions gradually: closest to Sancho it's golden and warm; further north it darkens to grey, then to a granular black that crunches like ash. Footprints lead north — large, confident, widely spaced. The stride of a tall man in a hurry. A broken lance tip is half-buried in the sand about two hundred yards out.",
         [

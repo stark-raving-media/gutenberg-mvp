@@ -5,6 +5,7 @@ export class Scenario
     (
         id,
         scenarioName,
+        bookEnv = undefined, // Book location
         description, // Scenario prompt
         scene, // current description
         situations = [],
@@ -18,6 +19,7 @@ export class Scenario
     {
         this.id = id,
         this.scenarioName = scenarioName,
+        this.bookEnv = bookEnv,
         this.description = description,
         this.scene = scene,
         this.situations = situations,
