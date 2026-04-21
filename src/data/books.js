@@ -5,7 +5,7 @@ export const originBooks =
 {
     lesMiserables:new Book
     (
-        'lesMiserables', // id
+        1, // id
         'Les Miserables',
         'Victor Hugo',
         1862,
@@ -14,7 +14,7 @@ export const originBooks =
     ),
     mobyDick: new Book
     (
-        'mobyDick', // id
+        2,
         'Moby Dick',
         'Herman Melville',
         1851,
@@ -23,7 +23,7 @@ export const originBooks =
     ),
     adventuresSherlock: new Book
     (
-        'adventuresSherlock', // id
+        3,
         'Adventures of Sherlock Holmes',
         'Arthur Conan Doyle',
         1892,
@@ -32,7 +32,7 @@ export const originBooks =
     ),
     prideAndPrejudice: new Book
     (
-        'prideAndPrejudice', // id
+        4, 
         'Pride and Prejudice',
         'Jane Austen',
         1813,
@@ -41,7 +41,7 @@ export const originBooks =
     ),
     odyssey: new Book
     (
-        'odyssey', // id
+        5,
         'The Odyssey',
         'Homer',
         -800,
@@ -50,7 +50,7 @@ export const originBooks =
     ),
     draculaBook: new Book
     (
-        'draculaBook', // id
+        6,
         'Dracula',
         'Bram Stoker',
         1897,
@@ -59,7 +59,7 @@ export const originBooks =
     ),
     christmasCarol: new Book
     (
-        'christmasCarol', // id
+        7,
         'A Christmas Carol',
         'Charles Dickens',
         1843,
@@ -68,7 +68,7 @@ export const originBooks =
     ),
     donQuixoteBook: new Book
     (
-        'donQuixoteBook', // id
+        8,
         'Don Quixote',
         'Miguel de Cervantes',
         1605,
@@ -77,7 +77,7 @@ export const originBooks =
     ),
     huckleberryFinnBook: new Book
     (
-        'huckleberryFinnBook', // id
+        9,
         'Adventures of Huckleberry Finn',
         'Mark Twain',
         1884,
@@ -86,7 +86,7 @@ export const originBooks =
     ),
     aliceInWonderland: new Book
     (
-        'aliceInWonderland', // id
+        10,
         "Alice's Adventures in Wonderland",
         'Lewis Carroll',
         1865,
@@ -95,7 +95,7 @@ export const originBooks =
     ),
     frankenstein: new Book
     (
-        'frankenstein', // id
+        11,
         'Frankenstein',
         'Mary Shelley',
         1818,
@@ -104,7 +104,7 @@ export const originBooks =
     ),
     treasureIsland: new Book
     (
-        'treasureIsland', // id
+        12,
         'Treasure Island',
         'Robert Louis Stevenson',
         1883,
@@ -113,7 +113,7 @@ export const originBooks =
     ),
     annaKareninaBook: new Book
     (
-        'annaKareninaBook', // id
+        13,
         'Anna Karenina',
         'Leo Tolstoy',
         1877,
@@ -122,7 +122,7 @@ export const originBooks =
     ),
     hamletBook: new Book
     (
-        'hamletBook', // id
+        14,
         'Hamlet',
         'William Shakespeare',
         1600,
@@ -131,7 +131,7 @@ export const originBooks =
     ),
     threeMusketeers: new Book
     (
-        'threeMusketeers', // id
+        15,
         'The Three Musketeers',
         'Alexandre Dumas',
         1844,
@@ -140,7 +140,7 @@ export const originBooks =
     ),
     crimeAndPunishment: new Book
     (
-        'crimeAndPunishment', // id
+        16,
         'Crime and Punishment',
         'Fyodor Dostoevsky',
         1866,
@@ -149,7 +149,7 @@ export const originBooks =
     ),
     theGreatGatsby: new Book
     (
-        'theGreatGatsby', // id
+        17,
         'The Great Gatsby',
         'F. Scott Fitzgerald',
         1925,
@@ -158,7 +158,7 @@ export const originBooks =
     ),
     beowulfBook: new Book
     (
-        'beowulfBook', // id
+        18,
         'Beowulf',
         'Unknown',
         1000,
@@ -167,7 +167,7 @@ export const originBooks =
     ),
     oneThousandNights: new Book
     (
-        'oneThousandNights', // id
+        19,
         'One Thousand and One Nights',
         'Unknown',
         900,
@@ -176,7 +176,7 @@ export const originBooks =
     ),
     scarletLetter: new Book
     (
-        'scarletLetter', // id
+        20,
         'The Scarlet Letter',
         'Nathaniel Hawthorne',
         1850,
@@ -185,7 +185,7 @@ export const originBooks =
     ),
     janeEyreBook: new Book
     (
-        'janeEyreBook', // id
+        21,
         'Jane Eyre',
         'Charlotte Bronte',
         1847,
