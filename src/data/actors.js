@@ -8,7 +8,7 @@ export const startingActors =
 {
     jeanValjean: new Actor
     (
-        'jeanValjean', // id
+        1, // id
         true,
         'Jean Valjean', // fullName
         'Valjean', // nickName
@@ -40,7 +40,7 @@ export const startingActors =
     ),
     captainAhab: new Actor
     (
-        'captainAhab', // id
+        2,
         true,
         'Captain Ahab', // fullName
         'Ahab',
@@ -72,7 +72,7 @@ export const startingActors =
     ),
     sherlockHolmes: new Actor
     (
-        'sherlockHolmes', // id
+        3,
         true,
         'Sherlock Holmes', // fullName
         'Holmes',
@@ -104,7 +104,7 @@ export const startingActors =
     ),
     elizabethBennet: new Actor
     (
-        'elizabethBennet', // id
+        4,
         true,
         'Elizabeth Bennet', // fullName
         'Lizzy',
@@ -136,7 +136,7 @@ export const startingActors =
     ),
     odysseus: new Actor
     (
-        'odysseus', // id
+        5,
         true,
         'Odysseus of Ithaca', // fullName
         'Odysseus',
@@ -168,7 +168,7 @@ export const startingActors =
     ),
     countDracula: new Actor
     (
-        'countDracula', // id
+        6,
         true,
         'Count Dracula', // fullName
         'Dracula',
@@ -200,7 +200,7 @@ export const startingActors =
     ),
     ebenezerScrooge: new Actor
     (
-        'ebenezerScrooge', // id
+        7,
         true,
         'Ebenezer Scrooge', // fullName
         'Scrooge',
@@ -232,7 +232,7 @@ export const startingActors =
     ),
     donQuixote: new Actor
     (
-        'donQuixote', // id
+        8,
         true,
         'Don Quixote', // fullName
         'Quixote',
@@ -264,7 +264,7 @@ export const startingActors =
     ),
     huckleberryFinn: new Actor
     (
-        'huckleberryFinn', // id
+        9,
         true,
         'Huckleberry Finn', // fullName
         'Huck',
@@ -296,7 +296,7 @@ export const startingActors =
     ),
     alice: new Actor
     (
-        'alice', // id
+        10,
         true,
         'Alice', // fullName
         'Alice',
@@ -328,7 +328,7 @@ export const startingActors =
     ),
     frankensteinMonster: new Actor
     (
-        'frankensteinMonster', // id
+        11,
         true,
         "Frankenstein’s Monster", // fullName
         'The Monster',
@@ -360,7 +360,7 @@ export const startingActors =
     ),
     longJohnSilver: new Actor
     (
-        'longJohnSilver', // id
+        12,
         true,
         'Long John Silver', // fullName
         'Silver',
@@ -392,7 +392,7 @@ export const startingActors =
     ),
     annaKarenina: new Actor
     (
-        'annaKarenina', // id
+        13,
         true,
         'Anna Karenina', // fullName
         'Anna',
@@ -424,7 +424,7 @@ export const startingActors =
     ),
     hamlet: new Actor
     (
-        'hamlet', // id
+        14,
         true,
         'Hamlet, Prince of Denmark ', // fullName
         'Hamlet',
@@ -456,7 +456,7 @@ export const startingActors =
     ),
     dArtagnan: new Actor
     (
-        'dArtagnan', // id
+        15,
         true,
         "Charles de Batz-Castelmore D’Artagnan", // fullName
         "D’Artagnan",
@@ -488,7 +488,7 @@ export const startingActors =
     ),
     raskolnikov: new Actor
     (
-        'raskolnikov', // id
+        16,
         true,
         'Rodion Romanovich Raskolnikov', // fullName
         'Raskolnikov',
@@ -520,7 +520,7 @@ export const startingActors =
     ),
     jayGatsby: new Actor
     (
-        'jayGatsby', // id
+        17,
         true,
         'James Gatz aka Gatsby', // fullName
         'Gatsby',
@@ -552,7 +552,7 @@ export const startingActors =
     ),
     beowulf: new Actor
     (
-        'beowulf', // id
+        18,
         true,
         'Beowulf of the Geats', // fullName
         'Beowulf',
@@ -584,7 +584,7 @@ export const startingActors =
     ),
     scheherazade: new Actor
     (
-        'scheherazade', // id
+        19,
         true,
         'Scheherazade', // fullName
         'Scheherazade',
@@ -616,7 +616,7 @@ export const startingActors =
     ),
     janeEyre: new Actor
     (
-        'janeEyre', // id
+        20,
         true,
         'Jane Eyre', // fullName
         'Jane',
@@ -649,7 +649,7 @@ export const startingActors =
     // Opposition Actors
     inspectorJavert: new Actor
     (
-        'inspectorJavert', // id
+        21,
         false,
         'Inspector Javert',
         'Javert',
@@ -681,7 +681,7 @@ export const startingActors =
     ),
     professorMoriarty: new Actor
     (
-        'professorMoriarty', // id
+        22,
         false,
         'Professor Moriarty',
         'Moriarty',
@@ -713,7 +713,7 @@ export const startingActors =
     ),
     liseleKade: new Actor
     (
-        'liseleKade', // id
+        23,
         false,
         'Lisele Kade',
         'Kade',
@@ -745,7 +745,7 @@ export const startingActors =
     ),
     alexiVolkov: new Actor
     (
-        'alexiVolkov', // id
+        24,
         false,
         'Alexi Volkov',
         'Alexi',
@@ -777,7 +777,7 @@ export const startingActors =
     ),
     wilburWhateley: new Actor
     (
-        'wilburWhateley', // id
+        25,
         false,
         'Wilbur Whateley',
         'Whateley',

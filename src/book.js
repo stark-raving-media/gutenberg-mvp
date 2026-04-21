@@ -9,7 +9,7 @@ export class Book
     year,
     //edition,
     //condition, // Book world health
-    FAFOrating, // 1 - 100, lower is harder
+    FAFOrating, // 1 - 500, lower is harder
     notes
   )
   {
