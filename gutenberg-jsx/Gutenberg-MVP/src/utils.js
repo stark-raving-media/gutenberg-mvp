@@ -18,31 +18,7 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 }
 
 
-// TODO: Convert to JSX
-// Create buttons for Actor stat pages
-export function ActorPageBtn({actor, game})
-{
-    const actorBtn = document.createElement('button');
-    actorBtn.innerHTML = '<img src="' + actor.icon 
-        + '" alt="' + actor.fullName + ' icon" width="100" height="100"><br>'
-        + actor.nickName;
 
-    // On click, display Actor stats in div
-    actorBtn.addEventListener('click', () => 
-    {
-      const actorDiv = document.getElementById('actor-stats');
-      displayActorStats(actor, actorDiv);
-    });
-
-    // On double-click, add/remove Actor to team
-    actorBtn.addEventListener('dblclick', () => 
-    //function handleClick()
-    {
-        toggleTeamActor(actor, game);
-    });   
-    return actorBtn;
-    //<button onDoubleClick={handleClick}></button>
-}
 
 
 
