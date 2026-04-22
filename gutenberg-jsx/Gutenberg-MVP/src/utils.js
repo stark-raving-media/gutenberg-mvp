@@ -18,34 +18,6 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 }
 
 
-
-
-
-// TODO: Convert to JSX
-// Display Actor stats in div
-export function displayActorStats(actor, div) 
-{
-  var statDisplay = '<hr> <h2>' + actor.nickName + '</h2>';
-  statDisplay += '<img src="' + actor.portrait + '" alt="' + actor.fullName + ' icon"><br>';
-  statDisplay += actor.fullName + ' - ' + actor.originBook.title +'<hr>';
-  var s = actor.details.stats;
-  var t = actor.details.traits;
-  statDisplay += 'STR: ' + s.strength;
-  statDisplay += ' DEX: ' + s.dexterity + '<br>';
-  statDisplay += 'CON: ' + s.constitution;
-  statDisplay += ' INT: ' + s.intelligence + '<br>';
-  statDisplay += 'WIS: ' + s.wisdom;
-  statDisplay += ' CHA: ' + s.charisma + '<hr>';
-  statDisplay += 'Game Savvy: ' + t.gameSavvy + ' --- ';
-  statDisplay += ' Honesty: ' + t.honesty + '<br>';
-  statDisplay += 'Verbosity: ' + t.verbosity + ' --- ';
-  statDisplay += ' Sensitivity: ' + t.sensitivity + '<hr>';
-  statDisplay += 'Aura: ' + actor.details.aura + '<hr>';
-
-  div.innerHTML = statDisplay;
-}
-
-
 // TODO: Convert to JSX
 // Display Scenario details
 export function displayScenario(scenario)
@@ -66,15 +38,17 @@ export function displayScenario(scenario)
     scenarioDiv.innerHTML = text;
 }
 
-// TODO: Check if update/refactor needed
+
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org
 export function getRandomActors(teamSize)
 {
-    const playableActors = Object.fromEntries
-    (
-        Object.entries(startingActors).filter(([key, actor]) => actor.playable === true)
-    )
+    // Filter Actors that can be chosen
+    const playableActors = Object.fromEntries(
+        Object.entries(startingActors).filter(
+            ([, actor]) => actor.playable === true))
+    
+    // Shuffle Actors array
     const shuffled = Object.entries(playableActors);
     for (let i = shuffled.length - 1; i > 0; i--) 
     {
@@ -99,13 +73,7 @@ export function handleScenario(game)
 }
 
 
-
-
-
-
-
-
-// Reset game on end 
+// Reset game on End Game 
 export function resetGame(game)
 {
     // Reset all played Actors
@@ -126,7 +94,7 @@ export function rollDie(sides = 20)
 };
 
 
-// TODO: Refactor for React?
+// TODO: DEPRECATED
 // Add/remove actor from team
 export function toggleTeamActor(actor, game)
 {
@@ -141,6 +109,6 @@ export function toggleTeamActor(actor, game)
     console.log(game.teamActors);
 
     // Refresh divs
-    refreshTeamDiv(game);
-    refreshActorsDiv(game);
+    // refreshTeamDiv(game);
+    // refreshActorsDiv(game);
 }

@@ -7,7 +7,6 @@ import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js'
 import { 
   attachPics, 
-//   createTeamPickBtn,
   getRandomActors,
 //   //displayScenario,
 //   resetGame,
@@ -15,6 +14,7 @@ import {
  } from './utils.js'
 import { 
   ActorsDiv,
+  ActorSheet,
   AutoPickTeamBtn,
   RollBtn, 
   TeamDiv 
@@ -35,8 +35,8 @@ function App() {
   const teamActors = getRandomActors(teamSize);
   const currentScenario = testScenarios.theYellowBeetle;
 
-  // Create new Game
-  //const game = new Game(playerName, teamSize, teamActors, currentScenario); 
+  // Set states
+  // New Game
   const [game, setGame] = useState(() =>
   {
     return new Game(
@@ -48,6 +48,9 @@ function App() {
   })
   console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
+
+  // Other state(s)
+  const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
 
   // Attach pictures and icons to actors
   attachPics(startingActors);
@@ -61,18 +64,6 @@ function App() {
 
   // Handle Scenario-specific actions
   handleScenario(game);
-
-//   // Create button for auto-choose new team
-//   const teamPickBtn = createTeamPickBtn(game);
-//   app.appendChild(teamPickBtn);
-  
-//   app.appendChild(document.createElement('hr'));
- 
-//   // Create Actor buttons
-//   const actorsDiv = document.createElement('div');
-//   actorsDiv.id = 'actors-div';
-//   app.appendChild(actorsDiv);
-//   refreshActorsDiv(game, startingActors);
 
 //   // Create div for Actor stats
 //   const actorDiv = document.createElement('div');
@@ -92,8 +83,11 @@ function App() {
             <RollBtn />
             <AutoPickTeamBtn game={game} setGame={setGame} />
             <hr />
-            <TeamDiv game={game} />
-            <ActorsDiv game={game} />
+            <TeamDiv game={game} setSelectedActor={setSelectedActor} />
+            <hr />
+            <ActorsDiv game={game} setSelectedActor={setSelectedActor} />
+            <hr />
+            <ActorSheet actor={selectedActor} />
         </div>
     );
 }

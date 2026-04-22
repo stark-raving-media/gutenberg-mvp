@@ -40,6 +40,39 @@ export function ActorsDiv({game})
     )
 }
 
+
+// Display Actor stats in div
+export function ActorSheet({actor}) 
+{
+    const s = actor.details.stats;
+    const t = actor.details.traits;
+    // TODO: Style this properly
+    return (
+        <div
+            id="actor-stats">
+            <hr />
+            <h2>{actor.nickName}</h2>
+            <img src={actor.portrait} alt={actor.fullname + 'portrait'} />
+            <br />
+            {actor.fullName} - {actor.originBook.title}
+            <hr />
+            STR: {s.strength} DEX: {s.dexterity}
+            <br />
+            CON: {s.constitution} INT: {s.intelligence}
+            <br />
+            WIS: {s.wisdom} CHA: {s.charisma}
+            <hr />
+            Game Savvy: {t.gameSavvy} --- Honesty: {t.honesty}
+            <br />
+            Verbosity: {t.verbosity} --- Sensitivity: {t.sensitivity}
+            <hr />
+            Aura: {actor.details.aura}
+            <hr />
+        </div>
+    )
+}
+
+
 // Actor Button Component
 export function ActorPageBtn({actor, game})
 {
@@ -48,22 +81,14 @@ export function ActorPageBtn({actor, game})
     {
         // TODO: Make this work (displayActorStats)
     }  
-    // actorBtn.addEventListener('click', () => 
-    // {
-    //   const actorDiv = document.getElementById('actor-stats');
-    //   displayActorStats(actor, actorDiv);
-    // });
     
+    // TODO: This is broken
     // On double-click, add/remove Actor to team
     function handleDblClick()
     {
         toggleTeamActor(actor, game);
     }
 
-    // const actorBtn = document.createElement('button');
-    // actorBtn.innerHTML = '<img src="' + actor.icon 
-    //     + '" alt="' + actor.fullName + ' icon" width="100" height="100"><br>'
-    //     + actor.nickName;
     return (
         <button 
             onClick={handleClick}
@@ -93,17 +118,7 @@ export function AutoPickTeamBtn({game, setGame})
             teamActors: getRandomActors(game.teamSize)
         })
     }
-    // const teamPickBtn = document.createElement('button');
-    // teamPickBtn.textContent = 'Auto-Choose Team of ' + game.teamSize;
-    // teamPickBtn.addEventListener('click', () =>
-    // {
-    //     game.teamActors = getRandomActors(game.teamSize);
-        
-    //     // Refresh divs
-    //     refreshTeamDiv(game);
-    //     refreshActorsDiv(game);
-    // });
-    //return teamPickBtn;
+
     return (
         <button onClick={handleClick}>
             Auto-Pick Team
