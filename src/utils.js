@@ -20,7 +20,7 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 
 // TODO: Convert to JSX
 // Create buttons for Actor stat pages
-export function createActorPageBtn(actor, game)
+export function ActorPageBtn({actor, game})
 {
     const actorBtn = document.createElement('button');
     actorBtn.innerHTML = '<img src="' + actor.icon 
@@ -36,13 +36,15 @@ export function createActorPageBtn(actor, game)
 
     // On double-click, add/remove Actor to team
     actorBtn.addEventListener('dblclick', () => 
+    //function handleClick()
     {
         toggleTeamActor(actor, game);
     });   
     return actorBtn;
+    //<button onDoubleClick={handleClick}></button>
 }
 
-// TODO: Convert to JSX
+
 // Create button for Die roll
 export function RollBtn({sides = 20}) 
 {
