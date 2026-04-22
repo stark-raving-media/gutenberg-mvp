@@ -1,0 +1,37 @@
+// Create Scenario class
+export class Scenario
+{
+    constructor
+    (
+        id,
+        scenarioName,
+        bookEnv = undefined, // Book location
+        description, // Scenario prompt
+        scene, // current description
+        situations = [],
+        currSituation, // int (Situation id)
+        mainObj, // main objective desc
+        secObj, // secondary obj desc
+        rules = [], // array of rules known to the player
+        hiddenRules = [], // array of rules not known to the player
+        opposition = [] // array of Actors
+    )
+    {
+        this.id = id,
+        this.scenarioName = scenarioName,
+        this.bookEnv = bookEnv,
+        this.description = description,
+        this.scene = scene,
+        this.situations = situations,
+        this.currSituation = currSituation,
+        this.mainObj = mainObj,
+        this.secObj = secObj,
+        this.rules = rules,
+        this.hiddenRules = hiddenRules,
+        this.opposition = opposition
+    }
+}
+// Situation Obj
+// id (number)
+// description
+// score
