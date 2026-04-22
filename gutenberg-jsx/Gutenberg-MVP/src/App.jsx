@@ -6,18 +6,18 @@ import './App.css'
 
 //import './style.css'
 import { Game } from './game.js'
-// import { startingActors } from './data/actors.js'
-// import { testScenarios } from './data/scenarios.js'
-// import { 
-//   attachPics, 
+ import { startingActors } from './data/actors.js'
+ import { testScenarios } from './data/scenarios.js'
+ import { 
+   attachPics, 
 //   createTeamPickBtn,
-//   getRandomActors,
+   getRandomActors,
 //   refreshActorsDiv,
 //   refreshTeamDiv,
 //   //displayScenario,
 //   resetGame,
-//   handleScenario
-// } from './utils.js'
+   handleScenario
+ } from './utils.js'
 import { RollBtn } from './utils.jsx'
 
 // TODO: Test testScenarios
@@ -29,19 +29,19 @@ function App() {
 // // Start game
 // function startGame() {
   
-//   // Game settings
-//   const playerName = '';
-//   const teamSize = 2
-//   const teamActors = getRandomActors(teamSize);
-//   const currentScenario = testScenarios.theYellowBeetle;
+  // Game settings
+  const playerName = '';
+  const teamSize = 2
+  const teamActors = getRandomActors(teamSize);
+  const currentScenario = testScenarios.theYellowBeetle;
 
-//   // Create new Game
-//   const game = new Game(playerName, teamSize, teamActors, currentScenario); 
-//   console.log('Team Actors:', game.teamActors);
-//   console.log('Starting new game...');
+  // Create new Game
+  const game = new Game(playerName, teamSize, teamActors, currentScenario); 
+  console.log('Team Actors:', game.teamActors);
+  console.log('Starting new game...');
 
-//   // Attach pictures and icons to actors
-//   attachPics(startingActors);
+  // Attach pictures and icons to actors
+  attachPics(startingActors);
 
 //   // Get main app div
 //   const app = document.getElementById('app');
@@ -55,13 +55,8 @@ function App() {
 //   // displayScenario(game.currentScenario);
 //   // app.appendChild(document.createElement('hr'));
 
-//   // Create button for D20 roll
-//   const rollBtn = RollBtn(20);
-//   app.appendChild(rollBtn);
-//   app.appendChild(document.createElement('hr'));
-
-//   // Handle Scenario-specific actions
-//   handleScenario(game);
+  // Handle Scenario-specific actions
+  handleScenario(game);
 
 //   // Display team Actors
 //   const teamDiv = document.createElement('div');
@@ -96,6 +91,8 @@ function App() {
   return (
         <div>
             <h1>Gutenberg MVP</h1>
+            <RollBtn />
+            <hr />
         </div>
     );
 }
