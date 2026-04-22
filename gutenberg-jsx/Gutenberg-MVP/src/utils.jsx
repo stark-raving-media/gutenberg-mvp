@@ -9,19 +9,8 @@ import {
 
 
 // Actor Choices Div Component (Display all Actors as ActorPageBtns)
-export function ActorsDiv({game})
+export function ActorsDiv({game, setSelectedActor})
 {
-    // var actorsDiv = document.getElementById('actors-div');
-    // actorsDiv.innerHTML = '';
-    // for (const actor of Object.values(startingActors)) 
-    // {
-    //     // If actor not in current team:
-    //     if (!game.teamActors.includes(actor) && actor.playable == true)
-    //     {
-    //         const actorBtn = ActorPageBtn(actor, game);
-    //         actorsDiv.appendChild(actorBtn);
-    //     }
-    // }
     var actorChoices = Object.values(startingActors)
                 .filter((actor) => !game.teamActors.includes(actor) && actor.playable == true)
                 .map((actor) =>
@@ -29,6 +18,7 @@ export function ActorsDiv({game})
                         key={actor.id}
                         actor={actor}
                         game={game}
+                        setSelectedActor={setSelectedActor}
                     />
                 )
 
@@ -41,7 +31,7 @@ export function ActorsDiv({game})
 }
 
 
-// Display Actor stats in div
+// Display selectedActor stats in div
 export function ActorSheet({actor}) 
 {
     const s = actor.details.stats;
@@ -74,12 +64,12 @@ export function ActorSheet({actor})
 
 
 // Actor Button Component
-export function ActorPageBtn({actor, game})
+export function ActorPageBtn({actor, game, setSelectedActor})
 {
     // On click, display Actor stats in div
     function handleClick()
     {
-        // TODO: Make this work (displayActorStats)
+        setSelectedActor(actor);
     }  
     
     // TODO: This is broken
@@ -140,25 +130,18 @@ export function RollBtn({sides = 20})
 
 
 // TeamDiv Component
-export function TeamDiv({game})
+export function TeamDiv({game , setSelectedActor})
 {
     return <div
         id="team-div">
         <h2>Your Team</h2>
         {game.teamActors.map((actor) =>
             <ActorPageBtn
-            key={actor.id}
-            actor={actor}
-            game={game}
+                key={actor.id}
+                actor={actor}
+                game={game}
+                setSelectedActor={setSelectedActor}
             />
         )}
         </div>
-    // var teamDiv = document.getElementById('team-div');
-    // teamDiv.innerHTML = '';
-    // teamDiv.innerHTML = '<h2>Your Team</h2>';
-    // for (var i = 0; i < game.teamActors.length; i++) 
-    // {
-    //     const actorBtn = ActorPageBtn(game.teamActors[i], game);
-    //     teamDiv.appendChild(actorBtn);
-    // }
 }
