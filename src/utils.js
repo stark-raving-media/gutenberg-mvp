@@ -5,12 +5,20 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 {
     for (const actor of Object.values(actors))
     {
-        actor.icon = iconPath + actor.id + iconType + '.webp';
-        actor.portrait = photoPath + actor.id + photoType + '.webp';
+        // Remove spaces or apostrophes from nickName
+        var name = actor.nickName
+            .replace(/['\u2019]/g, '')
+            .replace(/\s+/g, '')
+        //console.log(name);
+
+        // Build file paths
+        actor.icon = iconPath + name + iconType + '.webp';
+        actor.portrait = photoPath + name + photoType + '.webp';
     }
 }
 
 
+// TODO: Convert to JSX
 // Create buttons for Actor stat pages
 export function createActorPageBtn(actor, game)
 {
@@ -34,21 +42,25 @@ export function createActorPageBtn(actor, game)
     return actorBtn;
 }
 
-
+// TODO: Convert to JSX
 // Create button for Die roll
-export function createRollBtn(sides = 20) 
+export function createRollBtn({sides = 20}) 
 {
-    const rollBtn = document.createElement("button");
-    rollBtn.textContent = 'Roll D' + sides;
-    rollBtn.addEventListener('click', () => 
+    //const rollBtn = document.createElement("button");
+    //rollBtn.textContent = 'Roll D' + sides;
+    //rollBtn.addEventListener('click', () => 
+    // TODO: Make this more than an alert
+    function handleClick()
     {
       var result = rollDie(sides);
       alert('You rolled a ' + result + '!');
-    });
-    return rollBtn;
+    }//);
+    //return rollBtn;
+    return <button onClick={handleClick}>Roll D{sides}</button>
 }
 
 
+// TODO: Convert to JSX
 export function createTeamPickBtn(game)
 {
     const teamPickBtn = document.createElement('button');
@@ -65,6 +77,7 @@ export function createTeamPickBtn(game)
 }
 
 
+// TODO: Convert to JSX
 // Display Actor stats in div
 export function displayActorStats(actor, div) 
 {
@@ -89,6 +102,7 @@ export function displayActorStats(actor, div)
 }
 
 
+// TODO: Convert to JSX
 // Display Scenario details
 export function displayScenario(scenario)
 {
@@ -108,6 +122,7 @@ export function displayScenario(scenario)
     scenarioDiv.innerHTML = text;
 }
 
+// TODO: Check if update/refactor needed
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org
 export function getRandomActors(teamSize)
@@ -130,6 +145,7 @@ export function getRandomActors(teamSize)
 }
 
 
+// TODO: Check if update/refactor needed
 // Handle Scenario-specific actions
 export function handleScenario(game)
 {
@@ -139,6 +155,7 @@ export function handleScenario(game)
 }
 
 
+// TODO: Check if update/refactor needed
 // Refresh teamDiv with updated Actors
 export function refreshTeamDiv(game)
 {
@@ -153,6 +170,7 @@ export function refreshTeamDiv(game)
 }
 
 
+// TODO: Check if update/refactor needed
 // Refresh actorsDiv
 export function refreshActorsDiv(game)
 {
@@ -191,6 +209,7 @@ export function rollDie(sides = 20)
 };
 
 
+// TODO: Refactor for React?
 // Add/remove actor from team
 export function toggleTeamActor(actor, game)
 {

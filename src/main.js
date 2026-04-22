@@ -15,6 +15,7 @@ import {
 } from './utils.js'
 
 // TODO: Test testScenarios
+// TODO: Create character sheet w/ JSX Components
 
 // Start game
 function startGame() {
