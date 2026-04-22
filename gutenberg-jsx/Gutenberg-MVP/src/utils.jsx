@@ -5,7 +5,7 @@ import {
 } from "./utils";
 
 
-// Create buttons for Actor stat pages
+// Actor Button Component
 export function ActorPageBtn({actor, game})
 {
     // On click, display Actor stats in div
@@ -29,9 +29,6 @@ export function ActorPageBtn({actor, game})
     // actorBtn.innerHTML = '<img src="' + actor.icon 
     //     + '" alt="' + actor.fullName + ' icon" width="100" height="100"><br>'
     //     + actor.nickName;
-
-
-   
     return (
         <button 
             onClick={handleClick}
@@ -50,18 +47,39 @@ export function ActorPageBtn({actor, game})
 }
 
 
-// Create button for Die roll
+// RollBtn Component
 export function RollBtn({sides = 20}) 
 {
-    //const rollBtn = document.createElement("button");
-    //rollBtn.textContent = 'Roll D' + sides;
-    //rollBtn.addEventListener('click', () => 
     // TODO: Make this more than an alert
     function handleClick()
     {
       var result = rollDie(sides);
       alert('You rolled a ' + result + '!');
-    }//);
-    //return rollBtn;
+    }
     return <button onClick={handleClick}>Roll D{sides}</button>
+}
+
+
+// TeamDiv Component
+export function TeamDiv(game)
+{
+    return <div
+        id="team-div">
+        <h2>Your Team</h2>
+        {game.teamActors.map((actor) =>
+            <ActorPageBtn
+            key={actor.id}
+            actor={actor}
+            game={game}
+            />
+        )}
+        </div>
+    // var teamDiv = document.getElementById('team-div');
+    // teamDiv.innerHTML = '';
+    // teamDiv.innerHTML = '<h2>Your Team</h2>';
+    // for (var i = 0; i < game.teamActors.length; i++) 
+    // {
+    //     const actorBtn = ActorPageBtn(game.teamActors[i], game);
+    //     teamDiv.appendChild(actorBtn);
+    // }
 }

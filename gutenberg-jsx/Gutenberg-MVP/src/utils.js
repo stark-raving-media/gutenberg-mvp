@@ -18,12 +18,6 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 }
 
 
-
-
-
-
-
-
 // TODO: Convert to JSX
 export function createTeamPickBtn(game)
 {
@@ -119,19 +113,7 @@ export function handleScenario(game)
 }
 
 
-// TODO: Check if update/refactor needed
-// Refresh teamDiv with updated Actors
-export function refreshTeamDiv(game)
-{
-    var teamDiv = document.getElementById('team-div');
-    teamDiv.innerHTML = '';
-    teamDiv.innerHTML = '<h2>Your Team</h2>';
-    for (var i = 0; i < game.teamActors.length; i++) 
-    {
-        const actorBtn = ActorPageBtn(game.teamActors[i], game);
-        teamDiv.appendChild(actorBtn);
-    }
-}
+
 
 
 // TODO: Check if update/refactor needed
