@@ -44,7 +44,7 @@ export function createActorPageBtn(actor, game)
 
 // TODO: Convert to JSX
 // Create button for Die roll
-export function createRollBtn({sides = 20}) 
+export function RollBtn({sides = 20}) 
 {
     //const rollBtn = document.createElement("button");
     //rollBtn.textContent = 'Roll D' + sides;
