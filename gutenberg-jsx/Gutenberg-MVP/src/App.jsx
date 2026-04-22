@@ -9,14 +9,13 @@ import {
   attachPics, 
 //   createTeamPickBtn,
   getRandomActors,
-//   refreshActorsDiv,
-//   refreshTeamDiv,
 //   //displayScenario,
 //   resetGame,
   handleScenario
  } from './utils.js'
 import { 
   ActorsDiv,
+  AutoPickTeamBtn,
   RollBtn, 
   TeamDiv 
 } from './utils.jsx'
@@ -53,11 +52,6 @@ function App() {
   // Attach pictures and icons to actors
   attachPics(startingActors);
 
-//   // Get main app div
-//   const app = document.getElementById('app');
-//   //app.innerHTML = '<h1>Gutenberg MVP</h1>';
-//   app.appendChild(document.createElement('hr'));
-
 //   // Create test scenario div
 //   // const scenarioDiv = document.createElement('div');
 //   // scenarioDiv.id = 'scenario-div';
@@ -67,8 +61,6 @@ function App() {
 
   // Handle Scenario-specific actions
   handleScenario(game);
-
-
 
 //   // Create button for auto-choose new team
 //   const teamPickBtn = createTeamPickBtn(game);
@@ -98,6 +90,7 @@ function App() {
         <div>
             <h1>Gutenberg MVP</h1>
             <RollBtn />
+            <AutoPickTeamBtn game={game} setGame={setGame} />
             <hr />
             <TeamDiv game={game} />
             <ActorsDiv game={game} />

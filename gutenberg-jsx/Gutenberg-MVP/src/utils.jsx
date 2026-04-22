@@ -1,6 +1,8 @@
+
 import { startingActors } from "./data/actors";
 import { 
  //   displayActorStats,
+    getRandomActors,
     rollDie,
     toggleTeamActor 
 } from "./utils";
@@ -80,6 +82,34 @@ export function ActorPageBtn({actor, game})
     
 }
 
+
+// Auto-pick a new team (Button Component)
+export function AutoPickTeamBtn({game, setGame})
+{
+    function handleClick()
+    {
+        setGame({ 
+            ...game,
+            teamActors: getRandomActors(game.teamSize)
+        })
+    }
+    // const teamPickBtn = document.createElement('button');
+    // teamPickBtn.textContent = 'Auto-Choose Team of ' + game.teamSize;
+    // teamPickBtn.addEventListener('click', () =>
+    // {
+    //     game.teamActors = getRandomActors(game.teamSize);
+        
+    //     // Refresh divs
+    //     refreshTeamDiv(game);
+    //     refreshActorsDiv(game);
+    // });
+    //return teamPickBtn;
+    return (
+        <button onClick={handleClick}>
+            Auto-Pick Team
+        </button>
+    )
+}
 
 // RollBtn Component
 export function RollBtn({sides = 20}) 

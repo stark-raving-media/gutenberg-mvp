@@ -18,21 +18,7 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 }
 
 
-// TODO: Convert to JSX
-export function createTeamPickBtn(game)
-{
-    const teamPickBtn = document.createElement('button');
-    teamPickBtn.textContent = 'Auto-Choose Team of ' + game.teamSize;
-    teamPickBtn.addEventListener('click', () =>
-    {
-        game.teamActors = getRandomActors(game.teamSize);
-        
-        // Refresh divs
-        refreshTeamDiv(game);
-        refreshActorsDiv(game);
-    });
-    return teamPickBtn;
-}
+
 
 
 // TODO: Convert to JSX
