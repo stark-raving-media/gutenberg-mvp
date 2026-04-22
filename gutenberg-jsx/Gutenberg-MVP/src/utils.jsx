@@ -1,9 +1,42 @@
+import { startingActors } from "./data/actors";
 import { 
  //   displayActorStats,
     rollDie,
     toggleTeamActor 
 } from "./utils";
 
+
+// Actor Choices Div Component (Display all Actors as ActorPageBtns)
+export function ActorsDiv({game})
+{
+    // var actorsDiv = document.getElementById('actors-div');
+    // actorsDiv.innerHTML = '';
+    // for (const actor of Object.values(startingActors)) 
+    // {
+    //     // If actor not in current team:
+    //     if (!game.teamActors.includes(actor) && actor.playable == true)
+    //     {
+    //         const actorBtn = ActorPageBtn(actor, game);
+    //         actorsDiv.appendChild(actorBtn);
+    //     }
+    // }
+    var actorChoices = Object.values(startingActors)
+                .filter((actor) => !game.teamActors.includes(actor) && actor.playable == true)
+                .map((actor) =>
+                    <ActorPageBtn
+                        key={actor.id}
+                        actor={actor}
+                        game={game}
+                    />
+                )
+
+    return (
+        <div
+            id="actors-div">
+            {actorChoices}
+        </div>
+    )
+}
 
 // Actor Button Component
 export function ActorPageBtn({actor, game})
@@ -39,7 +72,8 @@ export function ActorPageBtn({actor, game})
                 width='100'
                 height='100'
             />
-            <br /> // TODO: Style this properly
+            <br /> 
+            {/*// TODO: Style this properly */}
             {actor.nickName}
         </button>
     )
@@ -61,7 +95,7 @@ export function RollBtn({sides = 20})
 
 
 // TeamDiv Component
-export function TeamDiv(game)
+export function TeamDiv({game})
 {
     return <div
         id="team-div">

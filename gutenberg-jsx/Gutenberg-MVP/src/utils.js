@@ -116,22 +116,7 @@ export function handleScenario(game)
 
 
 
-// TODO: Check if update/refactor needed
-// Refresh actorsDiv
-export function refreshActorsDiv(game)
-{
-    var actorsDiv = document.getElementById('actors-div');
-    actorsDiv.innerHTML = '';
-    for (const actor of Object.values(startingActors)) 
-    {
-        // If actor not in current team:
-        if (!game.teamActors.includes(actor) && actor.playable == true)
-        {
-            const actorBtn = ActorPageBtn(actor, game);
-            actorsDiv.appendChild(actorBtn);
-        }
-    }
-}
+
 
 
 // Reset game on end 

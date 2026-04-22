@@ -1,24 +1,25 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
-// import heroImg from './assets/hero.png'
+import { useState } from 'react'
 import './App.css'
 
 //import './style.css'
 import { Game } from './game.js'
- import { startingActors } from './data/actors.js'
- import { testScenarios } from './data/scenarios.js'
- import { 
-   attachPics, 
+import { startingActors } from './data/actors.js'
+import { testScenarios } from './data/scenarios.js'
+import { 
+  attachPics, 
 //   createTeamPickBtn,
-   getRandomActors,
+  getRandomActors,
 //   refreshActorsDiv,
 //   refreshTeamDiv,
 //   //displayScenario,
 //   resetGame,
-   handleScenario
+  handleScenario
  } from './utils.js'
-import { RollBtn } from './utils.jsx'
+import { 
+  ActorsDiv,
+  RollBtn, 
+  TeamDiv 
+} from './utils.jsx'
 
 // TODO: Test testScenarios
 // TODO: Create character sheet w/ JSX Components
@@ -36,7 +37,16 @@ function App() {
   const currentScenario = testScenarios.theYellowBeetle;
 
   // Create new Game
-  const game = new Game(playerName, teamSize, teamActors, currentScenario); 
+  //const game = new Game(playerName, teamSize, teamActors, currentScenario); 
+  const [game, setGame] = useState(() =>
+  {
+    return new Game(
+      playerName,
+      teamSize,
+      teamActors,
+      currentScenario
+    )
+  })
   console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
 
@@ -58,11 +68,7 @@ function App() {
   // Handle Scenario-specific actions
   handleScenario(game);
 
-//   // Display team Actors
-//   const teamDiv = document.createElement('div');
-//   teamDiv.id = 'team-div';
-//   app.appendChild(teamDiv);
-//   refreshTeamDiv(game);
+
 
 //   // Create button for auto-choose new team
 //   const teamPickBtn = createTeamPickBtn(game);
@@ -93,6 +99,8 @@ function App() {
             <h1>Gutenberg MVP</h1>
             <RollBtn />
             <hr />
+            <TeamDiv game={game} />
+            <ActorsDiv game={game} />
         </div>
     );
 }
