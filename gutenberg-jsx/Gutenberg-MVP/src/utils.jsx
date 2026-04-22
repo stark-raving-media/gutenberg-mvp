@@ -9,7 +9,7 @@ import {
 
 
 // Actor Choices Div Component (Display all Actors as ActorPageBtns)
-export function ActorsDiv({game, setSelectedActor})
+export function ActorsDiv({game, setGame, setSelectedActor})
 {
     var actorChoices = Object.values(startingActors)
                 .filter((actor) => !game.teamActors.includes(actor) && actor.playable == true)
@@ -18,6 +18,7 @@ export function ActorsDiv({game, setSelectedActor})
                         key={actor.id}
                         actor={actor}
                         game={game}
+                        setGame={setGame}
                         setSelectedActor={setSelectedActor}
                     />
                 )
@@ -64,7 +65,7 @@ export function ActorSheet({actor})
 
 
 // Actor Button Component
-export function ActorPageBtn({actor, game, setSelectedActor})
+export function ActorPageBtn({actor, game, setGame, setSelectedActor})
 {
     // On click, display Actor stats in div
     function handleClick()
@@ -72,11 +73,10 @@ export function ActorPageBtn({actor, game, setSelectedActor})
         setSelectedActor(actor);
     }  
     
-    // TODO: This is broken
     // On double-click, add/remove Actor to team
     function handleDblClick()
     {
-        toggleTeamActor(actor, game);
+        toggleTeamActor(actor, game, setGame);
     }
 
     return (
@@ -130,7 +130,7 @@ export function RollBtn({sides = 20})
 
 
 // TeamDiv Component
-export function TeamDiv({game , setSelectedActor})
+export function TeamDiv({game, setGame, setSelectedActor})
 {
     return <div
         id="team-div">
@@ -140,6 +140,7 @@ export function TeamDiv({game , setSelectedActor})
                 key={actor.id}
                 actor={actor}
                 game={game}
+                setGame={setGame}
                 setSelectedActor={setSelectedActor}
             />
         )}

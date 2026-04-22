@@ -74,14 +74,22 @@ export function handleScenario(game)
 
 
 // Reset game on End Game 
-export function resetGame(game)
+export function resetGame({game, setGame})
 {
     // Reset all played Actors
-    for (var i = 0; i < game.teamActors.length; i++)
-    {
-        game.teamActors[i].playable = true;
-        game.teamActors[i].FAstrikes = 0;
-    }
+    setGame({
+        ...game,
+        teamActors: game.teamActors.map((actor) => ({
+            ...actor,
+            playable: true,
+            FAstrikes: 0
+        }))
+    })
+    // for (var i = 0; i < game.teamActors.length; i++)
+    // {
+    //     game.teamActors[i].playable = true;
+    //     game.teamActors[i].FAstrikes = 0;
+    // }
 
     // Handle Scenario specific actions
 }
@@ -94,21 +102,27 @@ export function rollDie(sides = 20)
 };
 
 
-// TODO: DEPRECATED
 // Add/remove actor from team
-export function toggleTeamActor(actor, game)
+export function toggleTeamActor(actor, game, setGame)
 {
+    // If team includes actor, remove
     if (game.teamActors.includes(actor))
     {
-        game.teamActors.splice(game.teamActors.indexOf(actor), 1);
+        //game.teamActors.splice(game.teamActors.indexOf(actor), 1);
+        setGame({
+            ...game,
+            teamActors: game.teamActors.filter((a) => a != actor)
+        })
     }    
-
-    else
-        if (game.teamActors.length < game.teamSize)
-            game.teamActors.push(actor);
+    // Else add to team
+    else if (game.teamActors.length < game.teamSize)
+        //game.teamActors.push(actor);
+    {
+        setGame({
+            ...game,
+            teamActors: [...game.teamActors, actor]
+        })
+    }
+    
     console.log(game.teamActors);
-
-    // Refresh divs
-    // refreshTeamDiv(game);
-    // refreshActorsDiv(game);
 }

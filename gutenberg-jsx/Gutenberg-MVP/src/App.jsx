@@ -49,7 +49,7 @@ function App() {
   console.log('Team Actors:', game.teamActors);
   console.log('Starting new game...');
 
-  // Other state(s)
+  // Other states
   const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
 
   // Attach pictures and icons to actors
@@ -65,12 +65,6 @@ function App() {
   // Handle Scenario-specific actions
   handleScenario(game);
 
-//   // Create div for Actor stats
-//   const actorDiv = document.createElement('div');
-//   actorDiv.id = 'actor-stats';
-//   app.appendChild(actorDiv);
-
-
 //   // End game, reset
 //   resetGame(game);
 // };
@@ -83,9 +77,9 @@ function App() {
             <RollBtn />
             <AutoPickTeamBtn game={game} setGame={setGame} />
             <hr />
-            <TeamDiv game={game} setSelectedActor={setSelectedActor} />
+            <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
             <hr />
-            <ActorsDiv game={game} setSelectedActor={setSelectedActor} />
+            <ActorsDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
             <hr />
             <ActorSheet actor={selectedActor} />
         </div>
