@@ -85,13 +85,8 @@ export function resetGame({game, setGame})
             FAstrikes: 0
         }))
     })
-    // for (var i = 0; i < game.teamActors.length; i++)
-    // {
-    //     game.teamActors[i].playable = true;
-    //     game.teamActors[i].FAstrikes = 0;
-    // }
 
-    // Handle Scenario specific actions
+    // TODO: Handle Scenario specific actions
 }
 
 
@@ -108,7 +103,6 @@ export function toggleTeamActor(actor, game, setGame)
     // If team includes actor, remove
     if (game.teamActors.includes(actor))
     {
-        //game.teamActors.splice(game.teamActors.indexOf(actor), 1);
         setGame({
             ...game,
             teamActors: game.teamActors.filter((a) => a != actor)
@@ -116,7 +110,6 @@ export function toggleTeamActor(actor, game, setGame)
     }    
     // Else add to team
     else if (game.teamActors.length < game.teamSize)
-        //game.teamActors.push(actor);
     {
         setGame({
             ...game,

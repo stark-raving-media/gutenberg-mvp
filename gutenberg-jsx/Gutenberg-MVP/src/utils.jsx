@@ -1,7 +1,6 @@
 
 import { startingActors } from "./data/actors";
 import { 
- //   displayActorStats,
     getRandomActors,
     rollDie,
     toggleTeamActor 
@@ -115,6 +114,7 @@ export function AutoPickTeamBtn({game, setGame})
         </button>
     )
 }
+
 
 // RollBtn Component
 export function RollBtn({sides = 20}) 

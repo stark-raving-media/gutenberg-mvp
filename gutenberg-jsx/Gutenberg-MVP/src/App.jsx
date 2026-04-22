@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-
-//import './style.css'
 import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js'
 import { 
   attachPics, 
   getRandomActors,
-//   //displayScenario,
-//   resetGame,
+  //displayScenario,
+  //resetGame,
   handleScenario
  } from './utils.js'
 import { 
@@ -23,11 +21,11 @@ import {
 // TODO: Test testScenarios
 // TODO: Create character sheet w/ JSX Components
 
+// Start game
 function App() {
 
-
-// // Start game
-// function startGame() {
+  // Attach pictures and icons to actors
+  attachPics(startingActors);
   
   // Game settings
   const playerName = '';
@@ -35,6 +33,7 @@ function App() {
   const teamActors = getRandomActors(teamSize);
   const currentScenario = testScenarios.theYellowBeetle;
 
+  // TODO: Abstract to newGame()?
   // Set states
   // New Game
   const [game, setGame] = useState(() =>
@@ -52,9 +51,6 @@ function App() {
   // Other states
   const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
 
-  // Attach pictures and icons to actors
-  attachPics(startingActors);
-
 //   // Create test scenario div
 //   // const scenarioDiv = document.createElement('div');
 //   // scenarioDiv.id = 'scenario-div';
@@ -65,11 +61,9 @@ function App() {
   // Handle Scenario-specific actions
   handleScenario(game);
 
-//   // End game, reset
-//   resetGame(game);
-// };
-
-// startGame();
+  // TODO: Make End Game btn and/or trigger this at end of game
+  // End game, reset
+  //resetGame(game, setGame);
 
   return (
         <div>
