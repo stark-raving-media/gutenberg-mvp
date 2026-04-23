@@ -18,27 +18,6 @@ export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPh
 }
 
 
-// TODO: Convert to JSX
-// Display Scenario details
-export function displayScenario(scenario)
-{
-    const scenarioDiv = document.getElementById('scenario-div');
-    scenarioDiv.style.textAlign = 'left';
-    scenarioDiv.innerHTML = '';
-    var text = '<h2>' + scenario.scenarioName + '</h2>' + '<br>';
-    text += scenario.description + '<br></br>';
-    text += scenario.scene + '<br><br>';
-    text += 'Main Objective: ' + scenario.mainObj + '<br><br>';
-    text += 'Secondary Objective: ' + scenario.secObj + '<br><br>';
-    text += 'RULES:' + '<br><ul>';
-    for (var i = 0; i < scenario.rules.length; i++)
-    {
-        text += '<li>' + scenario.rules[i];
-    }
-    scenarioDiv.innerHTML = text;
-}
-
-
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org
 export function getRandomActors(teamSize)
@@ -67,6 +46,7 @@ export function getRandomActors(teamSize)
 // Handle Scenario-specific actions
 export function handleScenario(game)
 {
+    console.log('rules:', game.currentScenario.rules);
     // Set opposition Actors to not playable
     for (var i = 0; i < game.currentScenario.opposition.length; i++)
         game.currentScenario.opposition[i].playable = false;

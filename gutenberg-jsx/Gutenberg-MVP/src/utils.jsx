@@ -129,6 +129,42 @@ export function RollBtn({sides = 20})
 }
 
 
+// Display Scenario details
+export function Scenario({scenario})
+{
+    // const scenarioDiv = document.getElementById('scenario-div');
+    // scenarioDiv.style.textAlign = 'left';
+    // scenarioDiv.innerHTML = '';
+    // var text = '<h2>' + scenario.scenarioName + '</h2>' + '<br>';
+    // text += scenario.description + '<br></br>';
+    // text += scenario.scene + '<br><br>';
+    // text += 'Main Objective: ' + scenario.mainObj + '<br><br>';
+    // text += 'Secondary Objective: ' + scenario.secObj + '<br><br>';
+    // text += 'RULES:' + '<br><ul>';
+    // for (var i = 0; i < scenario.rules.length; i++)
+    // {
+    //     text += '<li>' + scenario.rules[i];
+    // }
+    // scenarioDiv.innerHTML = text;
+
+    return (
+        <div id="scenario-div" style={{textAlign: 'left'}}>
+            <h2>{scenario.scenarioName}</h2>
+            <p>{scenario.description}</p>
+            <p>{scenario.scene}</p>
+            <p>Main Objective: {scenario.mainObj}</p>
+            <p>Secondary Objective: {scenario.secObj}</p>
+            RULES:
+            <ul>
+                {scenario.rules.map((rule, index) =>
+                    <li key={index}>{rule}</li>
+                )}
+            </ul>
+        </div>
+    );
+}
+
+
 // TeamDiv Component
 export function TeamDiv({game, setGame, setSelectedActor})
 {

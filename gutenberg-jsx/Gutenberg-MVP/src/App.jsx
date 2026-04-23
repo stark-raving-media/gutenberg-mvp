@@ -15,6 +15,7 @@ import {
   ActorSheet,
   AutoPickTeamBtn,
   RollBtn, 
+  Scenario,
   TeamDiv 
 } from './utils.jsx'
 
@@ -50,7 +51,6 @@ function App() {
 
   // Other states
   const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
-
 //   // Create test scenario div
 //   // const scenarioDiv = document.createElement('div');
 //   // scenarioDiv.id = 'scenario-div';
@@ -68,6 +68,7 @@ function App() {
   return (
         <div>
             <h1>Gutenberg MVP</h1>
+            <Scenario scenario={game.currentScenario} />
             <RollBtn />
             <AutoPickTeamBtn game={game} setGame={setGame} />
             <hr />
