@@ -110,10 +110,12 @@ export function ActorPageBtn({actor, game, setGame, setSelectedActor})
     function handleDblClick()
     {
         toggleTeamActor(actor, game, setGame);
+        // TODO: If team is full, display alert
     }
 
     return (
         <button 
+            className="actor-btn"
             onClick={handleClick}
             onDoubleClick={handleDblClick}>
             <img 

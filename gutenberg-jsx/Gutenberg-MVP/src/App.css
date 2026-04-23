@@ -23,6 +23,32 @@ hr {
     border-color: var(--border);
 }
 
+/* Actor Buttons */
+.actor-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    margin: .25rem;
+}
+.actor-btn:hover {
+  opacity: 0.5;
+}
+
+.actor-btn:hover {
+    border-color: var(--accent);
+    background: var(--surface-raised);
+}
+
+.actor-btn img {
+    display: block;
+    border-radius: 2px;
+}
+
 /* ActorSheet */
 .actor-sheet {
   display: flex;
