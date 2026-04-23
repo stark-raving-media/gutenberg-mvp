@@ -168,14 +168,22 @@ export function RollBtn({sides = 20})
 export function Scenario({scenario})
 {
     return (
-        <div id="scenario-div" style={{textAlign: 'left'}}>
-            <h2>{scenario.scenarioName}</h2>
-            <p>{scenario.description}</p>
-            <p>{scenario.scene}</p>
-            <p>Main Objective: {scenario.mainObj}</p>
-            <p>Secondary Objective: {scenario.secObj}</p>
-            RULES:
-            <ul>
+        <div id="scenario-div">
+            <h2 className="scenario-name">{scenario.scenarioName}</h2>
+            <p className="scenario-scene">{scenario.scene}</p>
+            <p className="scenario-desc">{scenario.description}</p>
+            <div className="scenario-objectives">
+                <div className="scenario-obj">
+                    <p className="scenario-obj-label">Main Objective:</p>
+                    <p className="scenario-obj-text">{scenario.mainObj}</p>
+                </div>
+                <div className="scenario-obj">
+                    <p className="scenario-obj-label">Secondary Objective:</p>
+                    <p className="scenario-obj-text">{scenario.secObj}</p>
+                </div>
+            </div>   
+            <p className="scenario-rules-header">Rules</p>
+            <ul className="scenario-rules-list">
                 {scenario.rules.map((rule, index) =>
                     <li key={index}>{rule}</li>
                 )}
