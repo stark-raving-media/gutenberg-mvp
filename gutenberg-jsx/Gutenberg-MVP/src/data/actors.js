@@ -214,8 +214,8 @@ export const startingActors =
           {
               strength: 6,
               dexterity: 8,
-              constitution: 10,
-              intelligence: 14,
+              constitution: 6,
+              intelligence: 16,
               wisdom: 8,
               charisma: 4
           },

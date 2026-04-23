@@ -36,28 +36,62 @@ export function ActorSheet({actor})
 {
     const s = actor.details.stats;
     const t = actor.details.traits;
-    // TODO: Style this properly
+
     return (
-        <div
-            id="actor-stats">
-            <hr />
-            <h2>{actor.nickName}</h2>
-            <img src={actor.portrait} alt={actor.fullname + 'portrait'} />
-            <br />
-            {actor.fullName} - {actor.originBook.title}
-            <hr />
-            STR: {s.strength} DEX: {s.dexterity}
-            <br />
-            CON: {s.constitution} INT: {s.intelligence}
-            <br />
-            WIS: {s.wisdom} CHA: {s.charisma}
-            <hr />
-            Game Savvy: {t.gameSavvy} --- Honesty: {t.honesty}
-            <br />
-            Verbosity: {t.verbosity} --- Sensitivity: {t.sensitivity}
-            <hr />
-            Aura: {actor.details.aura}
-            <hr />
+        <div className="actor-sheet">
+            <div className="actor-portrait">
+                <img  src={actor.portrait} alt={actor.fullname + 'portrait'} />
+            </div>
+            <div className="actor-info">
+                <h2 className="actor-nickname">{actor.nickName}</h2>
+                <p className="actor-byline">
+                    {actor.fullName} - {actor.originBook.title}
+                </p>
+                <hr />
+                <div className="actor-stats">
+                    <div className="stat-box">
+                        <div className="actor-stat">
+                            <span className="stat-label">STR</span>
+                            <span className="stat-value">{s.strength}</span>
+                        </div>
+                        <div className="actor-stat">
+                            <span className="stat-label">DEX</span>
+                            <span className="stat-value">{s.dexterity}</span>
+                        </div>
+                        <div className="actor-stat">
+                            <span className="stat-label">CON</span>
+                            <span className="stat-value">{s.constitution}</span>
+                        </div>
+                    </div>
+                    <div className="stat-box">
+                        <div className="actor-stat">
+                            <span className="stat-label">INT</span>
+                            <span className="stat-value">{s.intelligence}</span>
+                        </div>
+                        <div className="actor-stat">
+                            <span className="stat-label">WIS</span>
+                            <span className="stat-value">{s.wisdom}</span>
+                        </div>
+                        <div className="actor-stat">
+                            <span className="stat-label">CHA</span>
+                            <span className="stat-value">{s.charisma}</span>
+                        </div>    
+                    </div> 
+                </div>
+                <hr />
+                <div className="actor-traits">
+                    <span className="stat-label">Game Savvy</span>
+                    <span className="stat-value">{t.gameSavvy}</span>
+                    <span className="stat-label">Honesty</span>
+                    <span className="stat-value">{t.honesty}</span>
+                    <span className="stat-label">Verbosity</span>
+                    <span className="stat-value">{t.verbosity}</span>
+                    <span className="stat-label">Sensitivity</span>
+                    <span className="stat-value">{t.sensitivity}</span>
+                </div>
+                <hr />
+                <p className="actor-aura">{actor.details.aura}</p>
+            </div>
         </div>
     )
 }
