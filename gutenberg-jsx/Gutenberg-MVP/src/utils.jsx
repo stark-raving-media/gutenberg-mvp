@@ -125,7 +125,6 @@ export function ActorPageBtn({actor, game, setGame, setSelectedActor})
                 height='100'
             />
             <br /> 
-            {/*// TODO: Style this properly */}
             {actor.nickName}
         </button>
     )
@@ -189,17 +188,27 @@ export function Scenario({scenario})
 // Display Actor buttons for current team
 export function TeamDiv({game, setGame, setSelectedActor})
 {
-    return <div
-        id="team-div">
-        <h2>Your Team</h2>
-        {game.teamActors.map((actor) =>
-            <ActorPageBtn
-                key={actor.id}
-                actor={actor}
-                game={game}
-                setGame={setGame}
-                setSelectedActor={setSelectedActor}
-            />
-        )}
+    return (
+        <div
+            id="team-div">
+            <h2 className="team-heading">
+                Your Team: {game.teamActors.length}/{game.teamSize}
+            </h2>
+            <p className="info">
+                Double-click to add or remove team members
+            </p>
+            <div>
+                {game.teamActors.map((actor) =>
+                <ActorPageBtn
+                    key={actor.id}
+                    actor={actor}
+                    game={game}
+                    setGame={setGame}
+                    setSelectedActor={setSelectedActor}
+                />
+                )}
+            </div>
+            <AutoPickTeamBtn game={game} setGame={setGame}/>
         </div>
+    )
 }

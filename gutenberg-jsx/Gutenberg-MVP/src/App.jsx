@@ -70,7 +70,6 @@ function App() {
             <h1>Gutenberg MVP</h1>
             <Scenario scenario={game.currentScenario} />
             <RollBtn />
-            <AutoPickTeamBtn game={game} setGame={setGame} />
             <hr />
             <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
             <hr />
