@@ -42,11 +42,9 @@ export function getRandomActors(teamSize)
 }
 
 
-// TODO: Check if update/refactor needed
 // Handle Scenario-specific actions
 export function handleScenario(game)
 {
-    console.log('rules:', game.currentScenario.rules);
     // Set opposition Actors to not playable
     for (var i = 0; i < game.currentScenario.opposition.length; i++)
         game.currentScenario.opposition[i].playable = false;

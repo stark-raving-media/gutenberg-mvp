@@ -116,7 +116,7 @@ export function AutoPickTeamBtn({game, setGame})
 }
 
 
-// RollBtn Component
+// Roll die with n-sides (Button Component)
 export function RollBtn({sides = 20}) 
 {
     // TODO: Make this more than an alert
@@ -132,21 +132,6 @@ export function RollBtn({sides = 20})
 // Display Scenario details
 export function Scenario({scenario})
 {
-    // const scenarioDiv = document.getElementById('scenario-div');
-    // scenarioDiv.style.textAlign = 'left';
-    // scenarioDiv.innerHTML = '';
-    // var text = '<h2>' + scenario.scenarioName + '</h2>' + '<br>';
-    // text += scenario.description + '<br></br>';
-    // text += scenario.scene + '<br><br>';
-    // text += 'Main Objective: ' + scenario.mainObj + '<br><br>';
-    // text += 'Secondary Objective: ' + scenario.secObj + '<br><br>';
-    // text += 'RULES:' + '<br><ul>';
-    // for (var i = 0; i < scenario.rules.length; i++)
-    // {
-    //     text += '<li>' + scenario.rules[i];
-    // }
-    // scenarioDiv.innerHTML = text;
-
     return (
         <div id="scenario-div" style={{textAlign: 'left'}}>
             <h2>{scenario.scenarioName}</h2>
@@ -165,7 +150,7 @@ export function Scenario({scenario})
 }
 
 
-// TeamDiv Component
+// Display Actor buttons for current team
 export function TeamDiv({game, setGame, setSelectedActor})
 {
     return <div

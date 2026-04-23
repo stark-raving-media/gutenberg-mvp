@@ -68,13 +68,13 @@ function App() {
   return (
         <div>
             <h1>Gutenberg MVP</h1>
-            <Scenario scenario={game.currentScenario} />
+            {/* <Scenario scenario={game.currentScenario} />
             <RollBtn />
             <AutoPickTeamBtn game={game} setGame={setGame} />
             <hr />
             <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
             <hr />
-            <ActorsDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
+            <ActorsDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} /> */}
             <hr />
             <ActorSheet actor={selectedActor} />
         </div>
