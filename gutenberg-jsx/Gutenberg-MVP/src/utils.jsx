@@ -177,15 +177,15 @@ export function Scenario({scenario})
             <p className="scenario-desc">{scenario.description}</p>
             <div className="scenario-objectives">
                 <div className="scenario-obj">
-                    <p className="scenario-obj-label">Main Objective:</p>
+                    <p className="scenario-label">Main Objective:</p>
                     <p className="scenario-obj-text">{scenario.mainObj}</p>
                 </div>
                 <div className="scenario-obj">
-                    <p className="scenario-obj-label">Secondary Objective:</p>
+                    <p className="scenario-label">Secondary Objective:</p>
                     <p className="scenario-obj-text">{scenario.secObj}</p>
                 </div>
             </div>   
-            <p className="scenario-rules-header">Rules</p>
+            <p className="scenario-label">Rules</p>
             <ul className="scenario-rules-list">
                 {scenario.rules.map((rule, index) =>
                     <li key={index}>{rule}</li>

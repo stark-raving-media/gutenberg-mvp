@@ -212,9 +212,9 @@ button:hover {
   flex: 1;
 }
 
-.scenario-obj-label {
+.scenario-label {
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     letter-spacing: 0.15em;
     color: var(--accent);
     text-transform: uppercase;
@@ -223,25 +223,17 @@ button:hover {
 
 .scenario-obj-text {
     color: var(--text);
+    font-size: 1.2 rem;
     line-height: 1.7;
     text-align: justify;
 }
 
 /* Scenario Rulebook */
-.scenario-rules-header {
-    font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 1.5rem 0 0.5rem 0;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--border);
-}
-
 .scenario-rules-list {
     list-style: none;
     margin: auto;
+    text-align: justify;
+    width: 65%;
 }
 
 .scenario-rules-list li {
@@ -250,7 +242,7 @@ button:hover {
     color: var(--text);
     line-height: 1.7;
     padding: 0.6rem 0;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
 }
 
 .scenario-rules-list li::before {
