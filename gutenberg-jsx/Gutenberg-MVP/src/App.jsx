@@ -14,6 +14,7 @@ import {
   ActorsDiv,
   ActorSheet,
   AutoPickTeamBtn,
+  PlayerInput,
   RollBtn, 
   Scenario,
   TeamDiv 
@@ -69,6 +70,9 @@ function App() {
         <div>
             <h1>Gutenberg MVP</h1>
             <Scenario scenario={game.currentScenario} />
+            <hr />
+            {/* // TODO: Change to API */}
+            <PlayerInput onSubmit={(text) => console.log(text)} /> 
             <hr />
             <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
             <hr />

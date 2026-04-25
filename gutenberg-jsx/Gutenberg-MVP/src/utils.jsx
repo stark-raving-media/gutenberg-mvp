@@ -1,4 +1,4 @@
-
+import { useState } from 'react'
 import { startingActors } from "./data/actors";
 import { 
     getRandomActors,
@@ -120,9 +120,9 @@ export function ActorPageBtn({actor, game, setGame, setSelectedActor})
             onDoubleClick={handleDblClick}>
             <img 
                 src={actor.icon} 
-                alt={actor.fullName + ' icon'} 
-                width='100'
-                height='100'
+                alt={actor.fullName + " icon"} 
+                width="100"
+                height="100"
             />
             <br /> 
             {actor.nickName}
@@ -152,7 +152,42 @@ export function AutoPickTeamBtn({game, setGame})
 
 
 // Take text input from the Player
+export function PlayerInput({placeholder = 'What do you do?', onSubmit})
+{
+    const [input, setInput] = useState(''); // Init local state
 
+    // Submit input if not empty
+    function handleSubmit()
+    {
+        if (input.trim() == '')
+            return;
+        
+        onSubmit(input);
+        setInput('');
+    }
+
+    // Handle Enter key submit
+    function handleKeyDown(e)
+    {
+        if (e.key == 'Enter')
+            handleSubmit();
+    }
+
+    return (
+        <div className="player-input">
+            <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)} // Update text as player types
+                onKeyDown={handleKeyDown} // Check if key press is Enter
+                placeholder={placeholder}
+            />
+            <button onClick={handleSubmit}>Submit</button>
+        </div>
+    )
+
+
+}
 
 // Roll die with n-sides (Button Component)
 export function RollBtn({sides = 20}) 
