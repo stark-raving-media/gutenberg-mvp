@@ -185,9 +185,35 @@ export function PlayerInput({placeholder = 'What do you do?', onSubmit})
             <button onClick={handleSubmit}>Submit</button>
         </div>
     )
-
-
 }
+
+
+// Display options for Player's turn
+export function PlayerTurnOptions({choices, onChoice})
+{
+    return (
+        <div className="turn-options">
+            {/* Display each generated choice as a button */}
+            <div className="choice-list">
+                {choices.map((choice, index) =>
+                    <button
+                        key={index}
+                        className="choice-btn"
+                        onClick={() => onChoice(choice)}
+                    >
+                        {choice}
+                    </button>
+                )}
+            </div>
+            {/* Box for alternate player input */}
+            <PlayerInput
+                placeholder="Or something else...?"
+                onSubmit={onChoice}
+            />
+        </div>
+    )
+}
+
 
 // Roll die with n-sides (Button Component)
 export function RollBtn({sides = 20}) 

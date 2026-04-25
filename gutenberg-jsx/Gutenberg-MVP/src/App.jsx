@@ -15,6 +15,7 @@ import {
   ActorSheet,
   AutoPickTeamBtn,
   PlayerInput,
+  PlayerTurnOptions,
   RollBtn, 
   Scenario,
   TeamDiv 
@@ -66,13 +67,16 @@ function App() {
   // End game, reset
   //resetGame(game, setGame);
 
+  // TEST CHOICES
+  var choices = ["A", "B", "C"];
   return (
         <div>
             <h1>Gutenberg MVP</h1>
             <Scenario scenario={game.currentScenario} />
             <hr />
             {/* // TODO: Change to API */}
-            <PlayerInput onSubmit={(text) => console.log(text)} /> 
+            {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
+            <PlayerTurnOptions choices={choices} onChoice={(choice) => console.log(choice)} />
             <hr />
             <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
             <hr />
