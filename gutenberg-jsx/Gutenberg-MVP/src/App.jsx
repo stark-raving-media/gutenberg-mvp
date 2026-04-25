@@ -68,7 +68,7 @@ function App() {
   //resetGame(game, setGame);
 
   // TEST CHOICES
-  var choices = ["A", "B", "C"];
+  var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];
   return (
         <div>
             <h1>Gutenberg MVP</h1>

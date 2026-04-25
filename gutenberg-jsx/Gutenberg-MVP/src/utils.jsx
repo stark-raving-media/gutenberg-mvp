@@ -7,6 +7,25 @@ import {
 } from "./utils";
 
 
+// Accordion Comp (Text display)
+export function AccordionSection({ label, children })
+{
+    const [open, setOpen] = useState(false);
+
+    return (
+        <div>
+            <button className="accordion-toggle" onClick={() => setOpen(!open)}>
+                {label} {open ? '▲' : '▼'}
+            </button>
+            {open &&
+                <div className="accordion-content">
+                    {children}
+                </div>
+            }
+        </div>
+    );
+}
+
 // Actor Choices Div Component (Display all Actors as ActorPageBtns)
 export function ActorsDiv({game, setGame, setSelectedActor})
 {
@@ -232,29 +251,53 @@ export function RollBtn({sides = 20})
 // Display Scenario details
 export function Scenario({scenario})
 {
+    // Objectives and Rules in accordion
     return (
         <div id="scenario-div">
             <h2 className="scenario-name">{scenario.scenarioName}</h2>
             <p className="scenario-scene">{scenario.scene}</p>
             <p className="scenario-desc">{scenario.description}</p>
-            <div className="scenario-objectives">
-                <div className="scenario-obj">
-                    <p className="scenario-label">Main Objective:</p>
+            <div className="scenario-accordion">
+                <AccordionSection label="Main Objective">
                     <p className="scenario-obj-text">{scenario.mainObj}</p>
-                </div>
-                <div className="scenario-obj">
-                    <p className="scenario-label">Secondary Objective:</p>
+                </AccordionSection>
+                <AccordionSection label="Secondary Objective">
                     <p className="scenario-obj-text">{scenario.secObj}</p>
-                </div>
-            </div>   
-            <p className="scenario-label">Rules</p>
-            <ul className="scenario-rules-list">
-                {scenario.rules.map((rule, index) =>
-                    <li key={index}>{rule}</li>
-                )}
-            </ul>
+                </AccordionSection>
+                <AccordionSection label="Rules">
+                    <ul className="scenario-rules-list">
+                        {scenario.rules.map((rule, index) =>
+                            <li key={index}>{rule}</li>
+                        )}
+                    </ul>
+                </AccordionSection>
+            </div>
         </div>
-    );
+    )
+    // OG, no accordion
+    // return (
+    //     <div id="scenario-div">
+    //         <h2 className="scenario-name">{scenario.scenarioName}</h2>
+    //         <p className="scenario-scene">{scenario.scene}</p>
+    //         <p className="scenario-desc">{scenario.description}</p>
+    //         <div className="scenario-objectives">
+    //             <div className="scenario-obj">
+    //                 <p className="scenario-label">Main Objective:</p>
+    //                 <p className="scenario-obj-text">{scenario.mainObj}</p>
+    //             </div>
+    //             <div className="scenario-obj">
+    //                 <p className="scenario-label">Secondary Objective:</p>
+    //                 <p className="scenario-obj-text">{scenario.secObj}</p>
+    //             </div>
+    //         </div>   
+    //         <p className="scenario-label">Rules</p>
+    //         <ul className="scenario-rules-list">
+    //             {scenario.rules.map((rule, index) =>
+    //                 <li key={index}>{rule}</li>
+    //             )}
+    //         </ul>
+    //     </div>
+    // );
 }
 
 
