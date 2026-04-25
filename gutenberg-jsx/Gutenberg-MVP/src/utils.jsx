@@ -204,12 +204,13 @@ export function PlayerTurnOptions({choices, onChoice})
                         {choice}
                     </button>
                 )}
-            </div>
+            
             {/* Box for alternate player input */}
             <PlayerInput
                 placeholder="Or something else...?"
                 onSubmit={onChoice}
             />
+            </div>
         </div>
     )
 }

@@ -157,6 +157,40 @@ button:hover {
     line-height: 1.6;
 }
 
+/* Choices Div */
+.turn-options
+{
+
+}
+
+.choice-list
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-input {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.player-input input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.4rem 1rem;
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+.player-input input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
 /* Team Div */
 #team-div {
     display: flex;
