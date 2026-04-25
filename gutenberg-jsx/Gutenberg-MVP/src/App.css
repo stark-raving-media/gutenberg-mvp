@@ -31,7 +31,7 @@ hr {
 button {
     background: var(--surface);
     border: 1px solid #8a7f72;
-    border-radius: 4px;
+    border-radius: 5px;
     padding: 0.4rem 1rem;
     cursor: pointer;
     color: var(--text);
@@ -54,20 +54,11 @@ button:hover {
 
 /* Actor Buttons */
 .actor-btn {
-    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 4px;
     padding: 0.5rem;
-    cursor: pointer;
-    color: var(--text);
-    font-family: 'EB Garamond', serif;
     font-size: 0.95rem;
     margin: .25rem;
 }
-/* .actor-btn:hover {
-  opacity: 0.5;
-} */
-
 .actor-btn:hover {
     border-color: var(--accent);
     background: var(--surface-raised);
@@ -196,17 +187,19 @@ button:hover {
 .scenario-desc {
     color: var(--text);
     line-height: 1.8;
-    margin-bottom: 1rem;
+    text-align: justify;
+    margin: 2rem;
 }
 
 .scenario-scene {
     color: var(--text-muted);
     font-style: italic;
     line-height: 1.8;
-    margin-bottom: 1rem;
+    margin: 1rem;
     padding: 1rem;
     border-left: 2px solid var(--accent);
     background: var(--bg);
+    text-align: justify;
 }
 
 .scenario-objectives {

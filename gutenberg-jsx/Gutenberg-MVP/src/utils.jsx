@@ -151,6 +151,9 @@ export function AutoPickTeamBtn({game, setGame})
 }
 
 
+// Take text input from the Player
+
+
 // Roll die with n-sides (Button Component)
 export function RollBtn({sides = 20}) 
 {
