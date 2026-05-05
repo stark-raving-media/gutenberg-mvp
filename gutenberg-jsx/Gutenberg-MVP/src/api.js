@@ -25,3 +25,31 @@ export async function callClaude(apiKey, messages, systemPrompt = '')
     const data = await response.json();
     return data.content[0].text;
 }
+
+
+// Parse Claude response
+export function parseJSON(raw)
+{
+    // Try to parse directly
+    try
+    {
+        return JSON.parse(raw);    
+    }
+    // Else use regex to extract from raw
+    catch
+    {
+        const match = raw.match(/\{[\s\S]*\}/);
+        if (match)
+        {
+            try
+            {
+                return JSON.parse(match[0]);
+            }
+            catch
+            {
+                throw new Error('Could not parse JSON: ' + raw);
+            }
+        }
+        throw new Error('No JSON found: ' + raw);
+    }
+}

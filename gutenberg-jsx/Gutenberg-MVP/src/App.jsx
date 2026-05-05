@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { callClaude } from './api.js'
+import { callClaude, parseJSON } from './api.js'
 import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js'
@@ -67,7 +67,7 @@ function App() {
   //resetGame(game, setGame);
 
   // Claude test
-  // TODO: DELETE THIS LATER
+  // TODO: DELETE THIS
   async function testClaude()
   {
       const response = await callClaude(
@@ -75,6 +75,16 @@ function App() {
           [{ role: 'user', content: 'Say hello in one sentence.' }]
       );
       console.log(response);
+
+      const raw = await callClaude(
+        apiKey,
+        [{ role: 'user', content: 'Return JSON only, no markdown: {"joke": string, "rating": number}. Tell me a joke and rate how funny you think it is.' }]
+    );
+    console.log('raw:', raw);
+    const parsed = parseJSON(raw);
+    console.log('parsed:', parsed);
+    console.log('joke:', parsed.joke);
+    console.log('rating:', parsed.rating);
   }
 
   // TEST CHOICES
