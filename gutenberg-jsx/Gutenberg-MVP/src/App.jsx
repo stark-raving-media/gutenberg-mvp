@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { callClaude } from './api.js'
 import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js'
@@ -25,6 +26,7 @@ import {
 // TODO: Test testScenarios
 // TODO: Create character sheet w/ JSX Components
 // TODO: Make Router views - Home, Scenario / TeamPick, GamePlay, 404
+// TODO: Make app.jsx "clean" - put main GameApp in its own file
 
 // Start game
 function App() {
@@ -56,25 +58,32 @@ function App() {
 
   // Other states
   const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
-//   // Create test scenario div
-//   // const scenarioDiv = document.createElement('div');
-//   // scenarioDiv.id = 'scenario-div';
-//   // app.appendChild(scenarioDiv);
-//   // displayScenario(game.currentScenario);
-//   // app.appendChild(document.createElement('hr'));
 
   // Handle Scenario-specific actions
   handleScenario(game);
 
-  // TODO: Make End Game btn and/or trigger this at end of game
+  // TODO: Make End Game btn (Quit) and/or trigger this at end of game
   // End game, reset
   //resetGame(game, setGame);
+
+  // Claude test
+  // TODO: DELETE THIS LATER
+  async function testClaude()
+  {
+      const response = await callClaude(
+          apiKey,
+          [{ role: 'user', content: 'Say hello in one sentence.' }]
+      );
+      console.log(response);
+  }
 
   // TEST CHOICES
   var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];
   return (
         <div>
             <h1>Gutenberg MVP</h1>
+            {/* Claude test (DELETE LATER) */}
+            <button onClick={testClaude}>Test Claude</button>
             {/* Ask for API Key, or show Game */}
             {!apiKey 
                 ? <APIKeyForm onSubmit={(key) => setApiKey(key)} />
