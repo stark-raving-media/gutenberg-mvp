@@ -151,6 +151,28 @@ export function ActorPageBtn({actor, game, setGame, setSelectedActor})
 }
 
 
+// Get Claude API key from the player
+export function APIKeyForm({ onSubmit })
+{
+    const [input, setInput] = useState('');
+
+    return (
+        <div className="api-key-form">
+            <p>Enter your Anthropic API key to continue:</p>
+            <div className="player-input">
+                <input
+                    type="password"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="sk-ant-..."
+                />
+                <button onClick={() => onSubmit(input)}>Start</button>
+            </div>
+        </div>
+    )
+}
+
+
 // Auto-pick a new team (Button Component)
 export function AutoPickTeamBtn({game, setGame})
 {

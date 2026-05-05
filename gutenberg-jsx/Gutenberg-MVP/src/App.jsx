@@ -13,6 +13,7 @@ import {
 import { 
   ActorsDiv,
   ActorSheet,
+  APIKeyForm,
   AutoPickTeamBtn,
   PlayerInput,
   PlayerTurnOptions,
@@ -23,6 +24,7 @@ import {
 
 // TODO: Test testScenarios
 // TODO: Create character sheet w/ JSX Components
+// TODO: Make Router views - Home, Scenario / TeamPick, GamePlay, 404
 
 // Start game
 function App() {
@@ -38,6 +40,7 @@ function App() {
 
   // TODO: Abstract to newGame()?
   // Set states
+  const [apiKey, setApiKey] = useState('');
   // New Game
   const [game, setGame] = useState(() =>
   {
@@ -72,18 +75,24 @@ function App() {
   return (
         <div>
             <h1>Gutenberg MVP</h1>
-            <Scenario scenario={game.currentScenario} />
-            <hr />
-            {/* // TODO: Change to API */}
-            {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
-            <PlayerTurnOptions choices={choices} onChoice={(choice) => console.log(choice)} />
-            <hr />
-            <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
-            <hr />
-            <ActorsDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
-            <hr />
-            <ActorSheet actor={selectedActor} />
-            <RollBtn />
+            {/* Ask for API Key, or show Game */}
+            {!apiKey 
+                ? <APIKeyForm onSubmit={(key) => setApiKey(key)} />
+                : <div>
+                    <Scenario scenario={game.currentScenario} />
+                    <hr />
+                    {/* // TODO: Change to API */}
+                    {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
+                    <PlayerTurnOptions choices={choices} onChoice={(choice) => console.log(choice)} />
+                    <hr />
+                    <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
+                    <hr />
+                    <ActorsDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
+                    <hr />
+                    <ActorSheet actor={selectedActor} />
+                    <RollBtn />
+                  </div>
+            }
         </div>
     );
 }
