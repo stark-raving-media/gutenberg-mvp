@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
 import { 
@@ -203,6 +204,19 @@ export function AutoPickTeamBtn()
             Auto-Pick Team
         </button>
     )
+}
+
+
+// Nav bar
+export function Nav()
+{
+    return (
+        <nav>
+            <Link to="/">Home</Link>
+            <Link to="/team-pick">Pick Team</Link>
+            <Link to="/gameplay">Gameplay</Link>
+        </nav>
+    );
 }
 
 
