@@ -164,10 +164,17 @@ export function ActorPageBtn({ actor })
 
 
 // Get Claude API key from the player
-export function APIKeyForm()
+export function APIKeyForm({ onSubmit })
 {
     const { setApiKey } = useContext(APIKeyContext);
     const [input, setInput] = useState('');
+
+    function handleSubmit()
+    {
+        setApiKey(input);
+        if (onSubmit)
+            onSubmit();
+    }
 
     return (
         <div className="api-key-form">
@@ -177,6 +184,7 @@ export function APIKeyForm()
                     type="password"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => e.key == 'Enter' && handleSubmit()}
                     placeholder="sk-ant-..."
                 />
                 <button onClick={() => setApiKey(input)}>Start</button>
@@ -213,7 +221,7 @@ export function Nav()
     return (
         <nav>
             <Link to="/">Home</Link>
-            <Link to="/team-pick">Pick Team</Link>
+            <Link to="/settings">Settings</Link>
             <Link to="/gameplay">Gameplay</Link>
         </nav>
     );

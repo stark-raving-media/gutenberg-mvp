@@ -7,7 +7,7 @@ import { testScenarios } from './data/scenarios.js'
 import { Nav } from './utils.jsx'
 import { getRandomActors } from './utils.js'
 import { Home } from './views/Home.jsx'
-import { TeamPick } from './views/TeamPick.jsx'
+import { Settings } from './views/Settings.jsx'
 import { Gameplay } from './views/Gameplay.jsx'
 import { NotFound } from './views/NotFound.jsx'
 
@@ -30,7 +30,7 @@ function App() {
             <Nav />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/team-pick" element={<TeamPick />} />
+                <Route path="/settings" element={<Settings />} />
                 <Route path="/gameplay" element={<Gameplay />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
