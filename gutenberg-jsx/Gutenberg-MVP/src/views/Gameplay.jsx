@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { callClaude, parseJSON } from '../api.js'
-import { GameContext, APIKeyContext, ActorContext } from '../context.js'
-import { Game } from '../game.js'
+import { GameContext, APIKeyContext } from '../context.js'
+//import { Game } from '../game.js'
 import { startingActors } from '../data/actors.js'
-import { testScenarios } from '../data/scenarios.js'
-import { attachPics, getRandomActors, handleScenario } from '../utils.js'
+//import { testScenarios } from '../data/scenarios.js'
+import { attachPics, handleScenario } from '../utils.js'
 import { 
     ActorsDiv,
     ActorSheet,
@@ -19,37 +19,40 @@ import {
 
 export function Gameplay()
 {
-    //return <h1>Gameplay</h1>
+    // Get context
+    const { game } = useContext(GameContext);
+    const { apiKey } = useContext(APIKeyContext);
+
     // Attach pictures and icons to actors
     attachPics(startingActors);
+
+    // Handle Scenario-specific actions
+    handleScenario(game);
     
     // Game settings
-    const playerName = '';
-    const teamSize = 2
-    const teamActors = getRandomActors(teamSize);
-    const currentScenario = testScenarios.theYellowBeetle;
+    // const playerName = '';
+    // const teamSize = 2
+    // const teamActors = getRandomActors(teamSize);
+    // const currentScenario = testScenarios.theYellowBeetle;
 
-    // TODO: Abstract to newGame()?
     // Set states
-    const [apiKey, setApiKey] = useState('');
+    //const [apiKey, setApiKey] = useState('');
+
     // New Game
-    const [game, setGame] = useState(() =>
-    {
-        return new Game(
-        playerName,
-        teamSize,
-        teamActors,
-        currentScenario
-        )
-    })
+    // const [game, setGame] = useState(() =>
+    // {
+    //     return new Game(
+    //     playerName,
+    //     teamSize,
+    //     teamActors,
+    //     currentScenario
+    //     )
+    // })
     console.log('Team Actors:', game.teamActors);
     console.log('Starting new game...');
 
     // Other states
-    const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
-
-    // Handle Scenario-specific actions
-    handleScenario(game);
+    //const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
 
     // TODO: Make End Game btn (Quit) and/or trigger this at end of game
     // End game, reset
@@ -78,17 +81,18 @@ export function Gameplay()
 
     // TEST CHOICES
     var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];
+    
     return (
-        <GameContext.Provider value={{ game, setGame }}>
-        <APIKeyContext.Provider value={{ apiKey, setApiKey }}>
-        <ActorContext.Provider value={{ selectedActor, setSelectedActor }}>
-            <div>
+        // <GameContext.Provider value={{ game, setGame }}>
+        // <APIKeyContext.Provider value={{ apiKey, setApiKey }}>
+        // <ActorContext.Provider value={{ selectedActor, setSelectedActor }}>
+             <div>
                 <h1>Gutenberg MVP</h1>
                 {/* Claude test (DELETE LATER) */}
                 <button onClick={testClaude}>Test Claude</button>
                 {/* Ask for API Key, or show Game */}
                 {!apiKey 
-                    ? <APIKeyForm onSubmit={(key) => setApiKey(key)} />
+                    ? <APIKeyForm />
                     : <div>
                         <Scenario scenario={game.currentScenario} />
                         <hr />
@@ -105,8 +109,8 @@ export function Gameplay()
                     </div>
                 }
             </div>
-        </ActorContext.Provider>  
-        </APIKeyContext.Provider>
-        </GameContext.Provider>
+        // </ActorContext.Provider>  
+        // </APIKeyContext.Provider>
+        // </GameContext.Provider>
     );
 }
