@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GameContext } from "../context";
 import { testScenarios } from "../data/scenarios";
+import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, TeamDiv } from "../utils.jsx";
 
 // Create display card for Scenario picker
 export function ScenarioCard({ scenario, onSelect, selected })
@@ -24,22 +25,30 @@ export function ScenarioCard({ scenario, onSelect, selected })
 export function ScenarioPicker()
 {
     const { game, setGame } = useContext(GameContext);
+    const [selectedScenario, setSelectedScenario] = useState(game.currentScenario);
 
     function handleSelect(scenario)
     {
+        setSelectedScenario(scenario);
         setGame({ ...game, currentScenario: scenario });
     }
 
     return (
-        <div className="scenario-picker">
-            {Object.values(testScenarios).map((scenario) =>
-                <ScenarioCard
-                    key={scenario.id}
-                    scenario={scenario}
-                    selected={game.currentScenario?.id === scenario.id}
-                    onSelect={handleSelect}
-                />
-            )}
+        <div>
+            <div className="scenario-picker">
+                {Object.values(testScenarios).map((scenario) =>
+                    <ScenarioCard
+                        key={scenario.id}
+                        scenario={scenario}
+                        selected={game.currentScenario?.id === scenario.id}
+                        onSelect={handleSelect}
+                    />
+                )}
+            </div>
+            {/* Display selected Scenario */}
+            {selectedScenario &&
+                <Scenario scenario={selectedScenario} />
+            }
         </div>
     )
 }
@@ -48,10 +57,35 @@ export function ScenarioPicker()
 // Choose Scenario and Team
 export function Settings()
 {
+    // Set up tabs
+    const [activeTab, setActiveTab] = useState('scenario');
+
     return (
-        <div>
-            <h1>Settings Test</h1>
-            <ScenarioPicker />
+        <div className="settings">
+            <div className="tab-bar">
+                <button 
+                    className={`tab-btn ${activeTab === 'scenario' ? 'tab-active' : ''}`}
+                    onClick={() => setActiveTab('scenario')}
+                >
+                    Scenario
+                </button>
+                <button 
+                    className={`tab-btn ${activeTab === 'team' ? 'tab-active' : ''}`}
+                    onClick={() => setActiveTab('team')}
+                >
+                    Team
+                </button>
+            </div>
+            <div className="tab-content">
+                {activeTab === 'scenario' && <ScenarioPicker />}
+                {activeTab === 'team' && 
+                    <div>
+                        <TeamDiv />
+                        <ActorsDiv />
+                        <ActorSheet />
+                    </div>
+                }
+            </div>
         </div>
-    )
+    );
 }

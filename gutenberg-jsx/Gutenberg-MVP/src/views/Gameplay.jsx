@@ -2,9 +2,9 @@ import { useContext } from 'react'
 import { callClaude, parseJSON } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 //import { Game } from '../game.js'
-import { startingActors } from '../data/actors.js'
+//import { startingActors } from '../data/actors.js'
 //import { testScenarios } from '../data/scenarios.js'
-import { attachPics, handleScenario } from '../utils.js'
+import { handleScenario } from '../utils.js'
 import { 
     ActorsDiv,
     ActorSheet,
@@ -24,7 +24,7 @@ export function Gameplay()
     const { apiKey } = useContext(APIKeyContext);
 
     // Attach pictures and icons to actors
-    attachPics(startingActors);
+    //attachPics(startingActors);
 
     // Handle Scenario-specific actions
     handleScenario(game);

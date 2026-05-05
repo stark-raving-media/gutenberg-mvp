@@ -339,3 +339,23 @@ button:hover {
     border-radius: 2px;
     margin-bottom: 0.5rem;
 }
+
+/* Tabs */
+.tab-bar {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem 1.5rem;
+}
+
+.tab-active {
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+}

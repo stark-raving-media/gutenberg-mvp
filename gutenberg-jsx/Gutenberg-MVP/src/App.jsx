@@ -5,11 +5,12 @@ import { GameContext, APIKeyContext, ActorContext } from './context.js'
 import { Game } from './game.js'
 import { testScenarios } from './data/scenarios.js'
 import { Nav } from './utils.jsx'
-import { getRandomActors } from './utils.js'
+import { attachPics, getRandomActors } from './utils.js'
 import { Home } from './views/Home.jsx'
 import { Settings } from './views/Settings.jsx'
 import { Gameplay } from './views/Gameplay.jsx'
 import { NotFound } from './views/NotFound.jsx'
+import { startingActors } from './data/actors.js'
 
 
 // TODO: Test testScenarios
@@ -17,6 +18,9 @@ import { NotFound } from './views/NotFound.jsx'
 
 // Start app
 function App() {
+
+    // Attach pictures and icons to actors
+    attachPics(startingActors);
 
     const [apiKey, setApiKey] = useState('');
     const [game, setGame] = useState(() => new Game('', 2, getRandomActors(2), testScenarios.theYellowBeetle));
