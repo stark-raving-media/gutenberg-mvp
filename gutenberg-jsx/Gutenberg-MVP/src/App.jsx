@@ -1,16 +1,10 @@
 import { useState } from 'react'
-import './App.css'
+
 import { callClaude, parseJSON } from './api.js'
 import { Game } from './game.js'
 import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js'
-import { 
-  attachPics, 
-  getRandomActors,
-  //displayScenario,
-  //resetGame,
-  handleScenario
- } from './utils.js'
+import { attachPics, getRandomActors, handleScenario } from './utils.js'
 import { 
   ActorsDiv,
   ActorSheet,
@@ -27,6 +21,7 @@ import {
 // TODO: Create character sheet w/ JSX Components
 // TODO: Make Router views - Home, Scenario / TeamPick, GamePlay, 404
 // TODO: Make app.jsx "clean" - put main GameApp in its own file
+// TODO: Set up Router views
 
 // Start game
 function App() {
@@ -90,6 +85,9 @@ function App() {
   // TEST CHOICES
   var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];
   return (
+      <GameContext.Provider value={{ game, setGame }}>
+      <APIKeyContext.Provider value={{ apiKey, setApiKey }}>
+      <ActorContext.Provider value={{ selectedActor, setSelectedActor }}>
         <div>
             <h1>Gutenberg MVP</h1>
             {/* Claude test (DELETE LATER) */}
@@ -104,15 +102,18 @@ function App() {
                     {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
                     <PlayerTurnOptions choices={choices} onChoice={(choice) => console.log(choice)} />
                     <hr />
-                    <TeamDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
+                    <TeamDiv />
                     <hr />
-                    <ActorsDiv game={game} setGame={setGame} setSelectedActor={setSelectedActor} />
+                    <ActorsDiv />
                     <hr />
-                    <ActorSheet actor={selectedActor} />
+                    <ActorSheet />
                     <RollBtn />
                   </div>
             }
         </div>
+      </ActorContext.Provider>  
+      </APIKeyContext.Provider>
+      </GameContext.Provider>
     );
 }
 

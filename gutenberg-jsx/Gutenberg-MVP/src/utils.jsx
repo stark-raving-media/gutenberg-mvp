@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
 import { 
     getRandomActors,
@@ -27,17 +28,21 @@ export function AccordionSection({ label, children })
 }
 
 // Actor Choices Div Component (Display all Actors as ActorPageBtns)
-export function ActorsDiv({game, setGame, setSelectedActor})
+export function ActorsDiv()
 {
+    // Get context
+    const { game } = useContext(GameContext);
+
+    // Fiter Actors to available options, make button for each
     var actorChoices = Object.values(startingActors)
                 .filter((actor) => !game.teamActors.includes(actor) && actor.playable == true)
                 .map((actor) =>
                     <ActorPageBtn
                         key={actor.id}
                         actor={actor}
-                        game={game}
-                        setGame={setGame}
-                        setSelectedActor={setSelectedActor}
+                        // game={game}
+                        // setGame={setGame}
+                        // setSelectedActor={setSelectedActor}
                     />
                 )
 
@@ -51,8 +56,10 @@ export function ActorsDiv({game, setGame, setSelectedActor})
 
 
 // Display selectedActor stats in div
-export function ActorSheet({actor}) 
+export function ActorSheet() 
 {
+    const { selectedActor } = useContext(ActorContext);
+    const actor = selectedActor;
     const s = actor.details.stats;
     const t = actor.details.traits;
 
@@ -117,8 +124,12 @@ export function ActorSheet({actor})
 
 
 // Actor Button Component
-export function ActorPageBtn({actor, game, setGame, setSelectedActor})
+export function ActorPageBtn({ actor })
 {
+    // Get context
+    const { game, setGame } = useContext(GameContext);
+    const { setSelectedActor } = useContext(ActorContext);
+
     // On click, display Actor stats in div
     function handleClick()
     {
@@ -152,8 +163,9 @@ export function ActorPageBtn({actor, game, setGame, setSelectedActor})
 
 
 // Get Claude API key from the player
-export function APIKeyForm({ onSubmit })
+export function APIKeyForm()
 {
+    const { setApiKey } = useContext(APIKeyContext);
     const [input, setInput] = useState('');
 
     return (
@@ -166,7 +178,7 @@ export function APIKeyForm({ onSubmit })
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="sk-ant-..."
                 />
-                <button onClick={() => onSubmit(input)}>Start</button>
+                <button onClick={() => setApiKey(input)}>Start</button>
             </div>
         </div>
     )
@@ -174,8 +186,10 @@ export function APIKeyForm({ onSubmit })
 
 
 // Auto-pick a new team (Button Component)
-export function AutoPickTeamBtn({game, setGame})
+export function AutoPickTeamBtn()
 {
+    const { game, setGame } = useContext(GameContext);
+
     function handleClick()
     {
         setGame({ 
@@ -324,8 +338,11 @@ export function Scenario({scenario})
 
 
 // Display Actor buttons for current team
-export function TeamDiv({game, setGame, setSelectedActor})
+export function TeamDiv()
 {
+    // Get context
+    const { game } = useContext(GameContext);
+    
     return (
         <div
             id="team-div">
@@ -340,13 +357,13 @@ export function TeamDiv({game, setGame, setSelectedActor})
                 <ActorPageBtn
                     key={actor.id}
                     actor={actor}
-                    game={game}
-                    setGame={setGame}
-                    setSelectedActor={setSelectedActor}
+                    // game={game}
+                    // setGame={setGame}
+                    // setSelectedActor={setSelectedActor}
                 />
                 )}
             </div>
-            <AutoPickTeamBtn game={game} setGame={setGame}/>
+            <AutoPickTeamBtn />
         </div>
     )
 }
