@@ -187,7 +187,7 @@ export function APIKeyForm({ onSubmit })
                     onKeyDown={(e) => e.key == 'Enter' && handleSubmit()}
                     placeholder="sk-ant-..."
                 />
-                <button onClick={() => setApiKey(input)}>Start</button>
+                <button onClick={() => setApiKey(handleSubmit)}>Start</button>
             </div>
         </div>
     )

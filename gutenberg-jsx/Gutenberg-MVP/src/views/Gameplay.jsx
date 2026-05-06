@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { callClaude, parseJSON } from '../api.js'
+import { callClaude, parseJSON, worldStateBlock } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 //import { Game } from '../game.js'
 //import { startingActors } from '../data/actors.js'
@@ -77,7 +77,10 @@ export function Gameplay()
         console.log('parsed:', parsed);
         console.log('joke:', parsed.joke);
         console.log('rating:', parsed.rating);
+
+        console.log(worldStateBlock(game));
     }
+
 
     // TEST CHOICES
     var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];

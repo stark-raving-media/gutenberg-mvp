@@ -53,3 +53,46 @@ export function parseJSON(raw)
         throw new Error('No JSON found: ' + raw);
     }
 }
+
+
+// 
+export function worldStateBlock(game)
+{
+    // Text block w/ team Actor details
+    const team = game.teamActors.map((actor) =>
+        `${actor.fullName} (${actor.originBook.title})
+        STR ${actor.details.stats.strength} DEX ${actor.details.stats.dexterity} CON ${actor.details.stats.constitution}
+        INT ${actor.details.stats.intelligence} WIS ${actor.details.stats.wisdom} CHA ${actor.details.stats.charisma}
+        Aura: ${actor.details.aura}`
+    ).join('\n\n');
+console.log(game.currentScenario.opposition);
+    const opposition = game.currentScenario.opposition.map((actor) =>
+        `${actor.fullName} (${actor.originBook.title})`
+    ).join('\n');
+    
+
+    const scenario = game.currentScenario;
+    const currentSituation = scenario.situations[scenario.currSituation];
+
+
+    // Build block with Scenario & team details 
+    return `
+        SCENARIO: ${scenario.scenarioName}
+        DESCRIPTION: ${scenario.description}
+        CURRENT SCENE: ${scenario.scene}
+        CURRENT SITUATION: ${currentSituation ? currentSituation.description : 'None'}
+        ROUND: ${game.round ?? 1}
+
+        MAIN OBJECTIVE: ${scenario.mainObj}
+        SECONDARY OBJECTIVE: ${scenario.secObj}
+
+        VISIBLE RULES:
+        ${scenario.rules.join('\n')}
+
+        PLAYER TEAM:
+        ${team}
+
+        OPPOSITION: 
+        ${opposition}
+            `.trim();
+}

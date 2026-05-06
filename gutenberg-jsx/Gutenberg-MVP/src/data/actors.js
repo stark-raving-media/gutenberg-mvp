@@ -685,7 +685,7 @@ export const startingActors =
         false,
         'Professor Moriarty',
         'Moriarty',
-        originBooks.sherlockHolmes,
+        originBooks.adventuresSherlock,
         undefined,
         undefined,
         undefined,
