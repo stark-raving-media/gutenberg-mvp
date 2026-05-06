@@ -17,7 +17,7 @@ import {
 export function Gameplay()
 {
     // Get context
-    const { game } = useContext(GameContext);
+    const { game, setGame } = useContext(GameContext);
     const { apiKey } = useContext(APIKeyContext);
 
     // Handle Scenario-specific actions
@@ -47,7 +47,36 @@ export function Gameplay()
     // TODO: Delete hard-coded test, replace with actual choices
     // TEST CHOICES
     var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];
-    
+    // Update Game after player's choice of next move
+    async function handleChoice(choice)
+    {
+        // Test
+        console.log('choice:' + choice);
+        const result = await resolve(apiKey, game, choice);
+        console.log('result:', result);
+
+        setGame(
+        {
+                ...game,
+                round: game.round + 1,
+                situationScore: result.mainObjscore,
+                secObjPassed: result.secObjPassed,
+                done: result.done,
+                outcome: result.outcome,
+                roundHistory: [...game.roundHistory, result.narration],
+                currentScenario:
+                {
+                    ...game.currentScenario,
+                    situations:
+                    [
+                        ...game.currentScenario.situations,
+                        { description: result.currentSituation }
+                    ],
+                    currentSituation: game.currentScenario.situations.length
+                }
+        })
+    }
+
     return (
         <div>
             <h1>Gutenberg MVP</h1>
@@ -61,7 +90,7 @@ export function Gameplay()
                     <hr />
                     {/* // TODO: Change to API */}
                     {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
-                    <PlayerTurnOptions choices={choices} onChoice={(choice) => console.log(choice)} />
+                    <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
                     <hr />
                     <TeamDiv />
                     <hr />
