@@ -124,7 +124,8 @@ export async function resolve(apiKey, game, playerIntent)
             "mainObjScore": "number 0-100",
             "secObjPassed": "boolean",
             "done": "boolean — true if mission is complete or failed",
-            "outcome": "string or null — only if done is true"
+            "outcome": "string or null — only if done is true",
+
         }`;
 
     const raw = await callClaude(

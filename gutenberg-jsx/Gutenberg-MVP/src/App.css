@@ -200,7 +200,6 @@ button:hover {
 
 /* Rounds Div */
 .round-history {
-    max-width: 700px;
     margin: 1rem auto;
     display: flex;
     flex-direction: column;
@@ -212,6 +211,21 @@ button:hover {
     line-height: 1.8;
     margin: 0;
     white-space: pre-wrap; 
+}
+
+.round-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+.loading-text {
+    font-family: 'Cinzel', serif;
+    color: var(--accent);
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.1em;
 }
 
 /* Scenario Page */

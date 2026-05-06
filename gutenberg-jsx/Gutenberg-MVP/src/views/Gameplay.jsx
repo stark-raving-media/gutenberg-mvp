@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { callClaude, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 import { handleScenario } from '../utils.js'
@@ -60,6 +60,8 @@ export function Gameplay()
     // Update Game after player's choice of next move
     async function handleChoice(choice)
     {
+        setLoading(true);
+
         console.log('choice:' + choice);
         const result = await resolve(apiKey, game, choice);
         console.log('result:', result);
@@ -84,6 +86,8 @@ export function Gameplay()
                     currentSituation: game.currentScenario.situations.length
                 }
         })
+
+        setLoading(false);
     }
 
     return (
@@ -100,13 +104,10 @@ export function Gameplay()
                     {/* // TODO: Change to API */}
                     {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
                     <RoundHistory />
-                    <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
-                    <hr />
-                    <TeamDiv />
-                    <hr />
-                    <ActorsDiv />
-                    <hr />
-                    <ActorSheet />
+                    {loading 
+                        ? <p className="loading-text">Your fate is being decided...</p>
+                        : <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
+                    }
                     <RollBtn />
                 </div>
             }
