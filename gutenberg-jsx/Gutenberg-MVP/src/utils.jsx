@@ -41,9 +41,6 @@ export function ActorsDiv()
                     <ActorPageBtn
                         key={actor.id}
                         actor={actor}
-                        // game={game}
-                        // setGame={setGame}
-                        // setSelectedActor={setSelectedActor}
                     />
                 )
 
@@ -332,30 +329,6 @@ export function Scenario({scenario})
             </div>
         </div>
     )
-    // OG, no accordion
-    // return (
-    //     <div id="scenario-div">
-    //         <h2 className="scenario-name">{scenario.scenarioName}</h2>
-    //         <p className="scenario-scene">{scenario.scene}</p>
-    //         <p className="scenario-desc">{scenario.description}</p>
-    //         <div className="scenario-objectives">
-    //             <div className="scenario-obj">
-    //                 <p className="scenario-label">Main Objective:</p>
-    //                 <p className="scenario-obj-text">{scenario.mainObj}</p>
-    //             </div>
-    //             <div className="scenario-obj">
-    //                 <p className="scenario-label">Secondary Objective:</p>
-    //                 <p className="scenario-obj-text">{scenario.secObj}</p>
-    //             </div>
-    //         </div>   
-    //         <p className="scenario-label">Rules</p>
-    //         <ul className="scenario-rules-list">
-    //             {scenario.rules.map((rule, index) =>
-    //                 <li key={index}>{rule}</li>
-    //             )}
-    //         </ul>
-    //     </div>
-    // );
 }
 
 
@@ -379,9 +352,6 @@ export function TeamDiv()
                 <ActorPageBtn
                     key={actor.id}
                     actor={actor}
-                    // game={game}
-                    // setGame={setGame}
-                    // setSelectedActor={setSelectedActor}
                 />
                 )}
             </div>

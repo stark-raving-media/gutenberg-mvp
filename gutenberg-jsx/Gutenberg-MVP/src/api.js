@@ -74,8 +74,7 @@ export function worldStateBlock(game)
     const scenario = game.currentScenario;
     const currentSituation = scenario.situations[scenario.currSituation];
 
-
-    // Build block with Scenario & team details 
+    // Build text block with Scenario & team details 
     return `
         SCENARIO: ${scenario.scenarioName}
         DESCRIPTION: ${scenario.description}
@@ -105,28 +104,28 @@ export function worldStateBlock(game)
 export async function resolve(apiKey, game, playerIntent)
 {
     const systemPrompt = 
-`You are the GM of a literary tactical narrative game called the Gutenberg Engine.
-You narrate what happens when the player's team takes action inside a book world.
-The player's team are literary characters from public domain texts operating inside another book's world.
-Math and dice are handled by the browser. Your job is narration and world state updates only.
-Never invent dice rolls or override the player's stated intent.
-Always return valid JSON only. No markdown, no preamble.`;
+        `You are the GM of a literary tactical narrative game called the Gutenberg Engine.
+        You narrate what happens when the player's team takes action inside a book world.
+        The player's team are literary characters from public domain texts operating inside another book's world.
+        Math and dice are handled by the browser. Your job is narration and world state updates only.
+        Never invent dice rolls or override the player's stated intent.
+        Always return valid JSON only. No markdown, no preamble.`;
 
     const prompt = 
-`${worldStateBlock(game)}
+        `${worldStateBlock(game)}
 
-PLAYER INTENT: ${playerIntent}
+        PLAYER INTENT: ${playerIntent}
 
-Respond with JSON only:
-{
-    "narration": "string — what happens this round, 2-4 paragraphs",
-    "currentSituation": "string — updated situation description, present tense",
-    "situationScore": "number 0-100, current mission health",
-    "mainObjScore": "number 0-100",
-    "secObjPassed": "boolean",
-    "done": "boolean — true if mission is complete or failed",
-    "outcome": "string or null — only if done is true"
-}`;
+        Respond with JSON only:
+        {
+            "narration": "string — what happens this round, 2-4 paragraphs",
+            "currentSituation": "string — updated situation description, present tense",
+            "situationScore": "number 0-100, current mission health",
+            "mainObjScore": "number 0-100",
+            "secObjPassed": "boolean",
+            "done": "boolean — true if mission is complete or failed",
+            "outcome": "string or null — only if done is true"
+        }`;
 
     const raw = await callClaude(
         apiKey,
