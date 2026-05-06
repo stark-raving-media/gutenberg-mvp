@@ -131,6 +131,7 @@ export function worldStateBlock(game)
 // Build text prompt for Claude API call
 export async function resolve(apiKey, game, playerIntent)
 {
+    // Basic prompt
     const systemPrompt = 
         `You are the GM of a literary tactical narrative game called the Gutenberg Engine.
         You narrate what happens when the player's team takes action inside a book world.
@@ -139,6 +140,15 @@ export async function resolve(apiKey, game, playerIntent)
         Never invent dice rolls or override the player's stated intent.
         Always return valid JSON only. No markdown, no preamble.`;
 
+    // Loquacity Setting
+    const loquacitySetting = 
+    {
+        "Short": "2 short paragraphs, 2 sentences each",
+        "Standard": "3-4 short paragraphs, 2-3 sentences each",
+        "Wordy": "4-5 paragraphs, 3-4 sentences each"
+    }
+    const narrationLength = loquacitySetting[game.loquacity] || loquacitySetting["Standard"];
+
     const prompt = 
         `${worldStateBlock(game)}
 
@@ -146,14 +156,14 @@ export async function resolve(apiKey, game, playerIntent)
 
         Respond with JSON only:
         {
-            "narration": "string — what happens this round, 3-4 short paragraphs separated by \\n\\n, each paragraph 2-3 sentences maximum"
+            "narration": "string — what happens this round, ${narrationLength}, paragraphs separated by \\n\\n",
             "currentSituation": "string — updated situation description, present tense",
             "situationScore": "number 0-100, current mission health",
             "mainObjScore": "number 0-100",
             "secObjPassed": "boolean",
             "done": "boolean — true if mission is complete or failed",
             "outcome": "string or null — only if done is true",
-            "choices": "array of 3 strings, 8 words or fewer - possible actions for the player this round, specific to the current situation"
+            "choices": "array of exactly 3 strings, 8 words or fewer - possible actions for the player this round, specific to the current situation"
         }`;
 
     const raw = await callClaude(

@@ -198,6 +198,41 @@ button:hover {
     border-color: var(--accent);
 }
 
+.options-tab {
+    padding: 1rem;
+    max-width: 500px;
+}
+
+.option-group {
+    margin-bottom: 1.5rem;
+}
+
+.option-label {
+    font-family: 'Cinzel', serif;
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 0.25rem 0;
+}
+
+.option-desc {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.option-btns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.option-active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 /* Rounds Div */
 .round-choice {
     color: var(--accent);

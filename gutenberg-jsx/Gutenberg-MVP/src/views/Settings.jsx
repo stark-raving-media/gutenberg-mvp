@@ -3,6 +3,39 @@ import { GameContext } from "../context";
 import { testScenarios } from "../data/scenarios";
 import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, TeamDiv } from "../utils.jsx";
 
+
+// Display Game Options
+function OptionsTab()
+{
+    const { game, setGame } = useContext(GameContext);
+
+    function handleLoquacity(value)
+    {
+        setGame({ ...game, loquacity: value });
+    }
+
+    return (
+        <div className="options-tab">
+            <div className="option-group">
+                <p className="option-label">Narration Length</p>
+                <p className="option-desc">How much detail do you want in each round's narration?</p>
+                <div className="option-btns">
+                    {['Short', 'Standard', 'Wordy'].map((option) =>
+                        <button
+                            key={option}
+                            className={`option-btn ${game.loquacity === option ? 'option-active' : ''}`}
+                            onClick={() => handleLoquacity(option)}
+                        >
+                            {option}
+                        </button>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
 // Create display card for Scenario picker
 export function ScenarioCard({ scenario, onSelect, selected })
 {
@@ -75,6 +108,12 @@ export function Settings()
                 >
                     Team
                 </button>
+                <button 
+                    className={`tab-btn ${activeTab === 'options' ? 'tab-active' : ''}`}
+                    onClick={() => setActiveTab('options')}
+                >
+                    Options
+                </button>
             </div>
             <div className="tab-content">
                 {activeTab === 'scenario' && <ScenarioPicker />}
@@ -85,6 +124,7 @@ export function Settings()
                         <ActorSheet />
                     </div>
                 }
+                {activeTab === 'options' && <OptionsTab />}
             </div>
         </div>
     );
