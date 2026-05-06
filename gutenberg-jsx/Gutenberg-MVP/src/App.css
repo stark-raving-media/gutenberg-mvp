@@ -198,12 +198,20 @@ button:hover {
     border-color: var(--accent);
 }
 
-/* Team Div */
-#team-div {
+/* Rounds Div */
+.round-history {
+    max-width: 700px;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+}
+
+.round-narration {
+    color: var(--text);
+    line-height: 1.8;
+    margin: 0;
+    white-space: pre-wrap; 
 }
 
 /* Scenario Page */
@@ -242,25 +250,6 @@ button:hover {
     background: var(--bg);
     text-align: justify;
 }
-
-/* .scenario-objectives (OG WITHOUT ACCORDION) {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem;
-}
-
-.scenario-obj {
-  flex: 1;
-} */
-
-/* .scenario-label (OG WITHOUT ACCORDION) {
-    font-family: 'Cinzel', serif;
-    font-size: 1.25rem;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-} */
 
 .scenario-obj-text {
     color: var(--text);
@@ -358,4 +347,12 @@ button:hover {
 .tab-active {
     border-bottom: 2px solid var(--accent);
     color: var(--accent);
+}
+
+/* Team Div */
+#team-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }

@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react'
 import { callClaude, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 import { handleScenario } from '../utils.js'
+import { RoundHistory } from '../utils.jsx'
 import { 
     ActorsDiv,
     ActorSheet,
@@ -19,6 +20,8 @@ export function Gameplay()
     // Get context
     const { game, setGame } = useContext(GameContext);
     const { apiKey } = useContext(APIKeyContext);
+
+    const [loading, setLoading] = useState(false);
 
     // TODO: Delete this
     useEffect(() =>
@@ -96,6 +99,7 @@ export function Gameplay()
                     <hr />
                     {/* // TODO: Change to API */}
                     {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
+                    <RoundHistory />
                     <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
                     <hr />
                     <TeamDiv />

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
@@ -10,9 +10,9 @@ import {
 
 
 // Accordion Comp (Text display)
-export function AccordionSection({ label, children })
+export function AccordionSection({ label, children, defaultOpen = false })
 {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(defaultOpen);
 
     return (
         <div>
@@ -302,6 +302,55 @@ export function RollBtn({sides = 20})
     return <button onClick={handleClick}>Roll D{sides}</button>
 }
 
+
+// Return each Round description in an accordion panel for display
+export function RoundHistory()
+{
+    const { game } = useContext(GameContext);
+    const [openIndex, setOpenIndex] = useState(0);
+
+    // Open panel for latest Round, close the rest
+    useEffect(() =>
+    {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setOpenIndex(game.roundHistory.length - 1);
+    }, [game.roundHistory.length]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    if (game.roundHistory.length == 0)
+        return null;
+
+    // Return round panels in accordion style
+    return (
+        <div className="round-history">
+            {/* Map accordion open/closed states */}
+            {game.roundHistory.map((narration, index) =>
+            {
+                const isOpen = openIndex == index;
+
+                function handleToggle()
+                {
+                    if (isOpen)
+                        setOpenIndex(-1);
+                    else
+                        setOpenIndex(index);
+                }
+
+                return (
+                    <div key={index} className="round-panel">
+                        <button className="accordion-toggle" onClick={handleToggle}>
+                            Round {index + 1} {isOpen ? '▲' : '▼'}
+                        </button>
+                        {isOpen &&
+                            <div className="accordion-content">
+                                <p className="round-narration">{narration}</p>
+                            </div>
+                        }
+                    </div>
+                )
+            })}
+        </div>
+    )
+}
 
 // Display Scenario details
 export function Scenario({scenario})
