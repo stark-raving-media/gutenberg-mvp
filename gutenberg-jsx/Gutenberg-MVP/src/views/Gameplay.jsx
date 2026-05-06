@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { callClaude, resolve } from '../api.js'
+import { callClaude, initChoices, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 import { handleScenario } from '../utils.js'
 import { RoundHistory } from '../utils.jsx'
@@ -21,7 +21,9 @@ export function Gameplay()
     const { game, setGame } = useContext(GameContext);
     const { apiKey } = useContext(APIKeyContext);
 
+    // States
     const [loading, setLoading] = useState(false);
+    const [choices, setChoices] = useState([]);
 
     // TODO: Delete this
     useEffect(() =>
@@ -29,6 +31,19 @@ export function Gameplay()
         console.log('round:', game.round);
         console.log('roundHistory length:', game.roundHistory.length);
     }, [game]);
+
+    useEffect(() =>
+    {
+        async function fetchInitialChoices()
+        {
+            setLoading(true);
+            const result = await initChoices(apiKey, game);
+            setChoices(result.choices);
+            setLoading(false);
+        }
+
+        if (apiKey) fetchInitialChoices();
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Handle Scenario-specific actions
     handleScenario(game);
@@ -54,9 +69,6 @@ export function Gameplay()
         console.log('done:', result.done);
     }
 
-    // TODO: Delete hard-coded test, replace with actual choices
-    // TEST CHOICES
-    var choices = ["Drive into the ocean", "Kidnap Renald while he's writing in his notepad", "Approach Renald as friends"];
     // Update Game after player's choice of next move
     async function handleChoice(choice)
     {
@@ -87,6 +99,7 @@ export function Gameplay()
                 }
         })
 
+        setChoices(result.choices);
         setLoading(false);
     }
 

@@ -27,6 +27,34 @@ export async function callClaude(apiKey, messages, systemPrompt = '')
 }
 
 
+// Get 3 initial choices for the beginning Scenario
+export async function initChoices(apiKey, game)
+{
+    const systemPrompt = 
+        `You are the GM of a literary tactical narrative game called the Gutenberg Engine.
+        Generate exactly 3 opening action choices for the player based on the current situation.
+        Always return valid JSON only. No markdown, no preamble.`;
+
+    const prompt = 
+        `${worldStateBlock(game)}
+
+        Generate 3 possible opening actions for the player's team given the current situation.
+        Choices should be specific to the scene, varied in approach, and feel true to the characters.
+
+        Respond with JSON only:
+        {
+            "choices": ["string", "string", "string"] - each choice must be 8 words or fewer, action-focused, no explanations or risk assessments 
+        }`;
+
+    const raw = await callClaude(
+        apiKey,
+        [{ role: 'user', content: prompt }],
+        systemPrompt
+    );
+
+    return parseJSON(raw);
+}
+
 // Parse Claude response
 export function parseJSON(raw)
 {
@@ -125,7 +153,7 @@ export async function resolve(apiKey, game, playerIntent)
             "secObjPassed": "boolean",
             "done": "boolean — true if mission is complete or failed",
             "outcome": "string or null — only if done is true",
-
+            "choices": "array of 3 strings, 8 words or fewer - possible actions for the player this round, specific to the current situation"
         }`;
 
     const raw = await callClaude(
