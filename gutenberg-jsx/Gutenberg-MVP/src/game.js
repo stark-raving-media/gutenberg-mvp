@@ -15,5 +15,12 @@ export class Game
         this.teamSize = teamSize;
         this.teamActors = teamActors;
         this.currentScenario = currentScenario;
+        this.round = 1;
+        this.roundHistory = []; // Holds previous rounds (moves)
+        this.situationScore = 50; // Starts neutral
+        this.mainObjScore = 0;
+        this.secObjPassed = null;
+        this.done = false;
+        this.outcome = null;
     };
 };
