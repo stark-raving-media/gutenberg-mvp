@@ -146,7 +146,7 @@ export async function resolve(apiKey, game, playerIntent)
 
         Respond with JSON only:
         {
-            "narration": "string — what happens this round, 2-4 paragraphs",
+            "narration": "string — what happens this round, 3-4 short paragraphs separated by \\n\\n, each paragraph 2-3 sentences maximum"
             "currentSituation": "string — updated situation description, present tense",
             "situationScore": "number 0-100, current mission health",
             "mainObjScore": "number 0-100",

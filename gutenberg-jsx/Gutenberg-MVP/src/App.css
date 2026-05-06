@@ -199,6 +199,12 @@ button:hover {
 }
 
 /* Rounds Div */
+.round-choice {
+    color: var(--accent);
+    font-style: italic;
+    margin: 0 0 0.75rem 0;
+}
+
 .round-history {
     margin: 1rem auto;
     display: flex;

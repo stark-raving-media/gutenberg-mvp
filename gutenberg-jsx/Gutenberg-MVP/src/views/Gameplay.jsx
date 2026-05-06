@@ -86,7 +86,7 @@ export function Gameplay()
                 secObjPassed: result.secObjPassed,
                 done: result.done,
                 outcome: result.outcome,
-                roundHistory: [...game.roundHistory, result.narration],
+                roundHistory: [...game.roundHistory, { narration: result.narration, choice: choice }],
                 currentScenario:
                 {
                     ...game.currentScenario,

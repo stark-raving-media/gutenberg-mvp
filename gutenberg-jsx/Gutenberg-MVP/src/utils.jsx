@@ -314,7 +314,7 @@ export function RoundHistory()
     {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setOpenIndex(game.roundHistory.length - 1);
-    }, [game.roundHistory.length]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [game.roundHistory.length]); 
 
     if (game.roundHistory.length == 0)
         return null;
@@ -323,7 +323,7 @@ export function RoundHistory()
     return (
         <div className="round-history">
             {/* Map accordion open/closed states */}
-            {game.roundHistory.map((narration, index) =>
+            {game.roundHistory.map((round, index) =>
             {
                 const isOpen = openIndex == index;
 
@@ -342,7 +342,8 @@ export function RoundHistory()
                         </button>
                         {isOpen &&
                             <div className="accordion-content">
-                                <p className="round-narration">{narration}</p>
+                                <p className="round-choice">"{round.choice}"</p>
+                                <p className="round-narration">{round.narration}</p>
                             </div>
                         }
                     </div>
