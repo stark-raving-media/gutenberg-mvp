@@ -18,8 +18,6 @@ import { startingActors } from './data/actors.js'
 
 // Start app
 function App() {
-
-    console.log('Starting new game...');
     
     // Attach pictures and icons to actors
     attachPics(startingActors);

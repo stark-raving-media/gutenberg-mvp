@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { callClaude, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 import { handleScenario } from '../utils.js'
@@ -19,6 +19,13 @@ export function Gameplay()
     // Get context
     const { game, setGame } = useContext(GameContext);
     const { apiKey } = useContext(APIKeyContext);
+
+    // TODO: Delete this
+    useEffect(() =>
+    {
+        console.log('round:', game.round);
+        console.log('roundHistory length:', game.roundHistory.length);
+    }, [game]);
 
     // Handle Scenario-specific actions
     handleScenario(game);
@@ -50,7 +57,6 @@ export function Gameplay()
     // Update Game after player's choice of next move
     async function handleChoice(choice)
     {
-        // Test
         console.log('choice:' + choice);
         const result = await resolve(apiKey, game, choice);
         console.log('result:', result);
