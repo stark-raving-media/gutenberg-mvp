@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { callClaude, parseJSON, worldStateBlock } from '../api.js'
+import { callClaude, parseJSON, worldStateBlock, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 //import { Game } from '../game.js'
 //import { startingActors } from '../data/actors.js'
@@ -72,13 +72,19 @@ export function Gameplay()
             apiKey,
             [{ role: 'user', content: 'Return JSON only, no markdown: {"joke": string, "rating": number}. Tell me a joke and rate how funny you think it is.' }]
         );
-        console.log('raw:', raw);
-        const parsed = parseJSON(raw);
-        console.log('parsed:', parsed);
-        console.log('joke:', parsed.joke);
-        console.log('rating:', parsed.rating);
+        //console.log('raw:', raw);
+        //const parsed = parseJSON(raw);
+        // console.log('parsed:', parsed);
+        // console.log('joke:', parsed.joke);
+        // console.log('rating:', parsed.rating);
 
-        console.log(worldStateBlock(game));
+        //console.log(worldStateBlock(game));
+
+        const result = await resolve(apiKey, game, "We run the red light and head west toward the Haight as fast as the Beetle will go.");
+        console.log('narration:', result.narration);
+        console.log('situation:', result.currentSituation);
+        console.log('situationScore:', result.situationScore);
+        console.log('done:', result.done);
     }
 
 

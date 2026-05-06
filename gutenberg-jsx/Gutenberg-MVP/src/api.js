@@ -55,7 +55,7 @@ export function parseJSON(raw)
 }
 
 
-// 
+// Create detail text block to send to Claude for game progression
 export function worldStateBlock(game)
 {
     // Text block w/ team Actor details
@@ -65,7 +65,7 @@ export function worldStateBlock(game)
         INT ${actor.details.stats.intelligence} WIS ${actor.details.stats.wisdom} CHA ${actor.details.stats.charisma}
         Aura: ${actor.details.aura}`
     ).join('\n\n');
-console.log(game.currentScenario.opposition);
+
     const opposition = game.currentScenario.opposition.map((actor) =>
         `${actor.fullName} (${actor.originBook.title})`
     ).join('\n');
@@ -89,10 +89,50 @@ console.log(game.currentScenario.opposition);
         VISIBLE RULES:
         ${scenario.rules.join('\n')}
 
+        HIDDEN RULES (GM ONLY - DO NOT REVEAL TO PLAYER):
+        ${scenario.hiddenRules.join('\n')}
+
         PLAYER TEAM:
         ${team}
 
         OPPOSITION: 
         ${opposition}
             `.trim();
+}
+
+
+// Build text prompt for Claude API call
+export async function resolve(apiKey, game, playerIntent)
+{
+    const systemPrompt = 
+`You are the GM of a literary tactical narrative game called the Gutenberg Engine.
+You narrate what happens when the player's team takes action inside a book world.
+The player's team are literary characters from public domain texts operating inside another book's world.
+Math and dice are handled by the browser. Your job is narration and world state updates only.
+Never invent dice rolls or override the player's stated intent.
+Always return valid JSON only. No markdown, no preamble.`;
+
+    const prompt = 
+`${worldStateBlock(game)}
+
+PLAYER INTENT: ${playerIntent}
+
+Respond with JSON only:
+{
+    "narration": "string — what happens this round, 2-4 paragraphs",
+    "currentSituation": "string — updated situation description, present tense",
+    "situationScore": "number 0-100, current mission health",
+    "mainObjScore": "number 0-100",
+    "secObjPassed": "boolean",
+    "done": "boolean — true if mission is complete or failed",
+    "outcome": "string or null — only if done is true"
+}`;
+
+    const raw = await callClaude(
+        apiKey,
+        [{ role: 'user', content: prompt }],
+        systemPrompt
+    );
+
+    return parseJSON(raw);
 }
