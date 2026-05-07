@@ -10,6 +10,7 @@ export const startingActors =
     (
         1, // id
         true,
+        false,
         'Jean Valjean', // fullName
         'Valjean', // nickName
         originBooks.lesMiserables, // originBook
@@ -42,6 +43,7 @@ export const startingActors =
     (
         2,
         true,
+        false,
         'Captain Ahab', // fullName
         'Ahab',
         originBooks.mobyDick, 
@@ -74,6 +76,7 @@ export const startingActors =
     (
         3,
         true,
+        false,
         'Sherlock Holmes', // fullName
         'Holmes',
         originBooks.adventuresSherlock,
@@ -106,6 +109,7 @@ export const startingActors =
     (
         4,
         true,
+        false,
         'Elizabeth Bennet', // fullName
         'Lizzy',
         originBooks.prideAndPrejudice,
@@ -138,6 +142,7 @@ export const startingActors =
     (
         5,
         true,
+        false,
         'Odysseus of Ithaca', // fullName
         'Odysseus',
         originBooks.odyssey,
@@ -170,6 +175,7 @@ export const startingActors =
     (
         6,
         true,
+        false,
         'Count Dracula', // fullName
         'Dracula',
         originBooks.draculaBook,
@@ -202,6 +208,7 @@ export const startingActors =
     (
         7,
         true,
+        false,
         'Ebenezer Scrooge', // fullName
         'Scrooge',
         originBooks.christmasCarol,
@@ -234,6 +241,7 @@ export const startingActors =
     (
         8,
         true,
+        false,
         'Don Quixote', // fullName
         'Quixote',
         originBooks.donQuixoteBook,
@@ -266,6 +274,7 @@ export const startingActors =
     (
         9,
         true,
+        false,
         'Huckleberry Finn', // fullName
         'Huck',
         originBooks.huckleberryFinnBook,
@@ -298,6 +307,7 @@ export const startingActors =
     (
         10,
         true,
+        false,
         'Alice', // fullName
         'Alice',
         originBooks.aliceInWonderland,
@@ -330,6 +340,7 @@ export const startingActors =
     (
         11,
         true,
+        false,
         "Frankenstein’s Monster", // fullName
         'The Monster',
         originBooks.frankenstein,
@@ -362,6 +373,7 @@ export const startingActors =
     (
         12,
         true,
+        false,
         'Long John Silver', // fullName
         'Silver',
         originBooks.treasureIsland,
@@ -394,6 +406,7 @@ export const startingActors =
     (
         13,
         true,
+        false,
         'Anna Karenina', // fullName
         'Anna',
         originBooks.annaKareninaBook,
@@ -426,6 +439,7 @@ export const startingActors =
     (
         14,
         true,
+        false,
         'Hamlet, Prince of Denmark ', // fullName
         'Hamlet',
         originBooks.hamletBook,
@@ -458,6 +472,7 @@ export const startingActors =
     (
         15,
         true,
+        false,
         "Charles de Batz-Castelmore D’Artagnan", // fullName
         "D’Artagnan",
         originBooks.threeMusketeers,
@@ -490,6 +505,7 @@ export const startingActors =
     (
         16,
         true,
+        false,
         'Rodion Romanovich Raskolnikov', // fullName
         'Raskolnikov',
         originBooks.crimeAndPunishment,
@@ -522,6 +538,7 @@ export const startingActors =
     (
         17,
         true,
+        false,
         'James Gatz aka Gatsby', // fullName
         'Gatsby',
         originBooks.theGreatGatsby,
@@ -554,6 +571,7 @@ export const startingActors =
     (
         18,
         true,
+        false,
         'Beowulf of the Geats', // fullName
         'Beowulf',
         originBooks.beowulfBook,
@@ -586,6 +604,7 @@ export const startingActors =
     (
         19,
         true,
+        false,
         'Scheherazade', // fullName
         'Scheherazade',
         originBooks.oneThousandNights,
@@ -618,6 +637,7 @@ export const startingActors =
     (
         20,
         true,
+        false,
         'Jane Eyre', // fullName
         'Jane',
         originBooks.janeEyreBook,
@@ -651,6 +671,7 @@ export const startingActors =
     (
         21,
         false,
+        true,
         'Inspector Javert',
         'Javert',
         originBooks.lesMiserables,
@@ -683,6 +704,7 @@ export const startingActors =
     (
         22,
         false,
+        true,
         'Professor Moriarty',
         'Moriarty',
         originBooks.adventuresSherlock,
@@ -715,6 +737,7 @@ export const startingActors =
     (
         23,
         false,
+        true,
         'Lisele Kade',
         'Kade',
         undefined, // Bookburner - Unaffiliated
@@ -747,6 +770,7 @@ export const startingActors =
     (
         24,
         false,
+        true,
         'Alexi Volkov',
         'Alexi',
         undefined, // The Forgotten Guns of Austerlitz
@@ -779,6 +803,7 @@ export const startingActors =
     (
         25,
         false,
+        true,
         'Wilbur Whateley',
         'Whateley',
         undefined, // The Dunwich Horror
