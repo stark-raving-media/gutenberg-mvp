@@ -86,7 +86,11 @@ export function Gameplay()
                 secObjPassed: result.secObjPassed,
                 done: result.done,
                 outcome: result.outcome,
-                roundHistory: [...game.roundHistory, { narration: result.narration, choice: choice }],
+                roundHistory: [...game.roundHistory, {
+                    narration: result.narration, 
+                    choice: choice,
+                    situationScore: result.situationScore
+                }],
                 currentScenario:
                 {
                     ...game.currentScenario,
@@ -97,7 +101,7 @@ export function Gameplay()
                     ],
                     currentSituation: game.currentScenario.situations.length 
                 },
-                chatLog: [...game.chatLog, userMessage, assistantMessage] 
+                chatLog: [...game.chatLog, userMessage, assistantMessage],
         })
 
         setChoices(result.choices);

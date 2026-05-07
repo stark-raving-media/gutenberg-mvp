@@ -338,7 +338,7 @@ export function RoundHistory()
                 return (
                     <div key={index} className="round-panel">
                         <button className="accordion-toggle" onClick={handleToggle}>
-                            Round {index + 1} {isOpen ? '▲' : '▼'}
+                            Round {index + 1} - {round.situationScore}% {isOpen ? '▲' : '▼'}
                         </button>
                         {isOpen &&
                             <div className="accordion-content">
