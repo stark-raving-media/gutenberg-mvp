@@ -1,6 +1,5 @@
 import { startingActors } from "./data/actors";
-import { testScenarios } from "./data/scenarios";
-import { getRandomActors, setOppositionUnplayable } from "./utils";
+import { getRandomActors, getRandomScenario, setOppositionUnplayable } from "./utils";
 
 // Create Game object
 export function newGame()
@@ -13,8 +12,7 @@ export function newGame()
         playerName: '',
         teamSize: 2,
         teamActors: getRandomActors(2),
-        // TODO: Make getRandomScenario 
-        currentScenario: testScenarios.theYellowBeetle,
+        currentScenario: getRandomScenario(),
         loquacity: 'Standard',
         round: 1,
         roundHistory: [],

@@ -1,4 +1,5 @@
 import { startingActors } from './data/actors.js'
+import { testScenarios } from './data/scenarios.js';
 
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
 export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/portraits/', photoType = 'RecPhoto')
@@ -39,6 +40,14 @@ export function getRandomActors(teamSize)
     
     // Return array of team's Actors
     return Object.values(Object.fromEntries(shuffled.slice(0, teamSize)));
+}
+
+
+// Get random Scenario from scenarios.js
+export function getRandomScenario()
+{
+    const scenarios = Object.values(testScenarios);
+    return scenarios[Math.floor(Math.random() * scenarios.length)];
 }
 
 
