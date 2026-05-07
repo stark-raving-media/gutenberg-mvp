@@ -22,8 +22,14 @@ function App() {
     attachPics(startingActors);
 
     const [apiKey, setApiKey] = useState('');
-    const [game, setGame] = useState(newGame());
     const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
+    const [game, setGame] = useState(() =>
+    {
+        const newGame = newGame();
+        // Set opposition Actors to unplayable
+        newGame.currentScenario.opposition.forEach(actor => actor.playable = false);
+        return newGame;
+    });
 
     return (
       <GameContext.Provider value={{ game, setGame }}>

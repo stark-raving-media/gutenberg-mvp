@@ -42,6 +42,7 @@ export function getRandomActors(teamSize)
 }
 
 
+// TODO: Deprecated. Delete if not used?
 // Handle Scenario-specific actions
 export function handleScenario(game)
 {
@@ -52,6 +53,7 @@ export function handleScenario(game)
 
 
 // Reset game on End Game 
+// TODO: Is this used? Delete if not
 export function resetGame({game, setGame})
 {
     // Reset all played Actors
@@ -94,6 +96,5 @@ export function toggleTeamActor(actor, game, setGame)
             teamActors: [...game.teamActors, actor]
         })
     }
-    
-    console.log(game.teamActors);
+    //console.log(game.teamActors);
 }

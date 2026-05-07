@@ -41,9 +41,6 @@ export function Gameplay()
 
         if (apiKey) fetchInitialChoices();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-    // Handle Scenario-specific actions
-    handleScenario(game);
     
     // TODO: Make End Game btn (Quit) and/or trigger this at end of game
     // End game, reset
