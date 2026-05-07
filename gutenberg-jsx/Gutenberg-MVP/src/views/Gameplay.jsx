@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { callClaude, initChoices, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
-import { handleScenario } from '../utils.js'
 import { OutcomeScreen, RoundHistory } from '../utils.jsx'
 import { 
     ActorsDiv,

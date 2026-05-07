@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { GameContext } from "../context";
 import { testScenarios } from "../data/scenarios";
 import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, TeamDiv } from "../utils.jsx";
+import { setOppositionUnplayable } from "../utils.js";
 
 
 // Display Game Options
@@ -64,6 +65,7 @@ export function ScenarioPicker()
     {
         setSelectedScenario(scenario);
         setGame({ ...game, currentScenario: scenario });
+        setOppositionUnplayable(scenario);
     }
 
     return (

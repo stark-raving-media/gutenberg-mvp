@@ -53,7 +53,7 @@ export function handleScenario(game)
 
 
 // Reset game on End Game 
-// TODO: Is this used? Delete if not
+// TODO: Deprecated - DELETE
 export function resetGame({game, setGame})
 {
     // Reset all played Actors
@@ -75,6 +75,13 @@ export function rollDie(sides = 20)
 {
   return Math.floor(Math.random() * sides) + 1;
 };
+
+
+// Set game Scenario's opposition Actors to unplayable
+export function setOppositionUnplayable(scenario)
+{
+    scenario.opposition.forEach(actor => actor.playable = false);
+}
 
 
 // Add/remove actor from team

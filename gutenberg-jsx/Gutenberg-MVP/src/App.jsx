@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { GameContext, APIKeyContext, ActorContext } from './context.js'
 import { newGame } from './game.js'
 import { Nav } from './utils.jsx'
-import { attachPics} from './utils.js'
+import { attachPics, setOppositionUnplayable} from './utils.js'
 import { Home } from './views/Home.jsx'
 import { Settings } from './views/Settings.jsx'
 import { Gameplay } from './views/Gameplay.jsx'
@@ -27,7 +27,7 @@ function App() {
     {
         const newGame = newGame();
         // Set opposition Actors to unplayable
-        newGame.currentScenario.opposition.forEach(actor => actor.playable = false);
+        setOppositionUnplayable(newGame.currentScenario);
         return newGame;
     });
 
