@@ -137,7 +137,11 @@ export async function resolve(apiKey, game, playerIntent)
         You narrate what happens when the player's team takes action inside a book world.
         The player's team are literary characters from public domain texts operating inside another book's world.
         Math and dice are handled by the browser. Your job is narration and world state updates only.
-        Never invent dice rolls or override the player's stated intent.
+        Never invent dice rolls or override the player's stated intent. 
+        The mission should reach a conclusion within 6-8 rounds under normal circumstances.
+        As rounds increase, escalate the situation's urgency and consequences proportionally.
+        By round 8, the situation should be approaching resolution one way or another.
+        After round 10, force a conclusion — the city's collapse, the objective's success or failure, or an unavoidable outcome.
         Always return valid JSON only. No markdown, no preamble.
 
         CURRENT WORLD STATE:

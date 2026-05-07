@@ -24,6 +24,7 @@ export function Gameplay()
     // States
     const [loading, setLoading] = useState(false); // Waiting for API call result
     const [choices, setChoices] = useState([]); // Choices array for each Round
+    const [gameWon, setGameWon] = useState(false); // Needed for end screen to display properly (async issues)
 
     // Re-route /gameplay to Home if no api key entered
     const navigate = useNavigate();
@@ -78,13 +79,16 @@ export function Gameplay()
     async function handleChoice(choice)
     {
         setLoading(true);
-
-        //console.log('choice:' + choice);
-        const {result, userMessage, assistantMessage} = await resolve(apiKey, game, choice);
         
+        const {result, userMessage, assistantMessage} = await resolve(apiKey, game, choice);
+        //console.log('choice:' + choice);
+        //console.log('result:', result);
+
         // End conditions
         const isOver = result.done || result.situationScore <= 5 || result.mainObjscore >= 100;
-        //console.log('result:', result);
+        const won = result.mainObjScore >= 100;
+        if (isOver)
+            setGameWon(won);   
 
         setGame(
         {
@@ -130,7 +134,11 @@ export function Gameplay()
                     <hr />
                     <RoundHistory />
                     {game.done
-                    ? <OutcomeScreen outcome={game.outcome} gameWon={game.mainObjscore >= 100} />
+                    ? <OutcomeScreen 
+                        outcome={game.outcome} 
+                        gameWon={gameWon} 
+                        secObjPassed={game.secObjPassed} 
+                    />
                     : <div>
                         {loading 
                             ? <p className="loading-text">Your fate is being decided...</p>
@@ -138,7 +146,6 @@ export function Gameplay()
                         }
                     </div>
                     }
-                    <RollBtn />
                 </div>
             }
         </div>
