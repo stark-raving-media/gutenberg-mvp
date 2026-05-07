@@ -75,7 +75,7 @@ export function Gameplay()
         setLoading(true);
 
         console.log('choice:' + choice);
-        const result = await resolve(apiKey, game, choice);
+        const {result, userMessage, assistantMessage} = await resolve(apiKey, game, choice);
         console.log('result:', result);
 
         setGame(
@@ -95,12 +95,14 @@ export function Gameplay()
                         ...game.currentScenario.situations,
                         { description: result.currentSituation }
                     ],
-                    currentSituation: game.currentScenario.situations.length
-                }
+                    currentSituation: game.currentScenario.situations.length 
+                },
+                chatLog: [...game.chatLog, userMessage, assistantMessage] 
         })
 
         setChoices(result.choices);
         setLoading(false);
+        console.log('chatLog length:', game.chatLog.length);
     }
 
     return (

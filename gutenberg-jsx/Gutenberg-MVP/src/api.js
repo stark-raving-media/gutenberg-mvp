@@ -131,14 +131,17 @@ export function worldStateBlock(game)
 // Build text prompt for Claude API call
 export async function resolve(apiKey, game, playerIntent)
 {
-    // Basic prompt
+    // Basic prompt with worldState
     const systemPrompt = 
         `You are the GM of a literary tactical narrative game called the Gutenberg Engine.
         You narrate what happens when the player's team takes action inside a book world.
         The player's team are literary characters from public domain texts operating inside another book's world.
         Math and dice are handled by the browser. Your job is narration and world state updates only.
         Never invent dice rolls or override the player's stated intent.
-        Always return valid JSON only. No markdown, no preamble.`;
+        Always return valid JSON only. No markdown, no preamble.
+
+        CURRENT WORLD STATE:
+        ${worldStateBlock(game)}`;
 
     // Loquacity Setting
     const loquacitySetting = 
@@ -150,8 +153,8 @@ export async function resolve(apiKey, game, playerIntent)
     const narrationLength = loquacitySetting[game.loquacity] || loquacitySetting["Standard"];
 
     const prompt = 
-        `${worldStateBlock(game)}
-
+       // `${worldStateBlock(game)}
+        `ROUND ${game.round}
         PLAYER INTENT: ${playerIntent}
 
         Respond with JSON only:
@@ -163,14 +166,16 @@ export async function resolve(apiKey, game, playerIntent)
             "secObjPassed": "boolean",
             "done": "boolean — true if mission is complete or failed",
             "outcome": "string or null — only if done is true",
-            "choices": "array of exactly 3 strings, 8 words or fewer - possible actions for the player this round, specific to the current situation"
+            "choices": "array of exactly 3 strings, 8 words or fewer - possible actions for the player this round, specific to the current situation. Never suggest actions that have already been taken in previous rounds."
         }`;
 
-    const raw = await callClaude(
-        apiKey,
-        [{ role: 'user', content: prompt }],
-        systemPrompt
-    );
+    const newMessage = { role: 'user', content: prompt };
+    const messages = [...game.chatLog, newMessage];
+    const raw = await callClaude(apiKey, messages, systemPrompt)
 
-    return parseJSON(raw);
+    return {
+        result: parseJSON(raw),
+        userMessage: newMessage,
+        assistantMessage: { role: 'assistant', content: raw}
+    };
 }
