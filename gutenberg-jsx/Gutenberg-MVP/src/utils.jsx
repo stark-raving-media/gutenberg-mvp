@@ -4,7 +4,6 @@ import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
 import { newGame } from './game.js';
 import { 
-    getMomentumLabel,
     getRandomActors,
     getSituationScoreLabel,
     rollDie,
@@ -359,11 +358,12 @@ export function RoundHistory()
             {game.roundHistory.map((round, index) =>
             {
                 const isOpen = openIndex == index;
+                const dangerLevel = 100 - round.situationScore;
 
                 // Get previous Round's score, if exists
-                var prevScore = undefined;
-                if (index > 0)
-                    prevScore = game.roundHistory[index - 1].situationScore;
+                // var prevScore = undefined;
+                // if (index > 0)
+                //     prevScore = game.roundHistory[index - 1].situationScore;
 
                 function handleToggle()
                 {
@@ -376,7 +376,7 @@ export function RoundHistory()
                 return (
                     <div key={index} className="round-panel">
                         <button className="accordion-toggle" onClick={handleToggle}>
-                            <span>Round {index + 1} - Situation: {getSituationScoreLabel(round.situationScore)} / {getMomentumLabel(round.situationScore, prevScore)}</span> 
+                            <span>Round {index + 1} - Doom Counter: {dangerLevel}/100 - {getSituationScoreLabel(dangerLevel)}</span> 
                             <span>{isOpen ? '▲' : '▼'}</span>
                         </button>
                         {isOpen &&

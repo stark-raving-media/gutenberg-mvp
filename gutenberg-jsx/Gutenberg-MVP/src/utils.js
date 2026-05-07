@@ -57,7 +57,7 @@ export function getBookTitle(actor)
     return actor.originBook.title;
 }
 
-
+// TODO: Deprecated - DELETE
 // Translate momentum of current Round based on previous Round's situation score
 export function getMomentumLabel(current, previous)
 {
@@ -82,28 +82,28 @@ export function getRandomScenario()
 
 
 // Translate score's bracket to descriptive word
-export function getSituationScoreLabel(score)
+export function getSituationScoreLabel(danger)
 {
-    if (score <= 5) return 'Hopeless';
-    if (score <= 10) return 'Dire';
-    if (score <= 15) return 'Grave';
-    if (score <= 20) return 'Desperate';
-    if (score <= 25) return 'Precarious';
-    if (score <= 30) return 'Strained';
-    if (score <= 35) return 'Fraught';
-    if (score <= 40) return 'Tense';
-    if (score <= 45) return 'Troubled';
-    if (score <= 50) return 'Concerning';
-    if (score <= 55) return 'Watchful';
-    if (score <= 60) return 'Tenable';
-    if (score <= 65) return 'Sound';
-    if (score <= 70) return 'Favorable';
-    if (score <= 75) return 'Strong';
-    if (score <= 80) return 'Dominant';
-    if (score <= 85) return 'Commanding';
-    if (score <= 90) return 'Triumphant';
-    if (score <= 95) return 'Sublime';
-    return 'Fantastic';
+    if (danger <= 5) return 'Fantastic';
+    if (danger <= 10) return 'Sublime';
+    if (danger <= 15) return 'Triumphant';
+    if (danger <= 20) return 'Commanding';
+    if (danger <= 25) return 'Dominant';
+    if (danger <= 30) return 'Strong';
+    if (danger <= 35) return 'Favorable';
+    if (danger <= 40) return 'Stable';
+    if (danger <= 45) return 'Watchful';
+    if (danger <= 50) return 'Concerning';
+    if (danger <= 55) return 'Troubled';
+    if (danger <= 60) return 'Tense';
+    if (danger <= 65) return 'Fraught';
+    if (danger <= 70) return 'Strained';
+    if (danger <= 75) return 'Precarious';
+    if (danger <= 80) return 'Desperate';
+    if (danger <= 85) return 'Grave';
+    if (danger <= 90) return 'Dire';
+    if (danger <= 95) return 'Hopeless';
+    return 'Doomed';
 }
 
 

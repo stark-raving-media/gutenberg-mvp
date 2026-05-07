@@ -63,7 +63,7 @@ button:hover {
     margin: 0 auto;
     color: var(--accent);
     text-transform: uppercase;
-    width: 50%;
+    width: 70%;
     text-align: left;
 }
 
@@ -71,6 +71,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: .75rem;
 }
 
 .accordion-section {
