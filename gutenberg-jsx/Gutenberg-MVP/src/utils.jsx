@@ -70,7 +70,7 @@ export function ActorSheet()
             <div className="actor-info">
                 <h2 className="actor-nickname">{actor.nickName}</h2>
                 <p className="actor-byline">
-                    {actor.fullName} - {actor.originBook.title}
+                    {actor.fullName} - {actor.originBook.title ?? 'Unknown'}
                 </p>
                 <hr />
                 <div className="actor-stats">

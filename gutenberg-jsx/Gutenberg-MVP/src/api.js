@@ -95,7 +95,7 @@ export function worldStateBlock(game)
     ).join('\n\n');
 
     const opposition = game.currentScenario.opposition.map((actor) =>
-        `${actor.fullName} (${actor.originBook.title})`
+        `${actor.fullName} (${actor.originBook.title ?? 'Unknown'})` // If no book, Unknown
     ).join('\n');
     
 

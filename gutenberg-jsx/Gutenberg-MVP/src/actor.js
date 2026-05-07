@@ -4,7 +4,8 @@ export class Actor
   constructor
   (
     id,
-    playable = false, // bool
+    playable = false, // Available for Player Team
+    isOpposition = false, // Can never be chosen for Player's Team
     fullName, 
     nickName, 
     originBook,
@@ -18,6 +19,7 @@ export class Actor
   {
     this.id = id;
     this.playable = playable;
+    this.isOpposition = isOpposition;
     this.fullName = fullName;
     this.nickName = nickName;
     this.originBook = originBook; // Class

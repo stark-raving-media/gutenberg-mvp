@@ -21,15 +21,16 @@ function App() {
     // Attach pictures and icons to actors
     attachPics(startingActors);
 
+    // Set States
     const [apiKey, setApiKey] = useState('');
-    const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
     const [game, setGame] = useState(() =>
     {
-        const newGame = newGame();
+        const g = newGame();
         // Set opposition Actors to unplayable
-        setOppositionUnplayable(newGame.currentScenario);
-        return newGame;
+        setOppositionUnplayable(g.currentScenario);
+        return g;
     });
+    const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
 
     return (
       <GameContext.Provider value={{ game, setGame }}>
