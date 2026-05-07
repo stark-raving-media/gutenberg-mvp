@@ -17,6 +17,11 @@ body {
     padding-bottom: 50px;
 }
 
+h1, h2, h3 
+{
+    color: var(--text);
+}
+
 hr {
     width: 100%;
     border-color: var(--border);
