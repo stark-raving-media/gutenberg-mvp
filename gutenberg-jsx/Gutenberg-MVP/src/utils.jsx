@@ -16,7 +16,7 @@ export function AccordionSection({ label, children, defaultOpen = false })
     const [open, setOpen] = useState(defaultOpen);
 
     return (
-        <div>
+        <div className="accordion-section">
             <button className="accordion-toggle" onClick={() => setOpen(!open)}>
                 <span>{label}</span>
                 <span>{open ? '▲' : '▼'}</span>

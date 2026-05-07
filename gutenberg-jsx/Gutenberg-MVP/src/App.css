@@ -73,6 +73,10 @@ button:hover {
     align-items: center;
 }
 
+.accordion-section {
+    width: 100%;
+}
+
 /* Actor Buttons */
 .actor-btn {
     border: 1px solid var(--border);
@@ -361,10 +365,11 @@ button:hover {
 
 .scenario-obj-text {
     color: var(--text);
-    font-size: 1.2 rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     text-align: justify;
-    width: 50%;
+    width: 75%;
+    padding: 1rem 0;
 }
 
 /* Scenario Rulebook */
