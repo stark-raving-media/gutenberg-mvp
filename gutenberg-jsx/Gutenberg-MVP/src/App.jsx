@@ -2,10 +2,9 @@ import './App.css'
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { GameContext, APIKeyContext, ActorContext } from './context.js'
-import { Game } from './game.js'
-import { testScenarios } from './data/scenarios.js'
+import { newGame } from './game.js'
 import { Nav } from './utils.jsx'
-import { attachPics, getRandomActors } from './utils.js'
+import { attachPics} from './utils.js'
 import { Home } from './views/Home.jsx'
 import { Settings } from './views/Settings.jsx'
 import { Gameplay } from './views/Gameplay.jsx'
@@ -23,7 +22,7 @@ function App() {
     attachPics(startingActors);
 
     const [apiKey, setApiKey] = useState('');
-    const [game, setGame] = useState(() => new Game('', 2, getRandomActors(2), testScenarios.theYellowBeetle));
+    const [game, setGame] = useState(newGame());
     const [selectedActor, setSelectedActor] = useState(game.teamActors[0]);
 
     return (

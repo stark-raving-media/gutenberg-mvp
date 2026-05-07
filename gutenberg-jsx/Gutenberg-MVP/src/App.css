@@ -233,6 +233,37 @@ button:hover {
     color: var(--accent);
 }
 
+/* Outcome Div Screen */
+.outcome-screen {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.outcome-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+}
+
+.outcome-win {
+    color: var(--accent);
+}
+
+.outcome-lose {
+    color: #c0392b;
+}
+
+.outcome-text {
+    color: var(--text);
+    line-height: 1.8;
+    font-style: italic;
+}
+
 /* Rounds Div */
 .round-choice {
     color: var(--accent);

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { callClaude, initChoices, resolve } from '../api.js'
 import { GameContext, APIKeyContext } from '../context.js'
 import { handleScenario } from '../utils.js'
-import { RoundHistory } from '../utils.jsx'
+import { OutcomeScreen, RoundHistory } from '../utils.jsx'
 import { 
     ActorsDiv,
     ActorSheet,
@@ -22,20 +22,17 @@ export function Gameplay()
     const { apiKey } = useContext(APIKeyContext);
 
     // States
-    const [loading, setLoading] = useState(false);
-    const [choices, setChoices] = useState([]);
-
-    // TODO: Delete this
-    useEffect(() =>
-    {
-        console.log('round:', game.round);
-        console.log('roundHistory length:', game.roundHistory.length);
-    }, [game]);
+    const [loading, setLoading] = useState(false); // Waiting for API call result
+    const [choices, setChoices] = useState([]); // Choices array for each Round
 
     useEffect(() =>
     {
         async function fetchInitialChoices()
         {
+            // If choices are already set, do not fetch
+            if (choices.length > 0) 
+                return;
+
             setLoading(true);
             const result = await initChoices(apiKey, game);
             setChoices(result.choices);
@@ -74,17 +71,21 @@ export function Gameplay()
     {
         setLoading(true);
 
-        console.log('choice:' + choice);
+        //console.log('choice:' + choice);
         const {result, userMessage, assistantMessage} = await resolve(apiKey, game, choice);
-        console.log('result:', result);
+        
+        // End conditions
+        const isOver = result.done || result.situationScore <= 5 || result.mainObjscore >= 100;
+        //console.log('result:', result);
 
         setGame(
         {
                 ...game,
                 round: game.round + 1,
-                situationScore: result.mainObjscore,
+                situationScore: result.situationScore,
+                mainObjScore: result.mainObjScore,
                 secObjPassed: result.secObjPassed,
-                done: result.done,
+                done: isOver, // End conditions
                 outcome: result.outcome,
                 roundHistory: [...game.roundHistory, {
                     narration: result.narration, 
@@ -106,7 +107,6 @@ export function Gameplay()
 
         setChoices(result.choices);
         setLoading(false);
-        console.log('chatLog length:', game.chatLog.length);
     }
 
     return (
@@ -120,12 +120,15 @@ export function Gameplay()
                 : <div>
                     <Scenario scenario={game.currentScenario} />
                     <hr />
-                    {/* // TODO: Change to API */}
-                    {/* <PlayerInput onSubmit={(text) => console.log(text)} />  */}
                     <RoundHistory />
-                    {loading 
-                        ? <p className="loading-text">Your fate is being decided...</p>
-                        : <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
+                    {game.done
+                    ? <OutcomeScreen outcome={game.outcome} gameWon={game.mainObjscore >= 100} />
+                    : <div>
+                        {loading 
+                            ? <p className="loading-text">Your fate is being decided...</p>
+                            : <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
+                        }
+                    </div>
                     }
                     <RollBtn />
                 </div>

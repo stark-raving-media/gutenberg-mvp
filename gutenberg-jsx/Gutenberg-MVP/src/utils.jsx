@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
+import { newGame } from './game.js';
 import { 
     getRandomActors,
     rollDie,
@@ -224,6 +225,29 @@ export function Nav()
     );
 }
 
+
+// Build game outcome (Win/Loss) screen
+export function OutcomeScreen({ outcome, gameWon })
+{
+    const { setGame } = useContext(GameContext);
+    const navigate = useNavigate();
+
+    function handlePlayAgain()
+    {
+        setGame(newGame());
+        navigate('/settings');
+    }
+
+    return (
+        <div className="outcome-screen">
+            <h2 className={`outcome-title ${gameWon ? 'outcome-win' : 'outcome-lose'}`}>
+                {gameWon ? 'Mission Complete!' : 'Mission Failed!'}
+            </h2>
+            <p className="outcome-text">{outcome}</p>
+            <button onClick={handlePlayAgain}>Play Again</button>
+        </div>
+    )
+}
 
 // Take text input from the Player
 export function PlayerInput({placeholder = 'What do you do?', onSubmit})
