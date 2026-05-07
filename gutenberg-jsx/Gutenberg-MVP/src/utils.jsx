@@ -18,7 +18,8 @@ export function AccordionSection({ label, children, defaultOpen = false })
     return (
         <div>
             <button className="accordion-toggle" onClick={() => setOpen(!open)}>
-                {label} {open ? '▲' : '▼'}
+                <span>{label}</span>
+                <span>{open ? '▲' : '▼'}</span>
             </button>
             {open &&
                 <div className="accordion-content">
@@ -227,7 +228,7 @@ export function Nav()
 
 
 // Build game outcome (Win/Loss) screen
-export function OutcomeScreen({ outcome, gameWon })
+export function OutcomeScreen({ outcome, gameWon, secObjPassed })
 {
     const { setGame } = useContext(GameContext);
     const navigate = useNavigate();
@@ -244,6 +245,12 @@ export function OutcomeScreen({ outcome, gameWon })
                 {gameWon ? 'Mission Complete!' : 'Mission Failed!'}
             </h2>
             <p className="outcome-text">{outcome}</p>
+            {/* If win, show Secondary Objective result */}
+            {gameWon &&
+                <p className={`outcome-secondary ${secObjPassed ? 'outcome-win' : 'outcome-lose'}`}>
+                    Secondary Objective: {secObjPassed ? 'Achieved!' : 'Failed'}
+                </p>
+            }
             <button onClick={handlePlayAgain}>Play Again</button>
         </div>
     )
@@ -362,7 +369,8 @@ export function RoundHistory()
                 return (
                     <div key={index} className="round-panel">
                         <button className="accordion-toggle" onClick={handleToggle}>
-                            Round {index + 1} - {round.situationScore}% {isOpen ? '▲' : '▼'}
+                            <span>Round {index + 1} - {round.situationScore}%</span> 
+                            <span>{isOpen ? '▲' : '▼'}</span>
                         </button>
                         {isOpen &&
                             <div className="accordion-content">

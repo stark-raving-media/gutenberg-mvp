@@ -54,9 +54,13 @@ button:hover {
 
 /* Accordion */
 .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: 'Cinzel', serif;
     font-size: 1.25rem;
     letter-spacing: 0.15em;
+    margin: 0 auto;
     color: var(--accent);
     text-transform: uppercase;
     width: 50%;
@@ -306,6 +310,12 @@ button:hover {
 }
 
 /* Scenario Page */
+.scenario-accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .scenario-div {
     max-width: 700px;
     margin: 2rem auto;
