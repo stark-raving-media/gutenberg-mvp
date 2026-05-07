@@ -12,6 +12,7 @@ import {
     Scenario,
     TeamDiv 
 } from '../utils.jsx'
+import { useNavigate } from 'react-router-dom'
 
 
 export function Gameplay()
@@ -24,6 +25,17 @@ export function Gameplay()
     const [loading, setLoading] = useState(false); // Waiting for API call result
     const [choices, setChoices] = useState([]); // Choices array for each Round
 
+    // Re-route /gameplay to Home if no api key entered
+    //const navigate = useNavigate();
+
+    // useEffect(() =>
+    // {
+    //     if (!apiKey)
+    //         navigate('/');
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [apiKey]);
+
+    // Get initial Player choices for game Scenario Round 1
     useEffect(() =>
     {
         async function fetchInitialChoices()
