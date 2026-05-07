@@ -58,11 +58,52 @@ export function getBookTitle(actor)
 }
 
 
+// Translate momentum of current Round based on previous Round's situation score
+export function getMomentumLabel(current, previous)
+{
+    if (previous === undefined) return 'Holding';
+    const delta = current - previous;
+    if (delta <= -15) return 'Collapsing';
+    if (delta <= -8) return 'Deteriorating';
+    if (delta <= -1) return 'Slipping';
+    if (delta === 0) return 'Holding';
+    if (delta <= 7) return 'Steadying';
+    if (delta <= 14) return 'Improving';
+    return 'Surging';
+}
+
+
 // Get random Scenario from scenarios.js
 export function getRandomScenario()
 {
     const scenarios = Object.values(testScenarios);
     return scenarios[Math.floor(Math.random() * scenarios.length)];
+}
+
+
+// Translate score's bracket to descriptive word
+export function getSituationScoreLabel(score)
+{
+    if (score <= 5) return 'Hopeless';
+    if (score <= 10) return 'Dire';
+    if (score <= 15) return 'Grave';
+    if (score <= 20) return 'Desperate';
+    if (score <= 25) return 'Precarious';
+    if (score <= 30) return 'Strained';
+    if (score <= 35) return 'Fraught';
+    if (score <= 40) return 'Tense';
+    if (score <= 45) return 'Troubled';
+    if (score <= 50) return 'Concerning';
+    if (score <= 55) return 'Watchful';
+    if (score <= 60) return 'Tenable';
+    if (score <= 65) return 'Sound';
+    if (score <= 70) return 'Favorable';
+    if (score <= 75) return 'Strong';
+    if (score <= 80) return 'Dominant';
+    if (score <= 85) return 'Commanding';
+    if (score <= 90) return 'Triumphant';
+    if (score <= 95) return 'Sublime';
+    return 'Fantastic';
 }
 
 

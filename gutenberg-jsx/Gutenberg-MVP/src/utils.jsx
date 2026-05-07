@@ -4,7 +4,9 @@ import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
 import { newGame } from './game.js';
 import { 
+    getMomentumLabel,
     getRandomActors,
+    getSituationScoreLabel,
     rollDie,
     toggleTeamActor 
 } from "./utils";
@@ -358,6 +360,11 @@ export function RoundHistory()
             {
                 const isOpen = openIndex == index;
 
+                // Get previous Round's score, if exists
+                var prevScore = undefined;
+                if (index > 0)
+                    prevScore = game.roundHistory[index - 1].situationScore;
+
                 function handleToggle()
                 {
                     if (isOpen)
@@ -369,7 +376,7 @@ export function RoundHistory()
                 return (
                     <div key={index} className="round-panel">
                         <button className="accordion-toggle" onClick={handleToggle}>
-                            <span>Round {index + 1} - {round.situationScore}%</span> 
+                            <span>Round {index + 1} - Situation: {getSituationScoreLabel(round.situationScore)} / {getMomentumLabel(round.situationScore, prevScore)}</span> 
                             <span>{isOpen ? '▲' : '▼'}</span>
                         </button>
                         {isOpen &&
