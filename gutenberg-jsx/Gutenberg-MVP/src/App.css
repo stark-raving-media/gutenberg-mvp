@@ -67,6 +67,12 @@ button:hover {
     text-align: left;
 }
 
+.accordion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Actor Buttons */
 .actor-btn {
     border: 1px solid var(--border);
@@ -316,6 +322,7 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+
 .scenario-div {
     max-width: 700px;
     margin: 2rem auto;
