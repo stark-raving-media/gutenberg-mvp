@@ -2,7 +2,13 @@ import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js';
 
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
-export function attachPics(actors, iconPath = '/images/icons/', iconType = 'SqPhoto', photoPath = '/images/portraits/', photoType = 'RecPhoto')
+export function attachPics(
+    actors, 
+    iconPath = import.meta.env.BASE_URL + '/images/icons/', // Update path for deploy
+    iconType = 'SqPhoto', 
+    photoPath = import.meta.env.BASE_URL + '/images/portraits/', 
+    photoType = 'RecPhoto'
+)
 {
     for (const actor of Object.values(actors))
     {
@@ -40,6 +46,15 @@ export function getRandomActors(teamSize)
     
     // Return array of team's Actors
     return Object.values(Object.fromEntries(shuffled.slice(0, teamSize)));
+}
+
+
+// Get Actor's book title
+export function getBookTitle(actor)
+{
+    if (!actor.originBook) 
+        return 'Unknown';
+    return actor.originBook.title;
 }
 
 

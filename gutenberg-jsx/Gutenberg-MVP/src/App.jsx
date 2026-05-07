@@ -36,7 +36,8 @@ function App() {
       <GameContext.Provider value={{ game, setGame }}>
       <APIKeyContext.Provider value={{ apiKey, setApiKey }}>
       <ActorContext.Provider value={{ selectedActor, setSelectedActor }}>
-        <Router>
+        {/* Tell Router to import root path*/}
+        <Router basename={import.meta.env.BASE_URL}>
             <Nav />
             <Routes>
                 <Route path="/" element={<Home />} />

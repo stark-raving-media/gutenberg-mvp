@@ -1,4 +1,4 @@
-
+import { getBookTitle } from './utils.js'
 // Send API call to Claude, return response
 export async function callClaude(apiKey, messages, systemPrompt = '')
 {
@@ -88,14 +88,14 @@ export function worldStateBlock(game)
 {
     // Text block w/ team Actor details
     const team = game.teamActors.map((actor) =>
-        `${actor.fullName} (${actor.originBook.title})
+        `${actor.fullName} (${getBookTitle(actor)})
         STR ${actor.details.stats.strength} DEX ${actor.details.stats.dexterity} CON ${actor.details.stats.constitution}
         INT ${actor.details.stats.intelligence} WIS ${actor.details.stats.wisdom} CHA ${actor.details.stats.charisma}
         Aura: ${actor.details.aura}`
     ).join('\n\n');
 
     const opposition = game.currentScenario.opposition.map((actor) =>
-        `${actor.fullName} (${actor.originBook.title ?? 'Unknown'})` // If no book, Unknown
+        `${actor.fullName} (${getBookTitle(actor)})` // If no book, Unknown
     ).join('\n');
     
 

@@ -26,14 +26,14 @@ export function Gameplay()
     const [choices, setChoices] = useState([]); // Choices array for each Round
 
     // Re-route /gameplay to Home if no api key entered
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // useEffect(() =>
-    // {
-    //     if (!apiKey)
-    //         navigate('/');
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [apiKey]);
+    useEffect(() =>
+    {
+        if (!apiKey)
+            navigate('/');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [apiKey]);
 
     // Get initial Player choices for game Scenario Round 1
     useEffect(() =>
