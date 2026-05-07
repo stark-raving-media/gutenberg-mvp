@@ -5,5 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // Use /gutenberg-mvp/ for production or / for local dev
-  base: import.meta.env.PROD ? '/gutenberg-mvp/' : '/'
+  base:'/gutenberg-mvp/',
+  "dev": 'vite --base=/'
 })
