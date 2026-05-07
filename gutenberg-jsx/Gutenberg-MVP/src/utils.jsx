@@ -37,7 +37,7 @@ export function ActorsDiv()
 
     // Fiter Actors to available options, make button for each
     var actorChoices = Object.values(startingActors)
-                .filter((actor) => !game.teamActors.includes(actor) && actor.playable == true)
+                .filter((actor) => !game.teamActors.includes(actor) && actor.playable && !actor.isOpposition)
                 .map((actor) =>
                     <ActorPageBtn
                         key={actor.id}
