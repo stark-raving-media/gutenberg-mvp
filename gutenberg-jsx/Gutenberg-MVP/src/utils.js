@@ -25,7 +25,7 @@ export function getRandomActors(teamSize)
     // Filter Actors that can be chosen
     const playableActors = Object.fromEntries(
         Object.entries(startingActors).filter(
-            ([, actor]) => actor.playable === true))
+            ([, actor]) => actor.playable && !actor.isOpposition))
     
     // Shuffle Actors array
     const shuffled = Object.entries(playableActors);
