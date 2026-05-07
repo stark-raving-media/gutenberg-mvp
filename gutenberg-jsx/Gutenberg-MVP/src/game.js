@@ -13,6 +13,7 @@ export function newGame()
         teamSize: 2,
         teamActors: getRandomActors(2),
         currentScenario: getRandomScenario(),
+        difficulty: 'Normal',
         loquacity: 'Standard',
         round: 1,
         roundHistory: [],

@@ -18,6 +18,21 @@ function OptionsTab()
     return (
         <div className="options-tab">
             <div className="option-group">
+                <p className="option-label">Difficulty</p>
+                <p className="option-desc">TBD: Currently meaningless</p>
+                <div className="option-btns">
+                    {['Easy', 'Normal', 'Hard'].map((option) =>
+                        <button
+                            key={option}
+                            className={`option-btn ${game.difficulty === option ? 'option-active' : ''}`}
+                            onClick={() => setGame({ ...game, difficulty: option })}
+                        >
+                            {option}
+                        </button>
+                    )}
+                </div>
+            </div>
+            <div className="option-group">
                 <p className="option-label">Narration Length</p>
                 <p className="option-desc">How much detail do you want in each round's narration?</p>
                 <div className="option-btns">
@@ -28,6 +43,21 @@ function OptionsTab()
                             onClick={() => handleLoquacity(option)}
                         >
                             {option}
+                        </button>
+                    )}
+                </div>
+            </div>
+            <div className="option-group">
+                <p className="option-label">Team Size</p>
+                <p className="option-desc">How many characters on your team?</p>
+                <div className="option-btns">
+                    {[1, 2, 3, 4].map((size) =>
+                        <button
+                            key={size}
+                            className={`option-btn ${game.teamSize === size ? 'option-active' : ''}`}
+                            onClick={() => setGame({ ...game, teamSize: size })}
+                        >
+                            {size}
                         </button>
                     )}
                 </div>
