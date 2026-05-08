@@ -170,6 +170,7 @@ export async function resolve(apiKey, game, playerIntent)
             "secObjPassed": "secObjPassed": "boolean — only evaluate when done is true. Did the team achieve this secondary objective: '${game.currentScenario.secObj}'? Otherwise return null",
             "done": "boolean — true if mission is complete or failed",
             "outcome": "string or null — only if done is true",
+            "won": "boolean — true if the main objective was fully achieved, false otherwise",
             "choices": "array of EXACTLY 3 strings, no more and no less, 8 words or fewer - possible actions for the player this round, specific to the current situation. Never suggest actions that have already been taken in previous rounds."
         }`;
 

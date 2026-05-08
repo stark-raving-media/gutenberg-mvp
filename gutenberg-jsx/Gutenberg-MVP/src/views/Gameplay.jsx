@@ -24,8 +24,7 @@ export function Gameplay()
     // States
     const [loading, setLoading] = useState(false); // Waiting for API call result
     const [choices, setChoices] = useState([]); // Choices array for each Round
-    const [gameWon, setGameWon] = useState(false); // Needed for end screen to display properly (async issues)
-
+    
     // Re-route /gameplay to Home if no api key entered
     const navigate = useNavigate();
 
@@ -86,9 +85,9 @@ export function Gameplay()
 
         // End conditions
         const isOver = result.done || result.situationScore <= 5 || result.mainObjScore >= 100;
-        const won = result.mainObjScore >= 100;
-        if (isOver)
-            setGameWon(won);   
+        // const won = result.mainObjScore >= 100;
+        // if (isOver)
+        //     setGameWon(won);   
 
         setGame(
         {
@@ -97,6 +96,7 @@ export function Gameplay()
                 situationScore: result.situationScore,
                 mainObjScore: result.mainObjScore,
                 secObjPassed: result.secObjPassed,
+                won: result.won,
                 done: isOver, // End conditions
                 outcome: result.outcome,
                 roundHistory: [...game.roundHistory, {
@@ -136,7 +136,7 @@ export function Gameplay()
                     {game.done
                     ? <OutcomeScreen 
                         outcome={game.outcome} 
-                        gameWon={gameWon} 
+                        gameWon={game.won} 
                         secObjPassed={game.secObjPassed} 
                     />
                     : <div>

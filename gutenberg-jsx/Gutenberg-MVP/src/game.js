@@ -21,6 +21,7 @@ export function newGame()
         mainObjScore: 0,
         secObjPassed: null,
         done: false,
+        won: false,
         outcome: null,
         chatLog: []
     };

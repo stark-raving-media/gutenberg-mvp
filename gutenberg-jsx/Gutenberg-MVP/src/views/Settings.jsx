@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GameContext } from "../context";
-import { newGame } from "../game.js";
 import { testScenarios } from "../data/scenarios";
 import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, TeamDiv } from "../utils.jsx";
 import { setOppositionUnplayable } from "../utils.js";
@@ -124,16 +123,27 @@ export function ScenarioPicker()
 // Choose Scenario and Team
 export function Settings()
 {
-    const { setGame } = useContext(GameContext);
+    const { game, setGame } = useContext(GameContext);
     const navigate = useNavigate();
 
     // Set up tabs
     const [activeTab, setActiveTab] = useState('scenario');
 
-    // Start Game button creates new game & navs to /gameplay
+    // TODO: Better way to do this? 
+    // Start Game button creates new game, but keeps settings & navs to /gameplay
     function handleStartGame()
     {
-        setGame(newGame());
+        setGame({
+            ...game,
+            round: 1,
+            situationScore: 50,
+            mainObjScore: 0,
+            secObjPassed: null,
+            done: false,
+            outcome: null,
+            roundHistory: [],
+            chatLog: []
+        })
         navigate('/gameplay');
     }
 
