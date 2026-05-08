@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { GameContext, ActorContext, APIKeyContext } from "./context.js"
 import { startingActors } from "./data/actors";
 import { newGame } from './game.js';
@@ -220,9 +220,11 @@ export function Nav()
 {
     return (
         <nav>
-            <Link to="/">Home</Link>
-            <Link to="/settings">Settings</Link>
-            <Link to="/gameplay">Gameplay</Link>
+            <div className="nav-inner">
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/settings">Settings</NavLink>
+                <NavLink to="/gameplay">Gameplay</NavLink>
+            </div>
         </nav>
     );
 }
@@ -420,6 +422,38 @@ export function Scenario({scenario})
                 </AccordionSection>
             </div>
         </div>
+    )
+}
+
+
+// Create new game, but keep settings. Nav to /gameplay
+export function StartGameBtn()
+{
+    const { game, setGame } = useContext(GameContext);
+    const navigate = useNavigate();
+
+    // TODO: Better way to do this? 
+    function handleStartGame()
+    {
+        setGame({
+            ...game,
+            round: 1,
+            situationScore: 50,
+            mainObjScore: 0,
+            secObjPassed: null,
+            done: false,
+            outcome: null,
+            roundHistory: [],
+            chatLog: []
+        })
+        navigate('/gameplay');
+    }
+
+    return (
+        <button className="start-button" 
+            onClick={handleStartGame}>
+            START MISSION
+        </button>
     )
 }
 

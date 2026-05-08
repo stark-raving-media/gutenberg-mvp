@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { GameContext } from "../context";
 import { testScenarios } from "../data/scenarios";
-import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, TeamDiv } from "../utils.jsx";
+import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, StartGameBtn, TeamDiv } from "../utils.jsx";
 import { setOppositionUnplayable } from "../utils.js";
 
 
@@ -111,10 +110,13 @@ function ScenarioTab()
                     />
                 )}
             </div>
+            <div>
             {/* Display selected Scenario */}
             {selectedScenario &&
                 <Scenario scenario={selectedScenario} />
             }
+            <StartGameBtn />
+            </div>
         </div>
         
     )
@@ -135,42 +137,12 @@ function TeamTab()
 }
 
 
-// Create new game, but keep settings. Nav to /gameplay
-function StartGameBtn()
-{
-    const { game, setGame } = useContext(GameContext);
-    const navigate = useNavigate();
 
-    // TODO: Better way to do this? 
-    function handleStartGame()
-    {
-        setGame({
-            ...game,
-            round: 1,
-            situationScore: 50,
-            mainObjScore: 0,
-            secObjPassed: null,
-            done: false,
-            outcome: null,
-            roundHistory: [],
-            chatLog: []
-        })
-        navigate('/gameplay');
-    }
-
-    return (
-        <button className="start-button" 
-            onClick={handleStartGame}>
-            START MISSION
-        </button>
-    )
-}
 
 
 // Choose Scenario and Team
 export function Settings()
 {
-
     // Set up tabs
     const [activeTab, setActiveTab] = useState('scenario');
 
