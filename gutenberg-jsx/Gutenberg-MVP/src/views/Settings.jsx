@@ -69,7 +69,7 @@ function OptionsTab()
 
 
 // Create display card for Scenario picker
-export function ScenarioCard({ scenario, onSelect, selected })
+function ScenarioCard({ scenario, onSelect, selected })
 {
     return (
         <div 
@@ -87,7 +87,7 @@ export function ScenarioCard({ scenario, onSelect, selected })
 
 
 // Set Scenario for Game
-export function ScenarioPicker()
+function ScenarioTab()
 {
     const { game, setGame } = useContext(GameContext);
     const [selectedScenario, setSelectedScenario] = useState(game.currentScenario);
@@ -116,6 +116,7 @@ export function ScenarioPicker()
                 <Scenario scenario={selectedScenario} />
             }
         </div>
+        
     )
 }
 
@@ -133,17 +134,14 @@ function TeamTab()
     )
 }
 
-// Choose Scenario and Team
-export function Settings()
+
+// Create new game, but keep settings. Nav to /gameplay
+function StartGameBtn()
 {
     const { game, setGame } = useContext(GameContext);
     const navigate = useNavigate();
 
-    // Set up tabs
-    const [activeTab, setActiveTab] = useState('scenario');
-
     // TODO: Better way to do this? 
-    // Start Game button creates new game, but keeps settings & navs to /gameplay
     function handleStartGame()
     {
         setGame({
@@ -161,8 +159,25 @@ export function Settings()
     }
 
     return (
+        <button className="start-button" 
+            onClick={handleStartGame}>
+            START MISSION
+        </button>
+    )
+}
+
+
+// Choose Scenario and Team
+export function Settings()
+{
+
+    // Set up tabs
+    const [activeTab, setActiveTab] = useState('scenario');
+
+    return (
         <div className="settings">
-            <button className="start-button" onClick={handleStartGame}>START MISSION</button>
+            {/* <button className="start-button" onClick={handleStartGame}>START MISSION</button> */}
+            <StartGameBtn />
             <div className="tab-bar">
                 <button 
                     className={`tab-btn ${activeTab === 'scenario' ? 'tab-active' : ''}`}
@@ -184,7 +199,7 @@ export function Settings()
                 </button>
             </div>
             <div className="tab-content">
-                {activeTab === 'scenario' && <ScenarioPicker />}
+                {activeTab === 'scenario' && <ScenarioTab />}
                 {activeTab === 'team' && <TeamTab />}
                 {activeTab === 'options' && <OptionsTab />}
             </div>
