@@ -145,7 +145,11 @@ export function rollDie(sides = 20)
 // Set game Scenario's opposition Actors to unplayable
 export function setOppositionUnplayable(scenario)
 {
-    scenario.opposition.forEach(actor => actor.playable = false);
+    scenario.opposition.forEach(actor => 
+    {
+        if (actor)
+            actor.playable = false
+    });
 }
 
 

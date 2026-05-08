@@ -832,4 +832,202 @@ export const startingActors =
             []
         ),
     ),
+    bonnieParker: new Actor
+    (
+        26,
+        false,
+        true,
+        'Bonnie Parker',
+        'Bonnie',
+        undefined, // Historical figure
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 10,
+                dexterity: 16,
+                constitution: 12,
+                intelligence: 14,
+                wisdom: 10,
+                charisma: 16
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            'Folk legend in the making — characters near Bonnie feel the pull of a story already being written; the urge to be part of it overrides caution',
+            [],
+            []
+        ),
+    ),
+    clydeBarrow: new Actor
+    (
+        27,
+        false,
+        true,
+        'Clyde Barrow',
+        'Clyde',
+        undefined, // Historical figure
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 14,
+                dexterity: 16,
+                constitution: 14,
+                intelligence: 12,
+                wisdom: 8,
+                charisma: 14
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            'Outlaw gravity — characters near Clyde feel the romance of the wrong side of the law; rules feel arbitrary, loyalty feels absolute',
+            [],
+            []
+        ),
+    ),
+    fatherHalloran: new Actor
+    (
+        28,
+        false,
+        true,
+        'Father Halloran',
+        'Halloran',
+        undefined, // Original character
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 10,
+                dexterity: 10,
+                constitution: 12,
+                intelligence: 16,
+                wisdom: 18,
+                charisma: 16
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            'False absolution — characters near Halloran feel their guilt easing without cause; confession becomes tempting, vigilance softens',
+            [],
+            []
+        ),
+    ),
+    mrsBeatty: new Actor
+    (
+        29,
+        false,
+        true,
+        'Mrs. Beatty',
+        'Mrs. Beatty',
+        undefined, // Original character
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 8,
+                dexterity: 10,
+                constitution: 12,
+                intelligence: 16,
+                wisdom: 18,
+                charisma: 12
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            'Grief with edges — characters near Mrs. Beatty feel the weight of unfinished business; justice feels personal and immediate',
+            [],
+            []
+        ),
+    ),
+    crockett: new Actor
+    (
+        30,
+        false,
+        true,
+        'Crockett',
+        'Crockett',
+        undefined, // Original character
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 12,
+                dexterity: 14,
+                constitution: 14,
+                intelligence: 16,
+                wisdom: 16,
+                charisma: 12
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            'Federal patience — characters near Crockett feel observed and evaluated; every word seems to be filed away somewhere',
+            [],
+            []
+        ),
+    ),
+    rayLinsky: new Actor
+    (
+        31,
+        false,
+        true,
+        'Ray Linsky',
+        'Linsky',
+        undefined, // Original character
+        undefined,
+        undefined,
+        undefined,
+        0,
+        new ActorDetails
+        (
+            {
+                strength: 16,
+                dexterity: 12,
+                constitution: 16,
+                intelligence: 8,
+                wisdom: 6,
+                charisma: 8
+            },
+            {
+                gameSavvy: 0,
+                honesty: 0,
+                verbosity: 0,
+                sensitivity: 0
+            },
+            'Hair-trigger tension — characters near Linsky feel the room compress; small provocations feel like big ones, de-escalation feels impossible',
+            [],
+            []
+        ),
+    ),
 };

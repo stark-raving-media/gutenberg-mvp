@@ -85,7 +85,7 @@ export function Gameplay()
         //console.log('result:', result);
 
         // End conditions
-        const isOver = result.done || result.situationScore <= 5 || result.mainObjscore >= 100;
+        const isOver = result.done || result.situationScore <= 5 || result.mainObjScore >= 100;
         const won = result.mainObjScore >= 100;
         if (isOver)
             setGameWon(won);   
