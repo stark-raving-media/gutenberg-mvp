@@ -430,9 +430,8 @@ button:hover {
 .scenario-name {
     font-family: 'Cinzel', serif;
     color: var(--accent);
-    font-size: 1.8rem;
-    margin: 0 0 1rem 0;
-    letter-spacing: 0.05em;
+    margin: 3rem 0 1rem 0;
+
 }
 
 .scenario-desc {
@@ -573,10 +572,33 @@ button:hover {
     color: var(--accent);
 }
 
-/* Team Div */
+/* Team Settings Tab */
+.team-tab {
+    padding-top: 2rem;
+}
+
+.team-tab-top {
+    display: flex; 
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+}
+
 #team-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+}
+
+.team-heading {
+    color: var(--accent);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+}
+
+.actors-div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
 }

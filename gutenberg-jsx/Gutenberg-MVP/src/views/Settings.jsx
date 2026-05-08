@@ -119,6 +119,19 @@ export function ScenarioPicker()
     )
 }
 
+function TeamTab()
+{
+    return (
+        <div className="team-tab">
+            <div className="team-tab-top">
+                <TeamDiv />
+                <ActorSheet />
+            </div>
+            <hr/>
+            <ActorsDiv />
+        </div>
+    )
+}
 
 // Choose Scenario and Team
 export function Settings()
@@ -172,13 +185,7 @@ export function Settings()
             </div>
             <div className="tab-content">
                 {activeTab === 'scenario' && <ScenarioPicker />}
-                {activeTab === 'team' && 
-                    <div>
-                        <TeamDiv />
-                        <ActorsDiv />
-                        <ActorSheet />
-                    </div>
-                }
+                {activeTab === 'team' && <TeamTab />}
                 {activeTab === 'options' && <OptionsTab />}
             </div>
         </div>

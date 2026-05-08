@@ -48,9 +48,9 @@ export function ActorsDiv()
                 )
 
     return (
-        <div
-            id="actors-div">
-            {actorChoices}
+        <div className="actors-div">
+            <div className="team-heading">Available Actors</div>
+            <div>{actorChoices}</div>
         </div>
     )
 }
@@ -299,7 +299,7 @@ export function PlayerTurnOptions({choices, onChoice})
 {
     if (!choices || choices.length == 0)
         return null;
-    
+
     return (
         <div className="turn-options">
             {/* Display each generated choice as a button */}
@@ -401,7 +401,7 @@ export function Scenario({scenario})
     // Objectives and Rules in accordion
     return (
         <div id="scenario-div">
-            <h2 className="scenario-name">{scenario.scenarioName}</h2>
+            <h1 className="scenario-name">{scenario.scenarioName}</h1>
             <p className="scenario-scene">{scenario.scene}</p>
             <p className="scenario-desc">{scenario.description}</p>
             <div className="scenario-accordion">
@@ -433,9 +433,9 @@ export function TeamDiv()
     return (
         <div
             id="team-div">
-            <h2 className="team-heading">
+            <div className="team-heading">
                 Your Team: {game.teamActors.length}/{game.teamSize}
-            </h2>
+            </div>
             <p className="info">
                 Double-click to add or remove team members
             </p>
