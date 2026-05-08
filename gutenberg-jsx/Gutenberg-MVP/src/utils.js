@@ -1,6 +1,7 @@
 import { startingActors } from './data/actors.js'
 import { testScenarios } from './data/scenarios.js';
 
+// TODO: Change function name to attachActorPics
 // Attach photos and icons to Actor objects (Defaults to basic pic style)
 export function attachPics(
     actors, 
@@ -24,6 +25,19 @@ export function attachPics(
     }
 }
 
+
+// Attach images to Scenario cards
+export function attachScenarioPics(scenarios, path = import.meta.env.BASE_URL + 'images/scenarios/')
+{
+    for (var scenario of Object.values(scenarios))
+    {
+        var name = scenario.scenarioName
+            .replace(/['\u2019]/g, '')
+            .replace(/\s+/g, '');
+        scenario.image = path + name + '.webp';
+        //console.log(scenario.image);
+    }
+}
 
 // Auto-choose team 
 // Fisher-Yates shuffle via geeksforgeeks.org

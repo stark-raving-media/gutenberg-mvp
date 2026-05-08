@@ -78,7 +78,7 @@ export function ScenarioCard({ scenario, onSelect, selected })
             onClick={() => onSelect(scenario)}
         >
             <div className="scenario-card-img">
-                {/* TODO: Add scenario image */}
+                <img src={scenario.image} alt={scenario.scenarioName} />
             </div>
             <h3 className="scenario-card-title">{scenario.scenarioName}</h3>
             <p className="scenario-card-desc">{scenario.description.slice(0, 150)}...</p>

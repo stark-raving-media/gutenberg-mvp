@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { GameContext, APIKeyContext, ActorContext } from './context.js'
 import { newGame } from './game.js'
 import { Nav } from './utils.jsx'
-import { attachPics, setOppositionUnplayable} from './utils.js'
+import { attachPics, attachScenarioPics, setOppositionUnplayable} from './utils.js'
 import { Home } from './views/Home.jsx'
 import { Settings } from './views/Settings.jsx'
 import { Gameplay } from './views/Gameplay.jsx'
 import { NotFound } from './views/NotFound.jsx'
 import { startingActors } from './data/actors.js'
+import { testScenarios } from './data/scenarios.js'
 
 
 // TODO: Test testScenarios
@@ -18,8 +19,9 @@ import { startingActors } from './data/actors.js'
 // Start app
 function App() {
     
-    // Attach pictures and icons to actors
+    // Attach pictures and icons to actors and scenarios
     attachPics(startingActors);
+    attachScenarioPics(testScenarios);
 
     // Set States
     const [apiKey, setApiKey] = useState('');
