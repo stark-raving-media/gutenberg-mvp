@@ -398,6 +398,14 @@ button:hover {
 }
 
 /* Scenario Picker & Cards */
+.start-button {
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    border-color: var(--accent);
+    color: var(--accent);
+    margin: 2rem auto;
+}
+
 .scenario-picker {
     display: flex;
     flex-wrap: wrap;

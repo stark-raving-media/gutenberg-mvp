@@ -139,7 +139,7 @@ export function Settings()
 
     return (
         <div className="settings">
-            <button onClick={handleStartGame}>Start Mission</button>
+            <button className="start-button" onClick={handleStartGame}>START MISSION</button>
             <div className="tab-bar">
                 <button 
                     className={`tab-btn ${activeTab === 'scenario' ? 'tab-active' : ''}`}
