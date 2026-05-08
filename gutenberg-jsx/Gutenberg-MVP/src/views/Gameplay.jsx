@@ -117,7 +117,8 @@ export function Gameplay()
                 chatLog: [...game.chatLog, userMessage, assistantMessage],
         })
 
-        setChoices(result.choices);
+        if (!isOver)
+            setChoices(result.choices);
         setLoading(false);
     }
 

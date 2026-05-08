@@ -297,6 +297,9 @@ export function PlayerInput({placeholder = 'What do you do?', onSubmit})
 // Display options for Player's turn
 export function PlayerTurnOptions({choices, onChoice})
 {
+    if (!choices || choices.length == 0)
+        return null;
+    
     return (
         <div className="turn-options">
             {/* Display each generated choice as a button */}
