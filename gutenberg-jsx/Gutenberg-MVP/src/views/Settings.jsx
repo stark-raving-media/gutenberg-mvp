@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GameContext } from "../context";
+import { newGame } from "../game.js";
 import { testScenarios } from "../data/scenarios";
 import { ActorsDiv, ActorSheet, AutoPickTeamBtn, Scenario, TeamDiv } from "../utils.jsx";
 import { setOppositionUnplayable } from "../utils.js";
@@ -122,11 +124,22 @@ export function ScenarioPicker()
 // Choose Scenario and Team
 export function Settings()
 {
+    const { setGame } = useContext(GameContext);
+    const navigate = useNavigate();
+
     // Set up tabs
     const [activeTab, setActiveTab] = useState('scenario');
 
+    // Start Game button creates new game & navs to /gameplay
+    function handleStartGame()
+    {
+        setGame(newGame());
+        navigate('/gameplay');
+    }
+
     return (
         <div className="settings">
+            <button onClick={handleStartGame}>Start Mission</button>
             <div className="tab-bar">
                 <button 
                     className={`tab-btn ${activeTab === 'scenario' ? 'tab-active' : ''}`}
