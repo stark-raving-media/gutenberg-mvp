@@ -57,22 +57,15 @@ export function Gameplay()
     // End game, reset
     //resetGame(game, setGame);
 
-    // Claude test
-    // TODO: DELETE THIS
-    async function testClaude()
-    {
-        const response = await callClaude(
-            apiKey,
-            [{ role: 'user', content: 'Say hello in one sentence.' }]
-        );
-        console.log(response);
-
-        const result = await resolve(apiKey, game, "We run the red light and head west toward the Haight as fast as the Beetle will go.");
-        console.log('narration:', result.narration);
-        console.log('situation:', result.currentSituation);
-        console.log('situationScore:', result.situationScore);
-        console.log('done:', result.done);
-    }
+    // Claude test (DEV ONLY)
+    // async function testClaude()
+    // {
+    //     const response = await callClaude(
+    //         apiKey,
+    //         [{ role: 'user', content: 'Say hello in one sentence.' }]
+    //     );
+    //     console.log(response);
+    // }
 
     // Update Game after player's choice of next move
     async function handleChoice(choice)
@@ -124,9 +117,8 @@ export function Gameplay()
 
     return (
         <div>
-            <h1>Gutenberg MVP</h1>
-            {/* Claude test (DELETE LATER) */}
-            <button onClick={testClaude}>Test Claude</button>
+            {/* Claude test (DEV ONLY) */}
+            {/* <button onClick={testClaude}>Test Claude</button> */}
             {/* Ask for API Key, or show Game */}
             {!apiKey 
                 ? <APIKeyForm />
