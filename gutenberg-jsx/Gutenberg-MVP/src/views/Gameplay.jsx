@@ -140,8 +140,9 @@ export function Gameplay()
                         secObjPassed={game.secObjPassed} 
                     />
                     : <div>
+                        {/* Loading API - If beginning, "scan" else "deciding" text */}
                         {loading 
-                            ? <p className="loading-text">Your fate is being decided...</p>
+                            ? <p className="loading-text">{choices.length == 0 ? 'Scanning the situation...' : 'Your fate is being decided...'}</p>
                             : <PlayerTurnOptions choices={choices} onChoice={handleChoice} />
                         }
                     </div>

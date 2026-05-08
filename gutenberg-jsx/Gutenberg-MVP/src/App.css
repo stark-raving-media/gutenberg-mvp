@@ -253,6 +253,78 @@ button:hover {
     color: var(--accent);
 }
 
+/* Home Page */
+/* Home */
+.home {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.home-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--text);
+    margin: 2rem 0 0.5rem 0;
+}
+
+.home-tagline {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.home-intro {
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.home-how-to {
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.home-how-to h2 {
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+}
+
+.home-how-to ol {
+    color: var(--text);
+    line-height: 2;
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.home-api {
+    margin-bottom: 2rem;
+}
+
+.home-credits {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.api-key-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.2rem;
+}
+
 /* Outcome Div Screen */
 .outcome-screen {
     max-width: 700px;
